@@ -1,0 +1,6 @@
+[submodule "LowRes Galaxy/LowRes Galaxy/Libraries/entt"]
+	path = LowRes Galaxy/LowRes Galaxy/Libraries/entt
+	url = https://github.com/skypjack/entt.git
+[submodule "LowRes Galaxy/LowRes Galaxy/Libraries/json"]
+	path = LowRes Galaxy/LowRes Galaxy/Libraries/json
+	url = https://github.com/nlohmann/json.git

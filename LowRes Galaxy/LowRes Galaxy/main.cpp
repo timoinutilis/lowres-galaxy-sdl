@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
+#include "Scene.hpp"
 
 int main( int argc, char* args[] )
 {
@@ -11,38 +12,41 @@ int main( int argc, char* args[] )
     IMG_Init(IMG_INIT_PNG);
     Mix_Init(MIX_INIT_OGG);
     
-    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
-    
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_Surface* image = IMG_Load("Textures/sprites.png");
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 512, SDL_WINDOW_RESIZABLE);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    SDL_RenderSetLogicalSize(renderer, 160, 128);
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_AllocateChannels(2);
     
-    Mix_Music* music = Mix_LoadMUS("Audio/title.ogg");
-    Mix_PlayMusic(music, -1);
+    Scene scene(renderer);
+    scene.load();
+    scene.onAppear();
     
     while (!quit)
     {
-        SDL_WaitEvent(&event);
-        
-        switch (event.type)
+        while (SDL_PollEvent(&event))
         {
-            case SDL_QUIT:
-                quit = true;
-                break;
+            switch (event.type)
+            {
+                case SDL_QUIT:
+                    quit = true;
+                    break;
+            }
         }
         
+        scene.update();
+        
         SDL_RenderClear(renderer);
-        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        scene.render();
         SDL_RenderPresent(renderer);
     }
     
+    scene.onDisappear();
+    scene.unload();
+    
     Mix_CloseAudio();
     
-    SDL_DestroyTexture(texture);
-    SDL_FreeSurface(image);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     

@@ -12,6 +12,7 @@ struct Position
 {
     double x;
     double y;
+    double z;
 };
 
 #endif /* Position_h */

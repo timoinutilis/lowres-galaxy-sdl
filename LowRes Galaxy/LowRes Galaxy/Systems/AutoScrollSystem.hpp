@@ -8,16 +8,12 @@
 #ifndef AutoScrollSystem_hpp
 #define AutoScrollSystem_hpp
 
-#include "entt.hpp"
+class Scene;
 
 class AutoScrollSystem
 {
-private:
-    entt::registry& registry;
-    
 public:
-    AutoScrollSystem(entt::registry& registry);
-    void update();
+    void update(Scene* scene);
 };
 
 #endif /* AutoScrollSystem_hpp */

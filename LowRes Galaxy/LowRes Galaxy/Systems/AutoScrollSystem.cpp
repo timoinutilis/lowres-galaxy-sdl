@@ -6,17 +6,14 @@
 //
 
 #include "AutoScrollSystem.hpp"
+#include "entt.hpp"
+#include "../Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/AutoScroll.hpp"
 
-AutoScrollSystem::AutoScrollSystem(entt::registry& registry)
-    : registry(registry)
+void AutoScrollSystem::update(Scene* scene)
 {
-}
-
-void AutoScrollSystem::update()
-{
-    const auto view = registry.view<Position, AutoScroll>();
+    const auto view = scene->getRegistry().view<Position, AutoScroll>();
     for (auto entity : view) {
         auto& position = view.get<Position>(entity);
         auto& autoScroll = view.get<AutoScroll>(entity);

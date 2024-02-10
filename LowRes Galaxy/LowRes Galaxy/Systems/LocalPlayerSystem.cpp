@@ -6,20 +6,21 @@
 //
 
 #include "LocalPlayerSystem.hpp"
+#include "entt.hpp"
 #include <SDL2/SDL.h>
+#include "../Scene.hpp"
 #include "../Components/LocalPlayer.hpp"
 #include "../Components/PlayerMovement.hpp"
 
-LocalPlayerSystem::LocalPlayerSystem(entt::registry& registry)
-    : registry(registry)
+LocalPlayerSystem::LocalPlayerSystem()
 {
 }
 
-void LocalPlayerSystem::update()
+void LocalPlayerSystem::update(Scene* scene)
 {
     const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
     
-    const auto view = registry.view<LocalPlayer, PlayerMovement>();
+    const auto view = scene->getRegistry().view<LocalPlayer, PlayerMovement>();
     for (auto entity : view) {
         auto& localPlayer = view.get<LocalPlayer>(entity);
         auto& movement = view.get<PlayerMovement>(entity);

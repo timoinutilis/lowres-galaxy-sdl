@@ -8,16 +8,13 @@
 #ifndef LocalPlayerSystem_hpp
 #define LocalPlayerSystem_hpp
 
-#include "entt.hpp"
+class Scene;
 
 class LocalPlayerSystem
 {
-private:
-    entt::registry& registry;
-    
 public:
-    LocalPlayerSystem(entt::registry& registry);
-    void update();
+    LocalPlayerSystem();
+    void update(Scene* scene);
 };
 
 #endif /* LocalPlayerSystem_hpp */

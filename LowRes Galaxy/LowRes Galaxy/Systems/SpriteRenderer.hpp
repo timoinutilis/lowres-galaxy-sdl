@@ -8,19 +8,12 @@
 #ifndef SpriteRenderer_hpp
 #define SpriteRenderer_hpp
 
-#include <SDL2/SDL.h>
-#include <SDL2_mixer/SDL_mixer.h>
-#include "entt.hpp"
+class Scene;
 
 class SpriteRenderer
 {
-private:
-    SDL_Renderer* renderer;
-    entt::registry& registry;
-    
 public:
-    SpriteRenderer(SDL_Renderer* renderer, entt::registry& registry);
-    void render();
+    void render(Scene* scene);
 };
 
 #endif /* SpriteRenderer_hpp */

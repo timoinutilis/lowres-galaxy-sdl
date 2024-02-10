@@ -6,17 +6,15 @@
 //
 
 #include "PlayerMovementSystem.hpp"
+#include "entt.hpp"
+#include "../Factories/SpriteFactory.hpp"
+#include "../Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/PlayerMovement.hpp"
 
-PlayerMovementSystem::PlayerMovementSystem(entt::registry& registry)
-    : registry(registry)
+void PlayerMovementSystem::update(Scene* scene)
 {
-}
-
-void PlayerMovementSystem::update()
-{
-    const auto view = registry.view<Position, PlayerMovement>();
+    const auto view = scene->getRegistry().view<Position, PlayerMovement>();
     for (auto entity : view) {
         auto& position = view.get<Position>(entity);
         auto& movement = view.get<PlayerMovement>(entity);
@@ -39,6 +37,11 @@ void PlayerMovementSystem::update()
         if (position.y > 112)
         {
             position.y = 112;
+        }
+        
+        if (movement.isShooting)
+        {
+            SpriteFactory::createShot(scene, position.x + 8.0, position.y + 11.0);
         }
     }
 }

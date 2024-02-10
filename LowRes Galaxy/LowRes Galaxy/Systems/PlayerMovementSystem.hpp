@@ -8,16 +8,12 @@
 #ifndef PlayerMoveSystem_hpp
 #define PlayerMoveSystem_hpp
 
-#include "entt.hpp"
+class Scene;
 
 class PlayerMovementSystem
 {
-private:
-    entt::registry& registry;
-    
 public:
-    PlayerMovementSystem(entt::registry& registry);
-    void update();
+    void update(Scene* scene);
 };
 
 #endif /* PlayerMoveSystem_hpp */

@@ -11,6 +11,9 @@
 		92188BB22B73B0420087E7E1 /* PlayerMovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BB02B73B0420087E7E1 /* PlayerMovementSystem.cpp */; };
 		92188BB52B73BFF00087E7E1 /* LocalPlayerSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BB32B73BFF00087E7E1 /* LocalPlayerSystem.cpp */; };
 		92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BB72B73CB410087E7E1 /* AutoScrollSystem.cpp */; };
+		92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BBE2B73D67E0087E7E1 /* BackgroundFactory.cpp */; };
+		92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BC12B73D9B00087E7E1 /* SpriteFactory.cpp */; };
+		92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BCD2B77C3600087E7E1 /* MoveSystem.cpp */; };
 		924251572B6E69D800137C60 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 924251552B6E69D800137C60 /* Scene.cpp */; };
 		9259444E2B64201000611F0D /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; };
 		9259444F2B64201000611F0D /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,6 +60,13 @@
 		92188BB82B73CB410087E7E1 /* AutoScrollSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AutoScrollSystem.hpp; sourceTree = "<group>"; };
 		92188BBB2B73D5760087E7E1 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		92188BBC2B73D5760087E7E1 /* json_fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json_fwd.hpp; sourceTree = "<group>"; };
+		92188BBE2B73D67E0087E7E1 /* BackgroundFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundFactory.cpp; sourceTree = "<group>"; };
+		92188BBF2B73D67E0087E7E1 /* BackgroundFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BackgroundFactory.hpp; sourceTree = "<group>"; };
+		92188BC12B73D9B00087E7E1 /* SpriteFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteFactory.cpp; sourceTree = "<group>"; };
+		92188BC22B73D9B00087E7E1 /* SpriteFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteFactory.hpp; sourceTree = "<group>"; };
+		92188BCC2B77C2F00087E7E1 /* MoveDirection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MoveDirection.hpp; sourceTree = "<group>"; };
+		92188BCD2B77C3600087E7E1 /* MoveSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveSystem.cpp; sourceTree = "<group>"; };
+		92188BCE2B77C3600087E7E1 /* MoveSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MoveSystem.hpp; sourceTree = "<group>"; };
 		921DD2B02B65105A007FB6BC /* locator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = locator.hpp; sourceTree = "<group>"; };
 		921DD2B22B65105A007FB6BC /* hashed_string.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hashed_string.hpp; sourceTree = "<group>"; };
 		921DD2B32B65105A007FB6BC /* utility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 				92188BAE2B73A8E40087E7E1 /* PlayerMovement.hpp */,
 				92188BAF2B73AF6E0087E7E1 /* LocalPlayer.hpp */,
 				92188BB62B73CABD0087E7E1 /* AutoScroll.hpp */,
+				92188BCC2B77C2F00087E7E1 /* MoveDirection.hpp */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -182,6 +193,8 @@
 				92188BB42B73BFF00087E7E1 /* LocalPlayerSystem.hpp */,
 				92188BB72B73CB410087E7E1 /* AutoScrollSystem.cpp */,
 				92188BB82B73CB410087E7E1 /* AutoScrollSystem.hpp */,
+				92188BCD2B77C3600087E7E1 /* MoveSystem.cpp */,
+				92188BCE2B77C3600087E7E1 /* MoveSystem.hpp */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -194,6 +207,17 @@
 			);
 			name = nlohmann;
 			path = json/single_include/nlohmann;
+			sourceTree = "<group>";
+		};
+		92188BBD2B73D64B0087E7E1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				92188BBE2B73D67E0087E7E1 /* BackgroundFactory.cpp */,
+				92188BBF2B73D67E0087E7E1 /* BackgroundFactory.hpp */,
+				92188BC12B73D9B00087E7E1 /* SpriteFactory.cpp */,
+				92188BC22B73D9B00087E7E1 /* SpriteFactory.hpp */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		921DD0A52B650FEF007FB6BC /* Libraries */ = {
@@ -409,6 +433,7 @@
 				921DD0A52B650FEF007FB6BC /* Libraries */,
 				92188BA42B73978A0087E7E1 /* Components */,
 				92188BA52B7397920087E7E1 /* Systems */,
+				92188BBD2B73D64B0087E7E1 /* Factories */,
 				92B21A422B64064F00B033E2 /* main.cpp */,
 				927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */,
 				927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */,
@@ -500,11 +525,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				92188BB22B73B0420087E7E1 /* PlayerMovementSystem.cpp in Sources */,
+				92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */,
 				924251572B6E69D800137C60 /* Scene.cpp in Sources */,
 				92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */,
 				92188BAD2B739C040087E7E1 /* SpriteRenderer.cpp in Sources */,
 				92188BB52B73BFF00087E7E1 /* LocalPlayerSystem.cpp in Sources */,
 				927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */,
+				92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */,
+				92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */,
 				92B21A432B64065000B033E2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,10 +12,13 @@
 #include <SDL2_mixer/SDL_mixer.h>
 #include "entt.hpp"
 #include "SpriteAtlas.hpp"
+#include "Factories/BackgroundFactory.hpp"
+#include "Factories/SpriteFactory.hpp"
 #include "Systems/SpriteRenderer.hpp"
 #include "Systems/PlayerMovementSystem.hpp"
 #include "Systems/LocalPlayerSystem.hpp"
 #include "Systems/AutoScrollSystem.hpp"
+#include "Systems/MoveSystem.hpp"
 
 class Scene
 {
@@ -27,13 +30,20 @@ private:
     PlayerMovementSystem playerMoveSystem;
     LocalPlayerSystem localPlayerSystem;
     AutoScrollSystem autoScrollSystem;
+    MoveSystem moveSystem;
     
+    
+public:
+    //TODO add caching system for assets
     SpriteAtlas* spriteAtlas;
     SpriteAtlas* bgSpriteAtlas;
     Mix_Music* music;
     
-public:
+    
     Scene(SDL_Renderer* renderer);
+    
+    SDL_Renderer* getRenderer();
+    entt::registry& getRegistry();
     
     void load();
     void unload();

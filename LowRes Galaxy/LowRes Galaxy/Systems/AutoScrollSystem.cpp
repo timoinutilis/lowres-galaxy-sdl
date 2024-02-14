@@ -14,7 +14,8 @@
 void AutoScrollSystem::update(Scene* scene)
 {
     const auto view = scene->getRegistry().view<Position, AutoScroll>();
-    for (auto entity : view) {
+    for (auto entity : view)
+    {
         auto& position = view.get<Position>(entity);
         auto& autoScroll = view.get<AutoScroll>(entity);
         

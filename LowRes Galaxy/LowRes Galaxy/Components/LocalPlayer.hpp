@@ -10,7 +10,7 @@
 
 struct LocalPlayer
 {
-    int playerIndex;
+    int playerIndex = 0;
 };
 
 #endif /* LocalPlayer_h */

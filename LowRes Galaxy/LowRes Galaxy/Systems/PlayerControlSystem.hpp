@@ -1,5 +1,5 @@
 //
-//  PlayerMovementSystem.hpp
+//  PlayerControlSystem.hpp
 //  LowRes Galaxy
 //
 //  Created by Timo Kloss on 07.02.24.
@@ -10,7 +10,7 @@
 
 class Scene;
 
-class PlayerMovementSystem
+class PlayerControlSystem
 {
 public:
     void update(Scene* scene);

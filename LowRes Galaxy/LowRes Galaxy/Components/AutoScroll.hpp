@@ -10,8 +10,8 @@
 
 struct AutoScroll
 {
-    int width;
-    double speed;
+    int width = 0;
+    double speed = 0.0;
 };
 
 #endif /* AutoScroll_h */

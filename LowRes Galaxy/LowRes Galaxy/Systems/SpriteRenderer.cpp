@@ -15,10 +15,11 @@
 
 void SpriteRenderer::render(Scene* scene)
 {
-    scene->getRegistry().sort<Position>([](const auto& lhs, const auto& rhs) { return lhs.z < rhs.z; });
+    scene->getRegistry().sort<Position>([](const auto& lhs, const auto& rhs) { return lhs.layer < rhs.layer; });
     const auto view = scene->getRegistry().view<Position, Sprite>();
     SDL_Renderer *renderer = scene->getRenderer();
-    for (auto entity : view) {
+    for (auto entity : view)
+    {
         auto sprite = view.get<Sprite>(entity);
         auto position = view.get<Position>(entity);
         sprite.spriteAtlas->drawFrame(renderer, sprite.frame, position.x, position.y);

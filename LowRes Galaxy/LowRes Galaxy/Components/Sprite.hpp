@@ -13,7 +13,7 @@
 
 struct Sprite
 {
-    SpriteAtlas* spriteAtlas;
+    SpriteAtlas* spriteAtlas = nullptr;
     std::string frame;
 };
 

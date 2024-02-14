@@ -12,26 +12,40 @@
 #include <SDL2_mixer/SDL_mixer.h>
 #include "entt.hpp"
 #include "SpriteAtlas.hpp"
+#include "Utils/Random.hpp"
 #include "Factories/BackgroundFactory.hpp"
 #include "Factories/SpriteFactory.hpp"
 #include "Systems/SpriteRenderer.hpp"
-#include "Systems/PlayerMovementSystem.hpp"
+#include "Systems/PlayerControlSystem.hpp"
 #include "Systems/LocalPlayerSystem.hpp"
 #include "Systems/AutoScrollSystem.hpp"
 #include "Systems/MoveSystem.hpp"
+#include "Systems/AlienControlSystem.hpp"
+#include "Systems/ShotCollisionSystem.hpp"
+#include "Systems/AnimationSystem.hpp"
+#include "Components/Position.hpp"
 
 class Scene
 {
 private:
     SDL_Renderer* renderer;
     entt::registry registry;
+    Random random;
     
     SpriteRenderer spriteRenderer;
-    PlayerMovementSystem playerMoveSystem;
+    PlayerControlSystem playerControlSystem;
     LocalPlayerSystem localPlayerSystem;
     AutoScrollSystem autoScrollSystem;
     MoveSystem moveSystem;
+    AlienControlSystem alienControlSystem;
+    ShotCollisionSystem shotCollisionSystem;
+    AnimationSystem animationSystem;
     
+    entt::entity playerEntity;
+    
+    int tick = 0;
+    int level = 0;
+    int peace = 0;
     
 public:
     //TODO add caching system for assets
@@ -44,6 +58,10 @@ public:
     
     SDL_Renderer* getRenderer();
     entt::registry& getRegistry();
+    Random& getRandom();
+    
+    entt::entity getPlayerEntity();
+    bool isPeace();
     
     void load();
     void unload();

@@ -10,7 +10,7 @@
 #include <SDL2/SDL.h>
 #include "../Scene.hpp"
 #include "../Components/LocalPlayer.hpp"
-#include "../Components/PlayerMovement.hpp"
+#include "../Components/PlayerInput.hpp"
 
 LocalPlayerSystem::LocalPlayerSystem()
 {
@@ -20,10 +20,11 @@ void LocalPlayerSystem::update(Scene* scene)
 {
     const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
     
-    const auto view = scene->getRegistry().view<LocalPlayer, PlayerMovement>();
-    for (auto entity : view) {
+    const auto view = scene->getRegistry().view<LocalPlayer, PlayerInput>();
+    for (auto entity : view)
+    {
         auto& localPlayer = view.get<LocalPlayer>(entity);
-        auto& movement = view.get<PlayerMovement>(entity);
+        auto& movement = view.get<PlayerInput>(entity);
         
         if (localPlayer.playerIndex == 0)
         {

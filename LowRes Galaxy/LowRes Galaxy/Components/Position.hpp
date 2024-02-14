@@ -13,8 +13,6 @@ struct Position
     double x = 0.0;
     double y = 0.0;
     int layer = 0;
-    
-    bool isNear(const Position& other, double maxDistance);
 };
 
 #endif /* Position_h */

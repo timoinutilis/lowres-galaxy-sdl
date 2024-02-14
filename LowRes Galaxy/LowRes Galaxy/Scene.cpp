@@ -7,6 +7,7 @@
 
 #include "Scene.hpp"
 #include <iostream>
+#include "Components/PlayerStatus.hpp"
 
 Scene::Scene(SDL_Renderer* renderer)
     : renderer(renderer)
@@ -30,7 +31,8 @@ Random& Scene::getRandom()
 
 entt::entity Scene::getPlayerEntity()
 {
-    return playerEntity;
+    const auto view = registry.view<PlayerStatus>();
+    return view.front();
 }
 
 bool Scene::isPeace()
@@ -51,7 +53,7 @@ void Scene::load()
     BackgroundFactory::createLayer3(this, 0.0);
     BackgroundFactory::createLayer3(this, 256.0);
     
-    playerEntity = SpriteFactory::createShip(this, 32.0, 48.0);
+    SpriteFactory::createShip(this, 32.0, 48.0);
 }
 
 void Scene::unload()
@@ -128,6 +130,7 @@ void Scene::update()
     moveSystem.update(this);
     alienControlSystem.update(this);
     shotCollisionSystem.update(this);
+    playerCollisionSystem.update(this);
     animationSystem.update(this);
     
     ++tick;

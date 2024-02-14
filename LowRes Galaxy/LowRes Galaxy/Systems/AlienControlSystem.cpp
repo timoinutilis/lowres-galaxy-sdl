@@ -30,8 +30,11 @@ void AlienControlSystem::update(Scene* scene)
         if (!scene->isPeace() && position.x > 50.0 && status.tick % 120 == 30)
         {
             auto playerEntity = scene->getPlayerEntity();
-            auto playerPosition = scene->getRegistry().get<Position>(playerEntity);
-            SpriteFactory::createEnemyShot(scene, position.x + 4.0, position.y + 4.0, playerPosition.x + 6.0, playerPosition.y + 6.0);
+            if (playerEntity != entt::null)
+            {
+                auto playerPosition = scene->getRegistry().get<Position>(playerEntity);
+                SpriteFactory::createEnemyShot(scene, position.x + 4.0, position.y + 4.0, playerPosition.x + 6.0, playerPosition.y + 6.0);
+            }
         }
         
         if (position.x < -32.0)

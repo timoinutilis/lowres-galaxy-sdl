@@ -12,6 +12,7 @@ struct PlayerStatus
 {
     int shootDelay = 0;
     int heat = 0;
+    int shield = 0;
 };
 
 #endif /* PlayerStatus_h */

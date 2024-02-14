@@ -21,7 +21,10 @@ void SpriteRenderer::render(Scene* scene)
     for (auto entity : view)
     {
         auto sprite = view.get<Sprite>(entity);
-        auto position = view.get<Position>(entity);
-        sprite.spriteAtlas->drawFrame(renderer, sprite.frame, position.x, position.y);
+        if (!sprite.isHidden)
+        {
+            auto position = view.get<Position>(entity);
+            sprite.spriteAtlas->drawFrame(renderer, sprite.frame, position.x, position.y);
+        }
     }
 }

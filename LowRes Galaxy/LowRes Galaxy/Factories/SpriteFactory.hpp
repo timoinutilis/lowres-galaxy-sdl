@@ -16,7 +16,7 @@ class Scene;
 class SpriteFactory
 {
 public:
-    static entt::entity createShip(Scene* scene, double x, double y);
+    static void createShip(Scene* scene, double x, double y);
     static void createShot(Scene* scene, double x, double y);
     static void createEnemyShot(Scene* scene, double x, double y, double targetX, double targetY);
     static void createExplosion(Scene* scene, double x, double y);

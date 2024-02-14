@@ -12,15 +12,17 @@
 #include "../Components/Position.hpp"
 #include "../Components/PlayerInput.hpp"
 #include "../Components/PlayerStatus.hpp"
+#include "../Components/Sprite.hpp"
 
 void PlayerControlSystem::update(Scene* scene)
 {
-    const auto view = scene->getRegistry().view<Position, PlayerInput, PlayerStatus>();
+    const auto view = scene->getRegistry().view<PlayerStatus, PlayerInput, Position, Sprite>();
     for (auto entity : view)
     {
-        auto& position = view.get<Position>(entity);
-        auto& input = view.get<PlayerInput>(entity);
         auto& status = view.get<PlayerStatus>(entity);
+        auto& input = view.get<PlayerInput>(entity);
+        auto& position = view.get<Position>(entity);
+        auto& sprite = view.get<Sprite>(entity);
         
         position.x += input.directionX;
         position.y += input.directionY;
@@ -40,6 +42,17 @@ void PlayerControlSystem::update(Scene* scene)
         if (position.y > 112)
         {
             position.y = 112;
+        }
+        
+        // shield
+        if (status.shield > 0)
+        {
+            sprite.isHidden = (status.shield % 4 < 2);
+            --status.shield;
+        }
+        else
+        {
+            sprite.isHidden = false;
         }
         
         --status.shootDelay;

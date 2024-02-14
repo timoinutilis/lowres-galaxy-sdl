@@ -23,7 +23,7 @@
 #include "Systems/AlienControlSystem.hpp"
 #include "Systems/ShotCollisionSystem.hpp"
 #include "Systems/AnimationSystem.hpp"
-#include "Components/Position.hpp"
+#include "Systems/PlayerCollisionSystem.hpp"
 
 class Scene
 {
@@ -39,9 +39,8 @@ private:
     MoveSystem moveSystem;
     AlienControlSystem alienControlSystem;
     ShotCollisionSystem shotCollisionSystem;
+    PlayerCollisionSystem playerCollisionSystem;
     AnimationSystem animationSystem;
-    
-    entt::entity playerEntity;
     
     int tick = 0;
     int level = 0;

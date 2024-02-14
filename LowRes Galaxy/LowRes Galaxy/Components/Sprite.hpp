@@ -15,6 +15,7 @@ struct Sprite
 {
     SpriteAtlas* spriteAtlas = nullptr;
     std::string frame;
+    bool isHidden = false;
 };
 
 #endif /* Sprite_h */

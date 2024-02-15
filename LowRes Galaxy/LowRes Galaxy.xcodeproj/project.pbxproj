@@ -20,6 +20,7 @@
 		92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BBE2B73D67E0087E7E1 /* BackgroundFactory.cpp */; };
 		92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BC12B73D9B00087E7E1 /* SpriteFactory.cpp */; };
 		92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BCD2B77C3600087E7E1 /* MoveSystem.cpp */; };
+		923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 923C8F382B7E7D6A00FA0FBC /* Font.cpp */; };
 		924251572B6E69D800137C60 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 924251552B6E69D800137C60 /* Scene.cpp */; };
 		9259444E2B64201000611F0D /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; };
 		9259444F2B64201000611F0D /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -164,6 +165,8 @@
 		921DD3022B65105A007FB6BC /* fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fwd.hpp; sourceTree = "<group>"; };
 		921DD3032B65105A007FB6BC /* poly.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = poly.hpp; sourceTree = "<group>"; };
 		923C8F362B7D172300FA0FBC /* EnemyShot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnemyShot.hpp; sourceTree = "<group>"; };
+		923C8F382B7E7D6A00FA0FBC /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		923C8F392B7E7D6A00FA0FBC /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		924251552B6E69D800137C60 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		924251562B6E69D800137C60 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		9259444D2B64201000611F0D /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_image.framework; sourceTree = "<group>"; };
@@ -455,6 +458,26 @@
 			path = poly;
 			sourceTree = "<group>";
 		};
+		923C8F3B2B7E814900FA0FBC /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */,
+				927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */,
+				923C8F382B7E7D6A00FA0FBC /* Font.cpp */,
+				923C8F392B7E7D6A00FA0FBC /* Font.hpp */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		923C8F3C2B7E819300FA0FBC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				924251552B6E69D800137C60 /* Scene.cpp */,
+				924251562B6E69D800137C60 /* Scene.hpp */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		92B21A262B64044000B033E2 = {
 			isa = PBXGroup;
 			children = (
@@ -481,14 +504,12 @@
 				92B21A492B6408E100B033E2 /* Textures */,
 				921DD0A52B650FEF007FB6BC /* Libraries */,
 				92026E8F2B7CBFD800B87AAD /* Utils */,
+				923C8F3B2B7E814900FA0FBC /* Rendering */,
 				92188BA42B73978A0087E7E1 /* Components */,
 				92188BA52B7397920087E7E1 /* Systems */,
 				92188BBD2B73D64B0087E7E1 /* Factories */,
+				923C8F3C2B7E819300FA0FBC /* Scenes */,
 				92B21A422B64064F00B033E2 /* main.cpp */,
-				927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */,
-				927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */,
-				924251552B6E69D800137C60 /* Scene.cpp */,
-				924251562B6E69D800137C60 /* Scene.hpp */,
 			);
 			path = "LowRes Galaxy";
 			sourceTree = "<group>";
@@ -588,6 +609,7 @@
 				92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */,
 				92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */,
 				92026EA02B7D05B200B87AAD /* CollisionBox.cpp in Sources */,
+				923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */,
 				92026E9D2B7CE87600B87AAD /* AnimationSystem.cpp in Sources */,
 				92B21A432B64065000B033E2 /* main.cpp in Sources */,
 			);

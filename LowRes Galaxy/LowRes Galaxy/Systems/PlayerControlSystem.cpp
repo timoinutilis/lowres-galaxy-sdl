@@ -8,7 +8,7 @@
 #include "PlayerControlSystem.hpp"
 #include "entt.hpp"
 #include "../Factories/SpriteFactory.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/PlayerInput.hpp"
 #include "../Components/PlayerStatus.hpp"
@@ -20,9 +20,23 @@ void PlayerControlSystem::update(Scene* scene)
     for (auto entity : view)
     {
         auto& status = view.get<PlayerStatus>(entity);
+        auto& sprite = view.get<Sprite>(entity);
+        
+        if (status.lives == 0)
+        {
+            sprite.isHidden = true;
+            continue;
+        }
+        
+        if (status.hide > 0)
+        {
+            sprite.isHidden = true;
+            --status.hide;
+            continue;
+        }
+        
         auto& input = view.get<PlayerInput>(entity);
         auto& position = view.get<Position>(entity);
-        auto& sprite = view.get<Sprite>(entity);
         
         position.x += input.directionX;
         position.y += input.directionY;

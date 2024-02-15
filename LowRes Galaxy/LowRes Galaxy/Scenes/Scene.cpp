@@ -7,7 +7,7 @@
 
 #include "Scene.hpp"
 #include <iostream>
-#include "Components/PlayerStatus.hpp"
+#include "../Components/PlayerStatus.hpp"
 
 Scene::Scene(SDL_Renderer* renderer)
     : renderer(renderer)
@@ -42,6 +42,7 @@ bool Scene::isPeace()
 
 void Scene::load()
 {
+    font = new Font(renderer, "Textures/font");
     spriteAtlas = new SpriteAtlas(renderer, "Textures/sprites");
     bgSpriteAtlas = new SpriteAtlas(renderer, "Textures/background");
     music = Mix_LoadMUS("Audio/title.ogg");
@@ -58,6 +59,9 @@ void Scene::load()
 
 void Scene::unload()
 {
+    delete font;
+    font = nullptr;
+    
     delete spriteAtlas;
     spriteAtlas = nullptr;
     
@@ -139,4 +143,6 @@ void Scene::update()
 void Scene::render()
 {
     spriteRenderer.render(this);
+    
+    font->drawString(renderer, "HELLO LOWRES GALAXY", 4, 0);
 }

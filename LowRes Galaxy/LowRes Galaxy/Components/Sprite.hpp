@@ -9,7 +9,7 @@
 #define Sprite_h
 
 #include <string>
-#include "../SpriteAtlas.hpp"
+#include "../Rendering/SpriteAtlas.hpp"
 
 struct Sprite
 {

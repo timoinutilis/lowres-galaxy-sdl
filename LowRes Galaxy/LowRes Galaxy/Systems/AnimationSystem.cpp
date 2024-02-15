@@ -7,7 +7,7 @@
 
 #include "AnimationSystem.hpp"
 #include "entt.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Animation.hpp"
 #include "../Components/Sprite.hpp"
 

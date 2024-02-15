@@ -7,7 +7,7 @@
 
 #include "AutoScrollSystem.hpp"
 #include "entt.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/AutoScroll.hpp"
 

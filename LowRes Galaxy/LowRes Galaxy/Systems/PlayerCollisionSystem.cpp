@@ -7,7 +7,7 @@
 
 #include "PlayerCollisionSystem.hpp"
 #include "entt.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/PlayerStatus.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/CollisionBox.hpp"
@@ -24,7 +24,7 @@ void PlayerCollisionSystem::update(Scene* scene)
     {
         auto& playerStatus = playersView.get<PlayerStatus>(playerEntity);
         
-        if (playerStatus.shield > 0)
+        if (playerStatus.shield > 0 || playerStatus.lives == 0)
         {
             continue;
         }
@@ -39,11 +39,7 @@ void PlayerCollisionSystem::update(Scene* scene)
             
             if (CollisionBox::checkCollision(playerPosition, playerBox, colliderPosition, colliderBox))
             {
-                SpriteFactory::createExplosion(scene, playerPosition.x, playerPosition.y);
-                SpriteFactory::createExplosion(scene, playerPosition.x - 8.0 + scene->getRandom().getDouble() * 16.0, playerPosition.y - 8.0 + scene->getRandom().getDouble() * 16.0);
-                SpriteFactory::createExplosion(scene, playerPosition.x - 8.0 + scene->getRandom().getDouble() * 16.0, playerPosition.y - 8.0 + scene->getRandom().getDouble() * 16.0);
-                
-                registry.destroy(playerEntity);
+                explode(scene, playerStatus, playerPosition);
                 
                 if (registry.any_of<EnemyShot>(colliderEntity))
                 {
@@ -55,4 +51,19 @@ void PlayerCollisionSystem::update(Scene* scene)
         }
     }
     
+}
+
+void PlayerCollisionSystem::explode(Scene* scene, PlayerStatus& status, Position& position)
+{
+    --status.lives;
+    
+    SpriteFactory::createExplosion(scene, position.x, position.y);
+    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene->getRandom().getDouble() * 16.0, position.y - 8.0 + scene->getRandom().getDouble() * 16.0);
+    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene->getRandom().getDouble() * 16.0, position.y - 8.0 + scene->getRandom().getDouble() * 16.0);
+    
+    if (status.lives > 0)
+    {
+        status.hide = 120;
+        status.shield = 120;
+    }
 }

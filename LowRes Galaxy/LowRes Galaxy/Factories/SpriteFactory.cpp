@@ -7,7 +7,7 @@
 
 #include "SpriteFactory.hpp"
 #include <cmath>
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/Sprite.hpp"
 #include "../Components/PlayerInput.hpp"
@@ -29,7 +29,7 @@ void SpriteFactory::createShip(Scene* scene, double x, double y)
     registry.emplace<CollisionBox>(entity, 0.0, 3.0, 15.0, 12.0, 0);
     registry.emplace<Sprite>(entity, scene->spriteAtlas, "ship");
     registry.emplace<PlayerInput>(entity);
-    registry.emplace<PlayerStatus>(entity, 0, 0, 120);
+    registry.emplace<PlayerStatus>(entity, 0, 0, 120, 0, 5, 0);
     registry.emplace<LocalPlayer>(entity);
 }
 

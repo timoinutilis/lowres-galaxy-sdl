@@ -8,7 +8,7 @@
 #include "LocalPlayerSystem.hpp"
 #include "entt.hpp"
 #include <SDL2/SDL.h>
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/LocalPlayer.hpp"
 #include "../Components/PlayerInput.hpp"
 

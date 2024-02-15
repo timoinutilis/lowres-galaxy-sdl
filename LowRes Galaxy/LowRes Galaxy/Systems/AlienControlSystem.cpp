@@ -8,7 +8,7 @@
 #include "AlienControlSystem.hpp"
 #include <cmath>
 #include "entt.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/AlienStatus.hpp"
 #include "../Components/PlayerStatus.hpp"

@@ -6,7 +6,7 @@
 //
 
 #include "BackgroundFactory.hpp"
-#include "../Scene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/Sprite.hpp"
 #include "../Components/AutoScroll.hpp"

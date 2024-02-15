@@ -11,19 +11,20 @@
 #include <SDL2/SDL.h>
 #include <SDL2_mixer/SDL_mixer.h>
 #include "entt.hpp"
-#include "SpriteAtlas.hpp"
-#include "Utils/Random.hpp"
-#include "Factories/BackgroundFactory.hpp"
-#include "Factories/SpriteFactory.hpp"
-#include "Systems/SpriteRenderer.hpp"
-#include "Systems/PlayerControlSystem.hpp"
-#include "Systems/LocalPlayerSystem.hpp"
-#include "Systems/AutoScrollSystem.hpp"
-#include "Systems/MoveSystem.hpp"
-#include "Systems/AlienControlSystem.hpp"
-#include "Systems/ShotCollisionSystem.hpp"
-#include "Systems/AnimationSystem.hpp"
-#include "Systems/PlayerCollisionSystem.hpp"
+#include "../Rendering/SpriteAtlas.hpp"
+#include "../Rendering/Font.hpp"
+#include "../Utils/Random.hpp"
+#include "../Factories/BackgroundFactory.hpp"
+#include "../Factories/SpriteFactory.hpp"
+#include "../Systems/SpriteRenderer.hpp"
+#include "../Systems/PlayerControlSystem.hpp"
+#include "../Systems/LocalPlayerSystem.hpp"
+#include "../Systems/AutoScrollSystem.hpp"
+#include "../Systems/MoveSystem.hpp"
+#include "../Systems/AlienControlSystem.hpp"
+#include "../Systems/ShotCollisionSystem.hpp"
+#include "../Systems/AnimationSystem.hpp"
+#include "../Systems/PlayerCollisionSystem.hpp"
 
 class Scene
 {
@@ -48,6 +49,7 @@ private:
     
 public:
     //TODO add caching system for assets
+    Font* font;
     SpriteAtlas* spriteAtlas;
     SpriteAtlas* bgSpriteAtlas;
     Mix_Music* music;

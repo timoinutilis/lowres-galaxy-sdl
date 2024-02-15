@@ -8,8 +8,8 @@
 #include "SpriteRenderer.hpp"
 #include <SDL2/SDL.h>
 #include "entt.hpp"
-#include "../Scene.hpp"
-#include "../SpriteAtlas.hpp"
+#include "../Scenes/Scene.hpp"
+#include "../Rendering/SpriteAtlas.hpp"
 #include "../Components/Sprite.hpp"
 #include "../Components/Position.hpp"
 

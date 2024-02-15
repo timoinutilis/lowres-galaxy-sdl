@@ -9,9 +9,14 @@
 #define PlayerCollisionSystem_hpp
 
 class Scene;
+struct PlayerStatus;
+struct Position;
 
 class PlayerCollisionSystem
 {
+private:
+    void explode(Scene* scene, PlayerStatus& status, Position& position);
+    
 public:
     void update(Scene* scene);
 };

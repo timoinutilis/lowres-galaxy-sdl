@@ -45,7 +45,7 @@ void Scene::load()
     font = new Font(renderer, "Textures/font");
     spriteAtlas = new SpriteAtlas(renderer, "Textures/sprites");
     bgSpriteAtlas = new SpriteAtlas(renderer, "Textures/background");
-    music = Mix_LoadMUS("Audio/title.ogg");
+    music = Mix_LoadMUS("Audio/game.ogg");
     
     BackgroundFactory::createLayer1(this, 0.0);
     BackgroundFactory::createLayer1(this, 256.0);
@@ -74,12 +74,12 @@ void Scene::unload()
 
 void Scene::onAppear()
 {
-//    Mix_PlayMusic(music, -1);
+    Mix_PlayMusic(music, -1);
 }
 
 void Scene::onDisappear()
 {
-//    Mix_HaltMusic();
+    Mix_HaltMusic();
 }
 
 void Scene::update()

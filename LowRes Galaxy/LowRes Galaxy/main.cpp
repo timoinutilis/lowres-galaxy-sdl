@@ -16,7 +16,7 @@ int main( int argc, char* args[] )
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderSetLogicalSize(renderer, 160, 128);
     
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+    Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_AllocateChannels(2);
     
     Scene scene(renderer);

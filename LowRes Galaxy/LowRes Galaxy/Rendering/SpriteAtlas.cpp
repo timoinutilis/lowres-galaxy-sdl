@@ -27,7 +27,13 @@ SpriteAtlas::SpriteAtlas(SDL_Renderer* renderer, const std::string& filepath)
     {
         auto& srcFrame = frame["frame"];
         SDL_Rect rect {srcFrame["x"], srcFrame["y"], srcFrame["w"], srcFrame["h"]};
-        frames.insert({frame["filename"], rect});
+        
+        auto& srcPivot = frame["pivot"];
+        double px = srcPivot["x"];
+        double py = srcPivot["y"];
+        SDL_Point pivot {static_cast<int>(px * rect.w), static_cast<int>(py * rect.h)};
+        
+        frames.insert({frame["filename"], SpriteFrame {rect, pivot}});
     }
 }
 
@@ -39,6 +45,6 @@ SpriteAtlas::~SpriteAtlas()
 void SpriteAtlas::drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y)
 {
     const auto& frame = frames.at(name);
-    SDL_Rect dst = {x, y, frame.w, frame.h};
-    SDL_RenderCopy(renderer, texture, &frame, &dst);
+    SDL_Rect dst = {x - frame.pivot.x, y - frame.pivot.y, frame.rect.w, frame.rect.h};
+    SDL_RenderCopy(renderer, texture, &frame.rect, &dst);
 }

@@ -26,7 +26,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
@@ -161,7 +161,7 @@
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -169,16 +169,34 @@
             <key>defaultPivotPoint</key>
             <point_f>0.5,0.5</point_f>
             <key>writePivotPoints</key>
-            <false/>
+            <true/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../Assets/boost-0.png</key>
-            <key type="filename">../Assets/boost-1.png</key>
+            <key type="filename">../Assets/enemy_blue_big-0.png</key>
+            <key type="filename">../Assets/enemy_blue_big-1.png</key>
+            <key type="filename">../Assets/enemy_red_big-0.png</key>
+            <key type="filename">../Assets/enemy_red_big-1.png</key>
+            <key type="filename">../Assets/explosion-0.png</key>
+            <key type="filename">../Assets/explosion-1.png</key>
+            <key type="filename">../Assets/explosion-2.png</key>
+            <key type="filename">../Assets/explosion-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../Assets/enemy_blue_small-0.png</key>
             <key type="filename">../Assets/enemy_blue_small-1.png</key>
-            <key type="filename">../Assets/enemy_hit_small-0.png</key>
-            <key type="filename">../Assets/enemy_hit_small-1.png</key>
             <key type="filename">../Assets/enemy_red_small-0.png</key>
             <key type="filename">../Assets/enemy_red_small-1.png</key>
             <key type="filename">../Assets/ship_icon.png</key>
@@ -186,7 +204,7 @@
             <key type="filename">../Assets/shot_enemy.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -195,38 +213,13 @@
                 <rect>2,2,4,4</rect>
                 <key>scale9Paddings</key>
                 <rect>2,2,4,4</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../Assets/enemy_blue_big-0.png</key>
-            <key type="filename">../Assets/enemy_blue_big-1.png</key>
-            <key type="filename">../Assets/enemy_hit_big-0.png</key>
-            <key type="filename">../Assets/enemy_hit_big-1.png</key>
-            <key type="filename">../Assets/enemy_red_big-0.png</key>
-            <key type="filename">../Assets/enemy_red_big-1.png</key>
-            <key type="filename">../Assets/explosion-0.png</key>
-            <key type="filename">../Assets/explosion-1.png</key>
-            <key type="filename">../Assets/explosion-2.png</key>
-            <key type="filename">../Assets/explosion-3.png</key>
-            <key type="filename">../Assets/ship.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,4,8,8</rect>
-                <key>scale9Paddings</key>
-                <rect>4,4,8,8</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
             <key type="filename">../Assets/game_over.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -238,10 +231,26 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../Assets/ship-0.png</key>
+            <key type="filename">../Assets/ship-1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.333333,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,4,12,8</rect>
+                <key>scale9Paddings</key>
+                <rect>6,4,12,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../Assets/title.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -260,16 +269,10 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>../Assets/boost-0.png</filename>
-                    <filename>../Assets/boost-1.png</filename>
                     <filename>../Assets/enemy_blue_big-0.png</filename>
                     <filename>../Assets/enemy_blue_big-1.png</filename>
                     <filename>../Assets/enemy_blue_small-0.png</filename>
                     <filename>../Assets/enemy_blue_small-1.png</filename>
-                    <filename>../Assets/enemy_hit_big-0.png</filename>
-                    <filename>../Assets/enemy_hit_big-1.png</filename>
-                    <filename>../Assets/enemy_hit_small-0.png</filename>
-                    <filename>../Assets/enemy_hit_small-1.png</filename>
                     <filename>../Assets/enemy_red_big-0.png</filename>
                     <filename>../Assets/enemy_red_big-1.png</filename>
                     <filename>../Assets/enemy_red_small-0.png</filename>
@@ -279,11 +282,12 @@
                     <filename>../Assets/explosion-2.png</filename>
                     <filename>../Assets/explosion-3.png</filename>
                     <filename>../Assets/game_over.png</filename>
-                    <filename>../Assets/ship.png</filename>
                     <filename>../Assets/ship_icon.png</filename>
                     <filename>../Assets/shot.png</filename>
                     <filename>../Assets/shot_enemy.png</filename>
                     <filename>../Assets/title.png</filename>
+                    <filename>../Assets/ship-0.png</filename>
+                    <filename>../Assets/ship-1.png</filename>
                 </array>
             </struct>
         </map>

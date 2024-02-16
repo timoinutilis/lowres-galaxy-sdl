@@ -11,6 +11,12 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+struct SpriteFrame
+{
+    SDL_Rect rect;
+    SDL_Point pivot;
+};
+
 class SpriteAtlas
 {
 public:
@@ -21,7 +27,7 @@ public:
     
 private:
     SDL_Texture *texture;
-    std::unordered_map<std::string, SDL_Rect> frames;
+    std::unordered_map<std::string, SpriteFrame> frames;
 };
 
 #endif /* SpriteAtlas_hpp */

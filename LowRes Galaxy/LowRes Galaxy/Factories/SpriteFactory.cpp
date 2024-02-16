@@ -27,7 +27,8 @@ void SpriteFactory::createShip(Scene* scene, double x, double y)
     const auto entity = registry.create();
     registry.emplace<Position>(entity, x, y, 10);
     registry.emplace<CollisionBox>(entity, 0.0, 3.0, 15.0, 12.0, 0);
-    registry.emplace<Sprite>(entity, scene->spriteAtlas, "ship");
+    registry.emplace<Sprite>(entity, scene->spriteAtlas, "");
+    registry.emplace<Animation>(entity, std::vector<std::string> {"ship-0", "ship-1"}, 8, false, 0, 0);
     registry.emplace<PlayerInput>(entity);
     registry.emplace<PlayerStatus>(entity, 0, 0, 120, 0, 5, 0);
     registry.emplace<LocalPlayer>(entity);

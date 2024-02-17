@@ -28,6 +28,7 @@
 		925944522B64206F00611F0D /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		925944542B64283300611F0D /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 925944532B64283300611F0D /* Audio */; };
 		927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */; };
+		9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9293DB512B8013C800409AC8 /* LabelRenderer.cpp */; };
 		92B21A362B64044100B033E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B21A352B64044100B033E2 /* Assets.xcassets */; };
 		92B21A432B64065000B033E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B21A422B64064F00B033E2 /* main.cpp */; };
 		92B21A462B6406B700B033E2 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B21A452B6406B700B033E2 /* SDL2.framework */; };
@@ -174,6 +175,9 @@
 		925944532B64283300611F0D /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAtlas.cpp; sourceTree = "<group>"; };
 		927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteAtlas.hpp; sourceTree = "<group>"; };
+		9293DB502B80136E00409AC8 /* Label.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
+		9293DB512B8013C800409AC8 /* LabelRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelRenderer.cpp; sourceTree = "<group>"; };
+		9293DB522B8013C800409AC8 /* LabelRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelRenderer.hpp; sourceTree = "<group>"; };
 		92B21A2F2B64044000B033E2 /* LowRes Galaxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LowRes Galaxy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B21A352B64044100B033E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92B21A3C2B64044100B033E2 /* LowRes_Galaxy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LowRes_Galaxy.entitlements; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				92188BA92B739A9D0087E7E1 /* Sprite.hpp */,
+				9293DB502B80136E00409AC8 /* Label.hpp */,
 				92188BAA2B739B9B0087E7E1 /* Position.hpp */,
 				92188BAE2B73A8E40087E7E1 /* PlayerInput.hpp */,
 				92026E8A2B7CB66600B87AAD /* PlayerStatus.hpp */,
@@ -231,6 +236,8 @@
 			children = (
 				92188BAB2B739C040087E7E1 /* SpriteRenderer.cpp */,
 				92188BAC2B739C040087E7E1 /* SpriteRenderer.hpp */,
+				9293DB512B8013C800409AC8 /* LabelRenderer.cpp */,
+				9293DB522B8013C800409AC8 /* LabelRenderer.hpp */,
 				92188BB02B73B0420087E7E1 /* PlayerControlSystem.cpp */,
 				92188BB12B73B0420087E7E1 /* PlayerControlSystem.hpp */,
 				92188BB32B73BFF00087E7E1 /* LocalPlayerSystem.cpp */,
@@ -602,6 +609,7 @@
 				924251572B6E69D800137C60 /* Scene.cpp in Sources */,
 				92026E8E2B7CBA8500B87AAD /* AlienControlSystem.cpp in Sources */,
 				92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */,
+				9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */,
 				92188BAD2B739C040087E7E1 /* SpriteRenderer.cpp in Sources */,
 				92026EA32B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp in Sources */,
 				92188BB52B73BFF00087E7E1 /* LocalPlayerSystem.cpp in Sources */,

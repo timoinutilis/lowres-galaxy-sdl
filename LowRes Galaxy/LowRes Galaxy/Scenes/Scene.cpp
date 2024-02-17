@@ -55,6 +55,8 @@ void Scene::load()
     BackgroundFactory::createLayer3(this, 256.0);
     
     SpriteFactory::createShip(this, 32.0, 48.0);
+    
+    SpriteFactory::createScrollingLabel(this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 0.0);
 }
 
 void Scene::unload()
@@ -143,6 +145,5 @@ void Scene::update()
 void Scene::render()
 {
     spriteRenderer.render(this);
-    
-    font->drawString(renderer, "HELLO LOWRES GALAXY", 4, 0);
+    labelRenderer.render(this);
 }

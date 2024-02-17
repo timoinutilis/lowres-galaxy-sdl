@@ -17,6 +17,7 @@
 #include "../Factories/BackgroundFactory.hpp"
 #include "../Factories/SpriteFactory.hpp"
 #include "../Systems/SpriteRenderer.hpp"
+#include "../Systems/LabelRenderer.hpp"
 #include "../Systems/PlayerControlSystem.hpp"
 #include "../Systems/LocalPlayerSystem.hpp"
 #include "../Systems/AutoScrollSystem.hpp"
@@ -34,6 +35,7 @@ private:
     Random random;
     
     SpriteRenderer spriteRenderer;
+    LabelRenderer labelRenderer;
     PlayerControlSystem playerControlSystem;
     LocalPlayerSystem localPlayerSystem;
     AutoScrollSystem autoScrollSystem;

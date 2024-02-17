@@ -16,7 +16,8 @@
 void SpriteRenderer::render(Scene* scene)
 {
     scene->getRegistry().sort<Position>([](const auto& lhs, const auto& rhs) { return lhs.layer < rhs.layer; });
-    const auto view = scene->getRegistry().view<Position, Sprite>();
+    auto view = scene->getRegistry().view<Position, Sprite>();
+    view.use<Position>();
     SDL_Renderer *renderer = scene->getRenderer();
     for (auto entity : view)
     {

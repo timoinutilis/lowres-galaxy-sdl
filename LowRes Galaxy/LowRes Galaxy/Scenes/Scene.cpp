@@ -7,6 +7,9 @@
 
 #include "Scene.hpp"
 #include <iostream>
+#include "../Factories/BackgroundFactory.hpp"
+#include "../Factories/SpriteFactory.hpp"
+#include "../Factories/UIFactory.hpp"
 #include "../Components/PlayerStatus.hpp"
 
 Scene::Scene(SDL_Renderer* renderer)
@@ -56,7 +59,7 @@ void Scene::load()
     
     SpriteFactory::createShip(this, 32.0, 48.0);
     
-    SpriteFactory::createScrollingLabel(this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 0.0);
+    UIFactory::createScrollingLabel(this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 0.0);
 }
 
 void Scene::unload()
@@ -76,12 +79,12 @@ void Scene::unload()
 
 void Scene::onAppear()
 {
-    Mix_PlayMusic(music, -1);
+//    Mix_PlayMusic(music, -1);
 }
 
 void Scene::onDisappear()
 {
-    Mix_HaltMusic();
+//    Mix_HaltMusic();
 }
 
 void Scene::update()

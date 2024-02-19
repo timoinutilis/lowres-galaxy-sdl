@@ -9,7 +9,6 @@
 #define BackgroundFactory_hpp
 
 #include "entt.hpp"
-#include "SpriteAtlas.hpp"
 
 class Scene;
 

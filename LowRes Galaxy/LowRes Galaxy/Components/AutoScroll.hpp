@@ -10,7 +10,8 @@
 
 struct AutoScroll
 {
-    int width = 0;
+    double minX = 0;
+    double maxX = 0;
     double speed = 0.0;
 };
 

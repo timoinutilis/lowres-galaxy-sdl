@@ -7,6 +7,7 @@
 
 #include "SpriteFactory.hpp"
 #include <cmath>
+#include "../Rendering/SpriteAtlas.hpp"
 #include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/Sprite.hpp"
@@ -20,8 +21,6 @@
 #include "../Components/EnemyShot.hpp"
 #include "../Components/Animation.hpp"
 #include "../Components/CollisionBox.hpp"
-#include "../Components/Label.hpp"
-#include "../Components/AutoScroll.hpp"
 
 void SpriteFactory::createShip(Scene* scene, double x, double y)
 {
@@ -125,22 +124,4 @@ void SpriteFactory::createBigRedAlien(Scene* scene)
     registry.emplace<Animation>(entity, std::vector<std::string> {"enemy_red_big-0", "enemy_red_big-1"}, 16, false, 0, 0);
     registry.emplace<AlienStatus>(entity, 0, y, scene->getRandom().getDouble() * 40.0, 0.15, 0.016);
     registry.emplace<Shootable>(entity, 8, 600);
-}
-
-void SpriteFactory::createLabel(Scene* scene, const std::string& text, double x, double y)
-{
-    auto& registry = scene->getRegistry();
-    const auto entity = registry.create();
-    registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->font, text, false);
-}
-
-void SpriteFactory::createScrollingLabel(Scene* scene, const std::string& text, double x, double y)
-{
-    auto& registry = scene->getRegistry();
-    const auto entity = registry.create();
-    registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->font, text, false);
-    registry.emplace<AutoScroll>(entity, static_cast<int>(text.length()) * 8, 1.0);
-    
 }

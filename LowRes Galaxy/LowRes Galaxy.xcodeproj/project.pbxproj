@@ -22,6 +22,7 @@
 		92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BCD2B77C3600087E7E1 /* MoveSystem.cpp */; };
 		923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 923C8F382B7E7D6A00FA0FBC /* Font.cpp */; };
 		924251572B6E69D800137C60 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 924251552B6E69D800137C60 /* Scene.cpp */; };
+		92473F342B83C0530012AFCB /* UIFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92473F322B83C0530012AFCB /* UIFactory.cpp */; };
 		9259444E2B64201000611F0D /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; };
 		9259444F2B64201000611F0D /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9259444D2B64201000611F0D /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		925944512B64206F00611F0D /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; };
@@ -170,6 +171,8 @@
 		923C8F392B7E7D6A00FA0FBC /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		924251552B6E69D800137C60 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		924251562B6E69D800137C60 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		92473F322B83C0530012AFCB /* UIFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIFactory.cpp; sourceTree = "<group>"; };
+		92473F332B83C0530012AFCB /* UIFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UIFactory.hpp; sourceTree = "<group>"; };
 		9259444D2B64201000611F0D /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_image.framework; sourceTree = "<group>"; };
 		925944502B64206F00611F0D /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_mixer.framework; sourceTree = "<group>"; };
 		925944532B64283300611F0D /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				92188BBF2B73D67E0087E7E1 /* BackgroundFactory.hpp */,
 				92188BC12B73D9B00087E7E1 /* SpriteFactory.cpp */,
 				92188BC22B73D9B00087E7E1 /* SpriteFactory.hpp */,
+				92473F322B83C0530012AFCB /* UIFactory.cpp */,
+				92473F332B83C0530012AFCB /* UIFactory.hpp */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 				92188BB22B73B0420087E7E1 /* PlayerControlSystem.cpp in Sources */,
 				92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */,
 				924251572B6E69D800137C60 /* Scene.cpp in Sources */,
+				92473F342B83C0530012AFCB /* UIFactory.cpp in Sources */,
 				92026E8E2B7CBA8500B87AAD /* AlienControlSystem.cpp in Sources */,
 				92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */,
 				9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */,

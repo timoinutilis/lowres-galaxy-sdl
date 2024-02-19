@@ -21,9 +21,9 @@ void AutoScrollSystem::update(Scene* scene)
         
         position.x -= autoScroll.speed;
         
-        if (position.x < -autoScroll.width)
+        if (position.x < autoScroll.minX)
         {
-            position.x += 2 * autoScroll.width;
+            position.x += (autoScroll.maxX - autoScroll.minX);
         }
     }
 }

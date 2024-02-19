@@ -14,8 +14,6 @@
 #include "../Rendering/SpriteAtlas.hpp"
 #include "../Rendering/Font.hpp"
 #include "../Utils/Random.hpp"
-#include "../Factories/BackgroundFactory.hpp"
-#include "../Factories/SpriteFactory.hpp"
 #include "../Systems/SpriteRenderer.hpp"
 #include "../Systems/LabelRenderer.hpp"
 #include "../Systems/PlayerControlSystem.hpp"

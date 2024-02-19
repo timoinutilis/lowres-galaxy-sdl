@@ -10,7 +10,6 @@
 
 #include "entt.hpp"
 #include <string>
-#include "SpriteAtlas.hpp"
 
 class Scene;
 
@@ -26,9 +25,6 @@ public:
     static void createBigBlueAlien(Scene* scene);
     static void createSmallRedAlien(Scene* scene);
     static void createBigRedAlien(Scene* scene);
-    
-    static void createLabel(Scene* scene, const std::string& text, double x, double y);
-    static void createScrollingLabel(Scene* scene, const std::string& text, double x, double y);
 };
 
 #endif /* SpriteFactory_hpp */

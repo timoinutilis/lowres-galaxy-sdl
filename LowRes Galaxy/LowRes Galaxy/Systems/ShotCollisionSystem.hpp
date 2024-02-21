@@ -8,12 +8,12 @@
 #ifndef ShotCollisionSystem_hpp
 #define ShotCollisionSystem_hpp
 
-class Scene;
+class GameScene;
 
 class ShotCollisionSystem final
 {
 public:
-    void update(Scene& scene) const;
+    void update(GameScene& scene) const;
 };
 
 #endif /* ShotCollisionSystem_hpp */

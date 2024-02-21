@@ -8,13 +8,13 @@
 #include "AlienControlSystem.hpp"
 #include <cmath>
 #include "entt.hpp"
-#include "../Scenes/Scene.hpp"
+#include "../Scenes/GameScene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/AlienStatus.hpp"
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void AlienControlSystem::update(Scene& scene) const
+void AlienControlSystem::update(GameScene& scene) const
 {
     const auto view = scene.getRegistry().view<Position, AlienStatus>();
     for (auto entity : view)

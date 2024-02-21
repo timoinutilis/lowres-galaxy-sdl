@@ -1,7 +1,9 @@
+#include <memory>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
-#include "Scene.hpp"
+#include "SceneManager.hpp"
+#include "TitleScene.hpp"
 
 int main( int argc, char* args[] )
 {
@@ -19,31 +21,29 @@ int main( int argc, char* args[] )
     Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_AllocateChannels(2);
     
-    Scene scene(renderer);
-    scene.load();
-    scene.onAppear();
-    
-    while (!quit)
     {
-        while (SDL_PollEvent(&event))
+        SceneManager sceneManager;
+        sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager));
+        
+        while (!quit)
         {
-            switch (event.type)
+            while (SDL_PollEvent(&event))
             {
-                case SDL_QUIT:
-                    quit = true;
-                    break;
+                switch (event.type)
+                {
+                    case SDL_QUIT:
+                        quit = true;
+                        break;
+                }
             }
+            
+            sceneManager.update();
+            
+            SDL_RenderClear(renderer);
+            sceneManager.render();
+            SDL_RenderPresent(renderer);
         }
-        
-        scene.update();
-        
-        SDL_RenderClear(renderer);
-        scene.render();
-        SDL_RenderPresent(renderer);
     }
-    
-    scene.onDisappear();
-    scene.unload();
     
     Mix_CloseAudio();
     

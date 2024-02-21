@@ -7,7 +7,7 @@
 
 #include "ShotCollisionSystem.hpp"
 #include "entt.hpp"
-#include "../Scenes/Scene.hpp"
+#include "../Scenes/GameScene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/Shootable.hpp"
 #include "../Components/Shot.hpp"
@@ -15,7 +15,7 @@
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void ShotCollisionSystem::update(Scene& scene) const
+void ShotCollisionSystem::update(GameScene& scene) const
 {
     auto& registry = scene.getRegistry();
     const auto shotsView = registry.view<Shot, Position, CollisionBox>();

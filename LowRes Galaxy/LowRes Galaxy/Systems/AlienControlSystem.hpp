@@ -8,12 +8,12 @@
 #ifndef AlienControlSystem_hpp
 #define AlienControlSystem_hpp
 
-class Scene;
+class GameScene;
 
 class AlienControlSystem final
 {
 public:
-    void update(Scene& scene) const;
+    void update(GameScene& scene) const;
 };
 
 #endif /* AlienControlSystem_hpp */

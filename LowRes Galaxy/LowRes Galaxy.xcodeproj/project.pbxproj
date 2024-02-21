@@ -29,6 +29,7 @@
 		925944522B64206F00611F0D /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		925944542B64283300611F0D /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 925944532B64283300611F0D /* Audio */; };
 		927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */; };
+		928F356F2B86189900E20823 /* Music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F356D2B86189900E20823 /* Music.cpp */; };
 		9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9293DB512B8013C800409AC8 /* LabelRenderer.cpp */; };
 		92B21A362B64044100B033E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B21A352B64044100B033E2 /* Assets.xcassets */; };
 		92B21A432B64065000B033E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B21A422B64064F00B033E2 /* main.cpp */; };
@@ -178,6 +179,11 @@
 		925944532B64283300611F0D /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAtlas.cpp; sourceTree = "<group>"; };
 		927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteAtlas.hpp; sourceTree = "<group>"; };
+		928F35682B85F48600E20823 /* SpriteAtlasCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteAtlasCache.hpp; sourceTree = "<group>"; };
+		928F356B2B86173200E20823 /* FontCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontCache.hpp; sourceTree = "<group>"; };
+		928F356D2B86189900E20823 /* Music.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Music.cpp; sourceTree = "<group>"; };
+		928F356E2B86189900E20823 /* Music.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
+		928F35702B861C7500E20823 /* MusicCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MusicCache.hpp; sourceTree = "<group>"; };
 		9293DB502B80136E00409AC8 /* Label.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		9293DB512B8013C800409AC8 /* LabelRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelRenderer.cpp; sourceTree = "<group>"; };
 		9293DB522B8013C800409AC8 /* LabelRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelRenderer.hpp; sourceTree = "<group>"; };
@@ -490,6 +496,25 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		928F356A2B8614DE00E20823 /* Caches */ = {
+			isa = PBXGroup;
+			children = (
+				928F35682B85F48600E20823 /* SpriteAtlasCache.hpp */,
+				928F356B2B86173200E20823 /* FontCache.hpp */,
+				928F35702B861C7500E20823 /* MusicCache.hpp */,
+			);
+			path = Caches;
+			sourceTree = "<group>";
+		};
+		928F356C2B86187A00E20823 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				928F356D2B86189900E20823 /* Music.cpp */,
+				928F356E2B86189900E20823 /* Music.hpp */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		92B21A262B64044000B033E2 = {
 			isa = PBXGroup;
 			children = (
@@ -516,7 +541,9 @@
 				92B21A492B6408E100B033E2 /* Textures */,
 				921DD0A52B650FEF007FB6BC /* Libraries */,
 				92026E8F2B7CBFD800B87AAD /* Utils */,
+				928F356C2B86187A00E20823 /* Sound */,
 				923C8F3B2B7E814900FA0FBC /* Rendering */,
+				928F356A2B8614DE00E20823 /* Caches */,
 				92188BA42B73978A0087E7E1 /* Components */,
 				92188BA52B7397920087E7E1 /* Systems */,
 				92188BBD2B73D64B0087E7E1 /* Factories */,
@@ -622,6 +649,7 @@
 				927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */,
 				92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */,
 				92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */,
+				928F356F2B86189900E20823 /* Music.cpp in Sources */,
 				92026EA02B7D05B200B87AAD /* CollisionBox.cpp in Sources */,
 				923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */,
 				92026E9D2B7CE87600B87AAD /* AnimationSystem.cpp in Sources */,

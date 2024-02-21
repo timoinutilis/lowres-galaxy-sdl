@@ -27,6 +27,21 @@ entt::registry& Scene::getRegistry()
     return registry;
 }
 
+SpriteAtlasCache& Scene::getSpriteAtlasCache()
+{
+    return spriteAtlasCache;
+}
+
+FontCache& Scene::getFontCache()
+{
+    return fontCache;
+}
+
+MusicCache& Scene::getMusicCache()
+{
+    return musicCache;
+}
+
 Random& Scene::getRandom()
 {
     return random;
@@ -45,10 +60,10 @@ bool Scene::isPeace()
 
 void Scene::load()
 {
-    font = new Font(renderer, "Textures/font");
-    spriteAtlas = new SpriteAtlas(renderer, "Textures/sprites");
-    bgSpriteAtlas = new SpriteAtlas(renderer, "Textures/background");
-    music = Mix_LoadMUS("Audio/game.ogg");
+    musicCache.load(MusicIdGame, "Audio/game.ogg");
+    fontCache.load(FontIdDefault, renderer, "Textures/font");
+    spriteAtlasCache.load(SpriteAtlasIdSprites, renderer, "Textures/sprites");
+    spriteAtlasCache.load(SpriteAtlasIdBackground, renderer, "Textures/background");
     
     BackgroundFactory::createLayer1(this, 0.0);
     BackgroundFactory::createLayer1(this, 256.0);
@@ -64,27 +79,16 @@ void Scene::load()
 
 void Scene::unload()
 {
-    delete font;
-    font = nullptr;
-    
-    delete spriteAtlas;
-    spriteAtlas = nullptr;
-    
-    delete bgSpriteAtlas;
-    bgSpriteAtlas = nullptr;
-    
-    Mix_FreeMusic(music);
-    music = nullptr;
 }
 
 void Scene::onAppear()
 {
-//    Mix_PlayMusic(music, -1);
+    musicCache[MusicIdGame]->play();
 }
 
 void Scene::onDisappear()
 {
-//    Mix_HaltMusic();
+    musicCache[MusicIdGame]->halt();
 }
 
 void Scene::update()

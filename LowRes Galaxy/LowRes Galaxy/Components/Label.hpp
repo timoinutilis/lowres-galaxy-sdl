@@ -13,7 +13,7 @@
 
 struct Label
 {
-    Font* font = nullptr;
+    entt::resource<Font> font;
     std::string text;
     bool isHidden = false;
 };

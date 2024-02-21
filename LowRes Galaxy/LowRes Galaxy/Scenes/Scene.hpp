@@ -9,10 +9,10 @@
 #define Scene_hpp
 
 #include <SDL2/SDL.h>
-#include <SDL2_mixer/SDL_mixer.h>
 #include "entt.hpp"
-#include "../Rendering/SpriteAtlas.hpp"
-#include "../Rendering/Font.hpp"
+#include "../Caches/SpriteAtlasCache.hpp"
+#include "../Caches/FontCache.hpp"
+#include "../Caches/MusicCache.hpp"
 #include "../Utils/Random.hpp"
 #include "../Systems/SpriteRenderer.hpp"
 #include "../Systems/LabelRenderer.hpp"
@@ -29,7 +29,11 @@ class Scene
 {
 private:
     SDL_Renderer* renderer;
+    
     entt::registry registry;
+    SpriteAtlasCache spriteAtlasCache;
+    FontCache fontCache;
+    MusicCache musicCache;
     Random random;
     
     SpriteRenderer spriteRenderer;
@@ -48,17 +52,14 @@ private:
     int peace = 0;
     
 public:
-    //TODO add caching system for assets
-    Font* font;
-    SpriteAtlas* spriteAtlas;
-    SpriteAtlas* bgSpriteAtlas;
-    Mix_Music* music;
-    
-    
     Scene(SDL_Renderer* renderer);
     
     SDL_Renderer* getRenderer();
+    
     entt::registry& getRegistry();
+    SpriteAtlasCache& getSpriteAtlasCache();
+    FontCache& getFontCache();
+    MusicCache& getMusicCache();
     Random& getRandom();
     
     entt::entity getPlayerEntity();

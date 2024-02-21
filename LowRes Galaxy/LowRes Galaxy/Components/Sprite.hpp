@@ -9,11 +9,12 @@
 #define Sprite_h
 
 #include <string>
+#include <memory>
 #include "../Rendering/SpriteAtlas.hpp"
 
 struct Sprite
 {
-    SpriteAtlas* spriteAtlas = nullptr;
+    entt::resource<SpriteAtlas> spriteAtlas;
     std::string frame;
     bool isHidden = false;
 };

@@ -16,7 +16,7 @@ void UIFactory::createLabel(Scene* scene, const std::string& text, double x, dou
     auto& registry = scene->getRegistry();
     const auto entity = registry.create();
     registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->font, text, false);
+    registry.emplace<Label>(entity, scene->getFontCache()[FontIdDefault], text, false);
 }
 
 void UIFactory::createScrollingLabel(Scene* scene, const std::string& text, double x, double y)
@@ -24,7 +24,7 @@ void UIFactory::createScrollingLabel(Scene* scene, const std::string& text, doub
     auto& registry = scene->getRegistry();
     const auto entity = registry.create();
     registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->font, text, false);
+    registry.emplace<Label>(entity, scene->getFontCache()[FontIdDefault], text, false);
     double textWidth = text.length() * 8.0;
     registry.emplace<AutoScroll>(entity, -textWidth, x, 1.0);
     

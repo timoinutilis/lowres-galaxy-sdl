@@ -8,7 +8,7 @@
 #ifndef AlienStatus_h
 #define AlienStatus_h
 
-struct AlienStatus
+struct AlienStatus final
 {
     int tick = 0;
     double startY = 0.0;

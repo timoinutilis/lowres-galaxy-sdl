@@ -63,7 +63,7 @@ public:
     Random& getRandom();
     
     entt::entity getPlayerEntity();
-    bool isPeace();
+    bool isPeace() const;
     
     void load();
     void unload();

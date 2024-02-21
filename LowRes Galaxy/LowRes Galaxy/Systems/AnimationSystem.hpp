@@ -10,10 +10,10 @@
 
 class Scene;
 
-class AnimationSystem
+class AnimationSystem final
 {
 public:
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 #endif /* AnimationSystem_hpp */

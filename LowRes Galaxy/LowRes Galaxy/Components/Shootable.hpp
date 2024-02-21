@@ -8,7 +8,8 @@
 #ifndef Shootable_h
 #define Shootable_h
 
-struct Shootable {
+struct Shootable final
+{
     int hits = 0;
     int points = 0;
 };

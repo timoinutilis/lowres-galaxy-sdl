@@ -10,11 +10,10 @@
 
 class Scene;
 
-class LocalPlayerSystem
+class LocalPlayerSystem final
 {
 public:
-    LocalPlayerSystem();
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 #endif /* LocalPlayerSystem_hpp */

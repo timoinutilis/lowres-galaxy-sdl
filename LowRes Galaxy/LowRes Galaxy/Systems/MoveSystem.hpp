@@ -10,10 +10,10 @@
 
 class Scene;
 
-class MoveSystem
+class MoveSystem final
 {
 public:
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 #endif /* MoveSystem_hpp */

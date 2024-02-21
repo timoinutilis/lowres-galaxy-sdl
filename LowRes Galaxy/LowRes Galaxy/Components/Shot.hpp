@@ -8,7 +8,8 @@
 #ifndef Shot_h
 #define Shot_h
 
-struct Shot {
+struct Shot final
+{
     int damage = 1;
 };
 

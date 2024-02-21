@@ -8,7 +8,7 @@
 #ifndef Position_h
 #define Position_h
 
-struct Position
+struct Position final
 {
     double x = 0.0;
     double y = 0.0;

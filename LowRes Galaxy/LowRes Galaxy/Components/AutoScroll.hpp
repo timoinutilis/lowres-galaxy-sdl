@@ -8,7 +8,7 @@
 #ifndef AutoScroll_h
 #define AutoScroll_h
 
-struct AutoScroll
+struct AutoScroll final
 {
     double minX = 0;
     double maxX = 0;

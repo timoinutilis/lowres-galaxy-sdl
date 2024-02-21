@@ -8,7 +8,8 @@
 #ifndef EnemyShot_h
 #define EnemyShot_h
 
-struct EnemyShot {
+struct EnemyShot final
+{
 };
 
 #endif /* EnemyShot_h */

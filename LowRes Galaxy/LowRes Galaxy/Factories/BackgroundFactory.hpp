@@ -12,7 +12,7 @@
 
 class Scene;
 
-class BackgroundFactory
+class BackgroundFactory final
 {
 public:
     static void createLayer1(Scene& scene, double x);

@@ -42,7 +42,7 @@ SpriteAtlas::~SpriteAtlas()
     SDL_DestroyTexture(texture);
 }
 
-void SpriteAtlas::drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y)
+void SpriteAtlas::drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y) const
 {
     const auto& frame = frames.at(name);
     SDL_Rect dst = {x - frame.pivot.x, y - frame.pivot.y, frame.rect.w, frame.rect.h};

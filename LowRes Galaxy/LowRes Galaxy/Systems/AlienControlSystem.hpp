@@ -10,10 +10,10 @@
 
 class Scene;
 
-class AlienControlSystem
+class AlienControlSystem final
 {
 public:
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 #endif /* AlienControlSystem_hpp */

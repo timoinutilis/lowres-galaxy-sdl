@@ -11,7 +11,7 @@
 #include "../Components/Position.hpp"
 #include "../Components/MoveDirection.hpp"
 
-void MoveSystem::update(Scene& scene)
+void MoveSystem::update(Scene& scene) const
 {
     const auto view = scene.getRegistry().view<Position, MoveDirection>();
     for (auto entity : view)

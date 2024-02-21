@@ -13,7 +13,7 @@
 #include "../Components/Sprite.hpp"
 #include "../Components/Position.hpp"
 
-void SpriteRenderer::render(Scene& scene)
+void SpriteRenderer::render(Scene& scene) const
 {
     scene.getRegistry().sort<Position>([](const auto& lhs, const auto& rhs) { return lhs.layer < rhs.layer; });
     auto view = scene.getRegistry().view<Position, Sprite>();

@@ -14,7 +14,7 @@
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void AlienControlSystem::update(Scene& scene)
+void AlienControlSystem::update(Scene& scene) const
 {
     const auto view = scene.getRegistry().view<Position, AlienStatus>();
     for (auto entity : view)

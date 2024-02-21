@@ -8,7 +8,7 @@
 #ifndef LocalPlayer_h
 #define LocalPlayer_h
 
-struct LocalPlayer
+struct LocalPlayer final
 {
     int playerIndex = 0;
 };

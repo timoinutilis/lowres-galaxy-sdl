@@ -13,7 +13,7 @@
 
 class Scene;
 
-class SpriteFactory
+class SpriteFactory final
 {
 public:
     static void createShip(Scene& scene, double x, double y);

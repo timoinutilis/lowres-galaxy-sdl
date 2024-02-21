@@ -11,19 +11,19 @@
 #include <SDL2/SDL.h>
 #include <string>
 
-struct SpriteFrame
+struct SpriteFrame final
 {
     SDL_Rect rect;
     SDL_Point pivot;
 };
 
-class SpriteAtlas
+class SpriteAtlas final
 {
 public:
     SpriteAtlas(SDL_Renderer* renderer, const std::string& filepath);
     ~SpriteAtlas();
     
-    void drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y);
+    void drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y) const;
     
 private:
     SDL_Texture *texture;

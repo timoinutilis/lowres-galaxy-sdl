@@ -10,7 +10,7 @@
 
 #include <string>
 
-struct Animation
+struct Animation final
 {
     std::vector<std::string> frames;
     int frameTicks = 1;

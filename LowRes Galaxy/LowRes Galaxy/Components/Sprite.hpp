@@ -12,7 +12,7 @@
 #include <memory>
 #include "../Rendering/SpriteAtlas.hpp"
 
-struct Sprite
+struct Sprite final
 {
     entt::resource<SpriteAtlas> spriteAtlas;
     std::string frame;

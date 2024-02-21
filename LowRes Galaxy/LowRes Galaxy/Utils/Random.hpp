@@ -10,7 +10,7 @@
 
 #include <random>
 
-class Random
+class Random final
 {
 private:
     std::uniform_real_distribution<double> unif;
@@ -19,7 +19,7 @@ private:
 public:
     Random();
     double getDouble();
-    int getInt(int range);
+    int getInt(const int range);
 };
 
 #endif /* Random_hpp */

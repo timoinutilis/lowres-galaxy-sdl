@@ -8,7 +8,7 @@
 #ifndef PlayerInput_h
 #define PlayerInput_h
 
-struct PlayerInput
+struct PlayerInput final
 {
     double directionX = 0.0;
     double directionY = 0.0;

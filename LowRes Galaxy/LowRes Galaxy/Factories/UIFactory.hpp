@@ -13,7 +13,7 @@
 
 class Scene;
 
-class UIFactory
+class UIFactory final
 {
 public:
     static void createLabel(Scene& scene, const std::string& text, double x, double y);

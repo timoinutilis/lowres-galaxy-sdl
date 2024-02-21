@@ -12,13 +12,13 @@ class Scene;
 struct PlayerStatus;
 struct Position;
 
-class PlayerCollisionSystem
+class PlayerCollisionSystem final
 {
 private:
-    void explode(Scene& scene, PlayerStatus& status, Position& position);
+    void explode(Scene& scene, PlayerStatus& status, Position& position) const;
     
 public:
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 

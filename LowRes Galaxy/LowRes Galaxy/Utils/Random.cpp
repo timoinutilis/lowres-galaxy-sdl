@@ -16,7 +16,7 @@ double Random::getDouble()
     return unif(re);
 }
 
-int Random::getInt(int range)
+int Random::getInt(const int range)
 {
     return unif(re) * range;
 }

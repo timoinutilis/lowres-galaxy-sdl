@@ -11,14 +11,14 @@
 #include <string>
 #include <SDL2_mixer/SDL_mixer.h>
 
-class Music
+class Music final
 {
 public:
     Music(const std::string& filepath);
     ~Music();
     
-    void play();
-    void halt();
+    void play() const;
+    void halt() const;
     
 private:
     Mix_Music* music;

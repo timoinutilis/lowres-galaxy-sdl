@@ -8,7 +8,7 @@
 #ifndef MoveDirection_h
 #define MoveDirection_h
 
-struct MoveDirection
+struct MoveDirection final
 {
     double x = 0.0;
     double y = 0.0;

@@ -10,10 +10,10 @@
 
 class Scene;
 
-class SpriteRenderer
+class SpriteRenderer final
 {
 public:
-    void render(Scene& scene);
+    void render(Scene& scene) const;
 };
 
 #endif /* SpriteRenderer_hpp */

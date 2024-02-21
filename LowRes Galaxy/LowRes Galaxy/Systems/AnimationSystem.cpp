@@ -11,7 +11,7 @@
 #include "../Components/Animation.hpp"
 #include "../Components/Sprite.hpp"
 
-void AnimationSystem::update(Scene& scene)
+void AnimationSystem::update(Scene& scene) const
 {
     const auto view = scene.getRegistry().view<Animation, Sprite>();
     for (auto entity : view)

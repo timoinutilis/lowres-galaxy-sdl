@@ -12,11 +12,7 @@
 #include "../Components/LocalPlayer.hpp"
 #include "../Components/PlayerInput.hpp"
 
-LocalPlayerSystem::LocalPlayerSystem()
-{
-}
-
-void LocalPlayerSystem::update(Scene& scene)
+void LocalPlayerSystem::update(Scene& scene) const
 {
     const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
     

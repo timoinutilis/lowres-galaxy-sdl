@@ -10,7 +10,7 @@
 
 #include "Position.hpp"
 
-struct CollisionBox
+struct CollisionBox final
 {
     double minX = 0.0;
     double minY = 0.0;

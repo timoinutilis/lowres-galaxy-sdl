@@ -53,7 +53,7 @@ entt::entity Scene::getPlayerEntity()
     return view.front();
 }
 
-bool Scene::isPeace()
+bool Scene::isPeace() const
 {
     return peace > 0;
 }

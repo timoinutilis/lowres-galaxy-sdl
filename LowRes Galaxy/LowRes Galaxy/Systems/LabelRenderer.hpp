@@ -10,10 +10,10 @@
 
 class Scene;
 
-class LabelRenderer
+class LabelRenderer final
 {
 public:
-    void render(Scene& scene);
+    void render(Scene& scene) const;
 };
 
 #endif /* LabelRenderer_hpp */

@@ -11,7 +11,7 @@
 #include <string>
 #include "../Rendering/Font.hpp"
 
-struct Label
+struct Label final
 {
     entt::resource<Font> font;
     std::string text;

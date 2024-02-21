@@ -10,10 +10,10 @@
 
 class Scene;
 
-class ShotCollisionSystem
+class ShotCollisionSystem final
 {
 public:
-    void update(Scene& scene);
+    void update(Scene& scene) const;
 };
 
 #endif /* ShotCollisionSystem_hpp */

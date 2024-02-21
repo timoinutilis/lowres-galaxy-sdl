@@ -8,7 +8,7 @@
 #ifndef PlayerStatus_h
 #define PlayerStatus_h
 
-struct PlayerStatus
+struct PlayerStatus final
 {
     int shootDelay = 0;
     int heat = 0;

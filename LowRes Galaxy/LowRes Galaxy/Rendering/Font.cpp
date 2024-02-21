@@ -20,7 +20,7 @@ Font::~Font()
     SDL_DestroyTexture(texture);
 }
 
-void Font::drawString(SDL_Renderer* renderer, const std::string& text, const int x, const int y)
+void Font::drawString(SDL_Renderer* renderer, const std::string& text, const int x, const int y) const
 {
     int charX = x;
     for (auto character : text)
@@ -30,7 +30,7 @@ void Font::drawString(SDL_Renderer* renderer, const std::string& text, const int
     }
 }
 
-void Font::drawCharacter(SDL_Renderer* renderer, char character, const int x, const int y)
+void Font::drawCharacter(SDL_Renderer* renderer, char character, const int x, const int y) const
 {
     int index = static_cast<int>(character) - 32;
     if (index >= 0 && index < 64)

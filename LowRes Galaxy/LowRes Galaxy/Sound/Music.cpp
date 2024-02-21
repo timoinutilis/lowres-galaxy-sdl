@@ -17,12 +17,12 @@ Music::~Music()
     Mix_FreeMusic(music);
 }
 
-void Music::play()
+void Music::play() const
 {
     Mix_PlayMusic(music, -1);
 }
 
-void Music::halt()
+void Music::halt() const
 {
     Mix_HaltMusic();
 }

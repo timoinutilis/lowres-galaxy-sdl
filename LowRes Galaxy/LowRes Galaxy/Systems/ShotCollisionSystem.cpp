@@ -15,9 +15,9 @@
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void ShotCollisionSystem::update(Scene* scene)
+void ShotCollisionSystem::update(Scene& scene)
 {
-    auto& registry = scene->getRegistry();
+    auto& registry = scene.getRegistry();
     const auto shotsView = registry.view<Shot, Position, CollisionBox>();
     const auto shootablesView = registry.view<Shootable, Position, CollisionBox>();
     
@@ -39,7 +39,7 @@ void ShotCollisionSystem::update(Scene* scene)
                 shootable.hits -= shot.damage;
                 if (shootable.hits <= 0)
                 {
-                    auto playerEntity = scene->getPlayerEntity();
+                    auto playerEntity = scene.getPlayerEntity();
                     auto& playerStatus = registry.get<PlayerStatus>(playerEntity);
                     playerStatus.score += shootable.points;
                     

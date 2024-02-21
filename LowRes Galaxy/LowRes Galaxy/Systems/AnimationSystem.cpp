@@ -11,9 +11,9 @@
 #include "../Components/Animation.hpp"
 #include "../Components/Sprite.hpp"
 
-void AnimationSystem::update(Scene* scene)
+void AnimationSystem::update(Scene& scene)
 {
-    const auto view = scene->getRegistry().view<Animation, Sprite>();
+    const auto view = scene.getRegistry().view<Animation, Sprite>();
     for (auto entity : view)
     {
         auto& animation = view.get<Animation>(entity);
@@ -28,7 +28,7 @@ void AnimationSystem::update(Scene* scene)
             }
             else if (animation.destroyAfterEnd)
             {
-                scene->getRegistry().destroy(entity);
+                scene.getRegistry().destroy(entity);
             }
             else
             {

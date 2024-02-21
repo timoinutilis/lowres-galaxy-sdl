@@ -14,9 +14,9 @@
 #include "../Components/EnemyShot.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void PlayerCollisionSystem::update(Scene* scene)
+void PlayerCollisionSystem::update(Scene& scene)
 {
-    auto& registry = scene->getRegistry();
+    auto& registry = scene.getRegistry();
     const auto playersView = registry.view<PlayerStatus, CollisionBox, Position>();
     const auto collidersView = registry.view<CollisionBox, Position>();
     
@@ -53,13 +53,13 @@ void PlayerCollisionSystem::update(Scene* scene)
     
 }
 
-void PlayerCollisionSystem::explode(Scene* scene, PlayerStatus& status, Position& position)
+void PlayerCollisionSystem::explode(Scene& scene, PlayerStatus& status, Position& position)
 {
     --status.lives;
     
     SpriteFactory::createExplosion(scene, position.x, position.y);
-    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene->getRandom().getDouble() * 16.0, position.y - 8.0 + scene->getRandom().getDouble() * 16.0);
-    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene->getRandom().getDouble() * 16.0, position.y - 8.0 + scene->getRandom().getDouble() * 16.0);
+    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene.getRandom().getDouble() * 16.0, position.y - 8.0 + scene.getRandom().getDouble() * 16.0);
+    SpriteFactory::createExplosion(scene, position.x - 8.0 + scene.getRandom().getDouble() * 16.0, position.y - 8.0 + scene.getRandom().getDouble() * 16.0);
     
     if (status.lives > 0)
     {

@@ -16,8 +16,8 @@ class Scene;
 class UIFactory
 {
 public:
-    static void createLabel(Scene* scene, const std::string& text, double x, double y);
-    static void createScrollingLabel(Scene* scene, const std::string& text, double x, double y);
+    static void createLabel(Scene& scene, const std::string& text, double x, double y);
+    static void createScrollingLabel(Scene& scene, const std::string& text, double x, double y);
 };
 
 #endif /* UIFactory_hpp */

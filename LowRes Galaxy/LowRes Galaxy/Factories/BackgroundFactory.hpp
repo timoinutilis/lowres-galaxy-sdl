@@ -15,9 +15,9 @@ class Scene;
 class BackgroundFactory
 {
 public:
-    static void createLayer1(Scene* scene, double x);
-    static void createLayer2(Scene* scene, double x);
-    static void createLayer3(Scene* scene, double x);
+    static void createLayer1(Scene& scene, double x);
+    static void createLayer2(Scene& scene, double x);
+    static void createLayer3(Scene& scene, double x);
 };
 
 #endif /* BackgroundFactory_hpp */

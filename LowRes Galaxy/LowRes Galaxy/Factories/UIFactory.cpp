@@ -11,20 +11,20 @@
 #include "../Components/Label.hpp"
 #include "../Components/AutoScroll.hpp"
 
-void UIFactory::createLabel(Scene* scene, const std::string& text, double x, double y)
+void UIFactory::createLabel(Scene& scene, const std::string& text, double x, double y)
 {
-    auto& registry = scene->getRegistry();
+    auto& registry = scene.getRegistry();
     const auto entity = registry.create();
     registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->getFontCache()[FontIdDefault], text, false);
+    registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
 }
 
-void UIFactory::createScrollingLabel(Scene* scene, const std::string& text, double x, double y)
+void UIFactory::createScrollingLabel(Scene& scene, const std::string& text, double x, double y)
 {
-    auto& registry = scene->getRegistry();
+    auto& registry = scene.getRegistry();
     const auto entity = registry.create();
     registry.emplace<Position>(entity, x, y, 0);
-    registry.emplace<Label>(entity, scene->getFontCache()[FontIdDefault], text, false);
+    registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
     double textWidth = text.length() * 8.0;
     registry.emplace<AutoScroll>(entity, -textWidth, x, 1.0);
     

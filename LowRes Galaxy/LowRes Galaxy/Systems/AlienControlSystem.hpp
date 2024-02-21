@@ -13,7 +13,7 @@ class Scene;
 class AlienControlSystem
 {
 public:
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 #endif /* AlienControlSystem_hpp */

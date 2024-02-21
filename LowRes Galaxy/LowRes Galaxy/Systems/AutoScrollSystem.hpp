@@ -13,7 +13,7 @@ class Scene;
 class AutoScrollSystem
 {
 public:
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 #endif /* AutoScrollSystem_hpp */

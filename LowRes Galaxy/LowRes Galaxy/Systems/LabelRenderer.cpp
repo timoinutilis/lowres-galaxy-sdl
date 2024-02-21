@@ -13,10 +13,10 @@
 #include "../Components/Label.hpp"
 #include "../Components/Position.hpp"
 
-void LabelRenderer::render(Scene* scene)
+void LabelRenderer::render(Scene& scene)
 {
-    const auto view = scene->getRegistry().view<Label, Position>();
-    SDL_Renderer *renderer = scene->getRenderer();
+    const auto view = scene.getRegistry().view<Label, Position>();
+    SDL_Renderer *renderer = scene.getRenderer();
     for (auto entity : view)
     {
         auto label = view.get<Label>(entity);

@@ -14,7 +14,7 @@ class LocalPlayerSystem
 {
 public:
     LocalPlayerSystem();
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 #endif /* LocalPlayerSystem_hpp */

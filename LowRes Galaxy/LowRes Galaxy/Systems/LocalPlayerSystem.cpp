@@ -16,11 +16,11 @@ LocalPlayerSystem::LocalPlayerSystem()
 {
 }
 
-void LocalPlayerSystem::update(Scene* scene)
+void LocalPlayerSystem::update(Scene& scene)
 {
     const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
     
-    const auto view = scene->getRegistry().view<LocalPlayer, PlayerInput>();
+    const auto view = scene.getRegistry().view<LocalPlayer, PlayerInput>();
     for (auto entity : view)
     {
         auto& localPlayer = view.get<LocalPlayer>(entity);

@@ -15,10 +15,10 @@ struct Position;
 class PlayerCollisionSystem
 {
 private:
-    void explode(Scene* scene, PlayerStatus& status, Position& position);
+    void explode(Scene& scene, PlayerStatus& status, Position& position);
     
 public:
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 

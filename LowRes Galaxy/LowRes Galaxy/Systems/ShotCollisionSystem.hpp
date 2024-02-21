@@ -13,7 +13,7 @@ class Scene;
 class ShotCollisionSystem
 {
 public:
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 #endif /* ShotCollisionSystem_hpp */

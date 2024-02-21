@@ -65,16 +65,16 @@ void Scene::load()
     spriteAtlasCache.load(SpriteAtlasIdSprites, renderer, "Textures/sprites");
     spriteAtlasCache.load(SpriteAtlasIdBackground, renderer, "Textures/background");
     
-    BackgroundFactory::createLayer1(this, 0.0);
-    BackgroundFactory::createLayer1(this, 256.0);
-    BackgroundFactory::createLayer2(this, 0.0);
-    BackgroundFactory::createLayer2(this, 256.0);
-    BackgroundFactory::createLayer3(this, 0.0);
-    BackgroundFactory::createLayer3(this, 256.0);
+    BackgroundFactory::createLayer1(*this, 0.0);
+    BackgroundFactory::createLayer1(*this, 256.0);
+    BackgroundFactory::createLayer2(*this, 0.0);
+    BackgroundFactory::createLayer2(*this, 256.0);
+    BackgroundFactory::createLayer3(*this, 0.0);
+    BackgroundFactory::createLayer3(*this, 256.0);
     
-    SpriteFactory::createShip(this, 32.0, 48.0);
+    SpriteFactory::createShip(*this, 32.0, 48.0);
     
-    UIFactory::createScrollingLabel(this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 0.0);
+    UIFactory::createScrollingLabel(*this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 0.0);
 }
 
 void Scene::unload()
@@ -114,10 +114,10 @@ void Scene::update()
             switch (random.getInt(2))
             {
                 case 0:
-                    SpriteFactory::createSmallBlueAlien(this);
+                    SpriteFactory::createSmallBlueAlien(*this);
                     break;
                 case 1:
-                    SpriteFactory::createSmallRedAlien(this);
+                    SpriteFactory::createSmallRedAlien(*this);
             }
         }
         
@@ -128,29 +128,29 @@ void Scene::update()
             switch (random.getInt(2))
             {
                 case 0:
-                    SpriteFactory::createBigBlueAlien(this);
+                    SpriteFactory::createBigBlueAlien(*this);
                     break;
                 case 1:
-                    SpriteFactory::createBigRedAlien(this);
+                    SpriteFactory::createBigRedAlien(*this);
             }
         }
     }
     
     // systems
-    autoScrollSystem.update(this);
-    localPlayerSystem.update(this);
-    playerControlSystem.update(this);
-    moveSystem.update(this);
-    alienControlSystem.update(this);
-    shotCollisionSystem.update(this);
-    playerCollisionSystem.update(this);
-    animationSystem.update(this);
+    autoScrollSystem.update(*this);
+    localPlayerSystem.update(*this);
+    playerControlSystem.update(*this);
+    moveSystem.update(*this);
+    alienControlSystem.update(*this);
+    shotCollisionSystem.update(*this);
+    playerCollisionSystem.update(*this);
+    animationSystem.update(*this);
     
     ++tick;
 }
 
 void Scene::render()
 {
-    spriteRenderer.render(this);
-    labelRenderer.render(this);
+    spriteRenderer.render(*this);
+    labelRenderer.render(*this);
 }

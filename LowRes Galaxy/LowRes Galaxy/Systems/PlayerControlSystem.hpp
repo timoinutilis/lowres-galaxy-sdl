@@ -13,7 +13,7 @@ class Scene;
 class PlayerControlSystem
 {
 public:
-    void update(Scene* scene);
+    void update(Scene& scene);
 };
 
 #endif /* PlayerMoveSystem_hpp */

@@ -13,6 +13,7 @@
 #include "../Components/PlayerInput.hpp"
 #include "../Components/PlayerStatus.hpp"
 #include "../Components/Sprite.hpp"
+#include "Config.hpp"
 
 void PlayerControlSystem::update(Scene& scene) const
 {
@@ -45,17 +46,17 @@ void PlayerControlSystem::update(Scene& scene) const
         {
             position.x = 8;
         }
-        if (position.x > 128)
+        if (position.x > Config::screenWidth - 32)
         {
-            position.x = 128;
+            position.x = Config::screenWidth - 32;
         }
         if (position.y < 0)
         {
             position.y = 0;
         }
-        if (position.y > 112)
+        if (position.y > Config::screenHeight - 16)
         {
-            position.y = 112;
+            position.y = Config::screenHeight - 16;
         }
         
         // shield

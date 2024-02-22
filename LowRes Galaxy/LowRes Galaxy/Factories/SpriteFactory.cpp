@@ -21,6 +21,7 @@
 #include "../Components/EnemyShot.hpp"
 #include "../Components/Animation.hpp"
 #include "../Components/CollisionBox.hpp"
+#include "Config.hpp"
 
 void SpriteFactory::createShip(Scene& scene, double x, double y)
 {
@@ -74,7 +75,7 @@ void SpriteFactory::createSmallBlueAlien(Scene& scene)
 {
     auto& registry = scene.getRegistry();
     const auto entity = registry.create();
-    double x = 160.0;
+    double x = Config::screenWidth;
     double y = 16.0 + scene.getRandom().getDouble() * 80.0;
     registry.emplace<Position>(entity, x, y, 10);
     registry.emplace<CollisionBox>(entity, 0.0, 0.0, 7.0, 7.0, 1);
@@ -88,7 +89,7 @@ void SpriteFactory::createBigBlueAlien(Scene& scene)
 {
     auto& registry = scene.getRegistry();
     const auto entity = registry.create();
-    double x = 160.0;
+    double x = Config::screenWidth;
     double y = 16.0 + scene.getRandom().getDouble() * 80.0;
     registry.emplace<Position>(entity, x, y, 10);
     registry.emplace<CollisionBox>(entity, 2.0, 2.0, 13.0, 13.0, 1);
@@ -102,7 +103,7 @@ void SpriteFactory::createSmallRedAlien(Scene& scene)
 {
     auto& registry = scene.getRegistry();
     const auto entity = registry.create();
-    double x = 160.0;
+    double x = Config::screenWidth;
     double y = 16.0 + scene.getRandom().getDouble() * 80.0;
     registry.emplace<Position>(entity, x, y, 10);
     registry.emplace<CollisionBox>(entity, 0.0, 0.0, 7.0, 7.0, 1);
@@ -116,7 +117,7 @@ void SpriteFactory::createBigRedAlien(Scene& scene)
 {
     auto& registry = scene.getRegistry();
     const auto entity = registry.create();
-    double x = 160.0;
+    double x = Config::screenWidth;
     double y = 16.0 + scene.getRandom().getDouble() * 80.0;
     registry.emplace<Position>(entity, x, y, 10);
     registry.emplace<CollisionBox>(entity, 2.0, 2.0, 13.0, 13.0, 1);

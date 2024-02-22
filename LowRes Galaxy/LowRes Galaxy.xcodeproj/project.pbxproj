@@ -196,6 +196,7 @@
 		9293DB502B80136E00409AC8 /* Label.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		9293DB512B8013C800409AC8 /* LabelRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelRenderer.cpp; sourceTree = "<group>"; };
 		9293DB522B8013C800409AC8 /* LabelRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelRenderer.hpp; sourceTree = "<group>"; };
+		92AF82D22B879F8100D9F05A /* Config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Config.hpp; sourceTree = "<group>"; };
 		92B21A2F2B64044000B033E2 /* LowRes Galaxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LowRes Galaxy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B21A352B64044100B033E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92B21A3C2B64044100B033E2 /* LowRes_Galaxy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LowRes_Galaxy.entitlements; sourceTree = "<group>"; };
@@ -564,6 +565,7 @@
 				92188BBD2B73D64B0087E7E1 /* Factories */,
 				923C8F3C2B7E819300FA0FBC /* Scenes */,
 				92B21A422B64064F00B033E2 /* main.cpp */,
+				92AF82D22B879F8100D9F05A /* Config.hpp */,
 			);
 			path = "LowRes Galaxy";
 			sourceTree = "<group>";

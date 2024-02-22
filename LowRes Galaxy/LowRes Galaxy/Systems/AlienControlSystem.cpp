@@ -13,6 +13,7 @@
 #include "../Components/AlienStatus.hpp"
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
+#include "Config.hpp"
 
 void AlienControlSystem::update(GameScene& scene) const
 {
@@ -24,7 +25,7 @@ void AlienControlSystem::update(GameScene& scene) const
         
         ++status.tick;
         
-        position.x = 160.0 - status.tick * status.speedX - std::sin(status.tick * 0.03) * 24.0;
+        position.x = Config::screenWidth - status.tick * status.speedX - std::sin(status.tick * 0.03) * 24.0;
         position.y = status.startY + std::sin(status.tick * status.speedY) * status.amplitude;
         
         if (!scene.isPeace() && position.x > 50.0 && status.tick % 120 == 30)

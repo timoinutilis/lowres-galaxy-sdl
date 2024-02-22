@@ -10,6 +10,7 @@
 #include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/MoveDirection.hpp"
+#include "Config.hpp"
 
 void MoveSystem::update(Scene& scene) const
 {
@@ -22,7 +23,7 @@ void MoveSystem::update(Scene& scene) const
         position.x += moveDirection.x;
         position.y += moveDirection.y;
         
-        if (position.x < -8.0 || position.x >= 160.0 || position.y < -8.0 || position.y >= 128.0)
+        if (position.x < -8.0 || position.x >= Config::screenWidth || position.y < -8.0 || position.y >= Config::screenHeight)
         {
             scene.getRegistry().destroy(entity);
         }

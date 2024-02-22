@@ -11,6 +11,7 @@
 #include "../Components/Sprite.hpp"
 #include "../Components/Label.hpp"
 #include "../Components/AutoScroll.hpp"
+#include "Config.hpp"
 
 void UIFactory::createImage(Scene& scene, entt::id_type cacheId, std::string frame, double x, double y)
 {

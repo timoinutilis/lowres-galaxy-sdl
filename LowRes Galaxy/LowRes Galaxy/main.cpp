@@ -4,6 +4,7 @@
 #include <SDL2_mixer/SDL_mixer.h>
 #include "SceneManager.hpp"
 #include "TitleScene.hpp"
+#include "Config.hpp"
 
 int main( int argc, char* args[] )
 {
@@ -14,9 +15,9 @@ int main( int argc, char* args[] )
     IMG_Init(IMG_INIT_PNG);
     Mix_Init(MIX_INIT_OGG);
     
-    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 512, SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    SDL_RenderSetLogicalSize(renderer, 160, 128);
+    SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
     
     Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_AllocateChannels(2);

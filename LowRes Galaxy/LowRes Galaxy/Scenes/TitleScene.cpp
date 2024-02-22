@@ -11,6 +11,7 @@
 #include "../Factories/SpriteFactory.hpp"
 #include "../Factories/UIFactory.hpp"
 #include "GameScene.hpp"
+#include "Config.hpp"
 
 TitleScene::TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)
@@ -37,9 +38,9 @@ void TitleScene::load()
     BackgroundFactory::createLayer3(*this, 0.0);
     BackgroundFactory::createLayer3(*this, 256.0);
     
-    UIFactory::createImage(*this, SpriteAtlasIdSprites, "title", (160.0 - 94.0) * 0.5, 16.0);
+    UIFactory::createImage(*this, SpriteAtlasIdSprites, "title", (Config::screenWidth - 94.0) * 0.5, 16.0);
     
-    UIFactory::createScrollingLabel(*this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", 160.0, 88.0);
+    UIFactory::createScrollingLabel(*this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", Config::screenWidth, 88.0);
 }
 
 void TitleScene::unload()

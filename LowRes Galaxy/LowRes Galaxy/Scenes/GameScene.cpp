@@ -11,6 +11,7 @@
 #include "../Factories/SpriteFactory.hpp"
 #include "../Factories/UIFactory.hpp"
 #include "../Components/PlayerStatus.hpp"
+#include "Config.hpp"
 
 GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)

@@ -9,11 +9,6 @@
 
 bool CollisionBox::checkCollision(const Position& position1, const CollisionBox& box1, const Position& position2, const CollisionBox& box2)
 {
-    if (box1.group == box2.group)
-    {
-        return false;
-    }
-    
     CollisionBox absBox1 = box1;
     absBox1.minX += position1.x;
     absBox1.minY += position1.y;

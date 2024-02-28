@@ -8,15 +8,19 @@
 #ifndef GameScene_hpp
 #define GameScene_hpp
 
+#include <vector>
 #include "Scene.hpp"
+#include "entt.hpp"
 #include "../Systems/PlayerControlSystem.hpp"
 #include "../Systems/LocalPlayerSystem.hpp"
 #include "../Systems/AutoScrollSystem.hpp"
 #include "../Systems/MoveSystem.hpp"
 #include "../Systems/AlienControlSystem.hpp"
-#include "../Systems/ShotCollisionSystem.hpp"
+#include "../Systems/PlayerShotCollisionSystem.hpp"
 #include "../Systems/AnimationSystem.hpp"
-#include "../Systems/PlayerCollisionSystem.hpp"
+#include "../Systems/EnemyShotCollisionSystem.hpp"
+#include "../Events/ScoreChangedEvent.hpp"
+#include "../Events/LivesChangedEvent.hpp"
 
 class GameScene : public Scene
 {
@@ -26,13 +30,19 @@ private:
     AutoScrollSystem autoScrollSystem;
     MoveSystem moveSystem;
     AlienControlSystem alienControlSystem;
-    ShotCollisionSystem shotCollisionSystem;
-    PlayerCollisionSystem playerCollisionSystem;
+    PlayerShotCollisionSystem shotCollisionSystem;
+    EnemyShotCollisionSystem playerCollisionSystem;
     AnimationSystem animationSystem;
     
     int tick = 0;
     int level = 0;
     int peace = 0;
+    
+    entt::entity scoreLabelEntity;
+    std::vector<entt::entity> liveIconEntities;
+    
+    void onScoreChanged(const ScoreChangedEvent& event);
+    void onLivesChanged(const LivesChangedEvent& event);
     
 public:
     GameScene(SDL_Renderer* renderer, SceneManager& sceneManager);

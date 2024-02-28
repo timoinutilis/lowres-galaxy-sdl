@@ -16,7 +16,6 @@ struct CollisionBox final
     double minY = 0.0;
     double maxX = 0.0;
     double maxY = 0.0;
-    int group = 0;
     
     static bool checkCollision(const Position& position1, const CollisionBox& box1, const Position& position2, const CollisionBox& box2);
 };

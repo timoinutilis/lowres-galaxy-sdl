@@ -1,29 +1,30 @@
 //
-//  ShotCollisionSystem.cpp
+//  PlayerShotCollisionSystem.cpp
 //  LowRes Galaxy
 //
 //  Created by Timo Kloss on 14.02.24.
 //
 
-#include "ShotCollisionSystem.hpp"
+#include "PlayerShotCollisionSystem.hpp"
 #include "entt.hpp"
-#include "../Scenes/GameScene.hpp"
+#include "../Scenes/Scene.hpp"
 #include "../Components/Position.hpp"
 #include "../Components/Shootable.hpp"
-#include "../Components/Shot.hpp"
+#include "../Components/PlayerShot.hpp"
 #include "../Components/CollisionBox.hpp"
 #include "../Components/PlayerStatus.hpp"
+#include "../Events/AddScoreEvent.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-ShotCollisionSystem::ShotCollisionSystem(GameScene& scene)
+PlayerShotCollisionSystem::PlayerShotCollisionSystem(Scene& scene)
     : scene(scene)
 {
 }
 
-void ShotCollisionSystem::update() const
+void PlayerShotCollisionSystem::update() const
 {
     auto& registry = scene.getRegistry();
-    const auto shotsView = registry.view<Shot, Position, CollisionBox>();
+    const auto shotsView = registry.view<PlayerShot, Position, CollisionBox>();
     const auto shootablesView = registry.view<Shootable, Position, CollisionBox>();
     
     for (auto shotEntity : shotsView)
@@ -38,15 +39,13 @@ void ShotCollisionSystem::update() const
             
             if (CollisionBox::checkCollision(shotPosition, shotBox, shootablePosition, shootableBox))
             {
-                auto& shot = shotsView.get<Shot>(shotEntity);
+                auto& shot = shotsView.get<PlayerShot>(shotEntity);
                 auto& shootable = shootablesView.get<Shootable>(shootableEntity);
                 
                 shootable.hits -= shot.damage;
                 if (shootable.hits <= 0)
                 {
-                    auto playerEntity = scene.getPlayerEntity();
-                    auto& playerStatus = registry.get<PlayerStatus>(playerEntity);
-                    playerStatus.score += shootable.points;
+                    scene.getDispatcher().trigger(AddScoreEvent{shot.player, shootable.points});
                     
                     SpriteFactory::createExplosion(scene, shootablePosition.x + (shootableBox.minX + shootableBox.maxX) * 0.5 - 8.0, shootablePosition.y + (shootableBox.minY + shootableBox.maxY) * 0.5 - 8.0);
                     registry.destroy(shootableEntity);
@@ -57,5 +56,4 @@ void ShotCollisionSystem::update() const
             }
         }
     }
-    
 }

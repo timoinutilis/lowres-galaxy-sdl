@@ -69,4 +69,6 @@ void TitleScene::update()
     
     // systems
     autoScrollSystem.update();
+    
+    dispatcher.update();
 }

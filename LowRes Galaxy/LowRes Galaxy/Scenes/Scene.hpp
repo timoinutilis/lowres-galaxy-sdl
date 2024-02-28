@@ -28,6 +28,7 @@ private:
     
 protected:
     entt::registry registry;
+    entt::dispatcher dispatcher;
     SceneManager& sceneManager;
     SpriteAtlasCache spriteAtlasCache;
     FontCache fontCache;
@@ -41,6 +42,7 @@ public:
     SDL_Renderer* getRenderer();
     
     entt::registry& getRegistry();
+    entt::dispatcher& getDispatcher();
     SceneManager& getSceneManager();
     SpriteAtlasCache& getSpriteAtlasCache();
     FontCache& getFontCache();

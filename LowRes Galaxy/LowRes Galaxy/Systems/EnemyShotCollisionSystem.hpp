@@ -1,5 +1,5 @@
 //
-//  PlayerCollisionSystem.hpp
+//  EnemyShotCollisionSystem.hpp
 //  LowRes Galaxy
 //
 //  Created by Timo Kloss on 14.02.24.
@@ -12,16 +12,14 @@ class Scene;
 struct PlayerStatus;
 struct Position;
 
-class PlayerCollisionSystem final
+class EnemyShotCollisionSystem final
 {
 public:
-    PlayerCollisionSystem(Scene& scene);
+    EnemyShotCollisionSystem(Scene& scene);
     void update() const;
     
 private:
     Scene& scene;
-    
-    void explode(Scene& scene, PlayerStatus& status, Position& position) const;
 };
 
 

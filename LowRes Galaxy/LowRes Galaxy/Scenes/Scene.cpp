@@ -26,6 +26,11 @@ entt::registry& Scene::getRegistry()
     return registry;
 }
 
+entt::dispatcher& Scene::getDispatcher()
+{
+    return dispatcher;
+}
+
 SceneManager& Scene::getSceneManager()
 {
     return sceneManager;
@@ -49,6 +54,11 @@ MusicCache& Scene::getMusicCache()
 Random& Scene::getRandom()
 {
     return random;
+}
+
+void Scene::update()
+{
+    dispatcher.update();
 }
 
 void Scene::render()

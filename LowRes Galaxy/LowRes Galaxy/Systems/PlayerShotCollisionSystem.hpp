@@ -1,5 +1,5 @@
 //
-//  ShotCollisionSystem.hpp
+//  PlayerShotCollisionSystem.hpp
 //  LowRes Galaxy
 //
 //  Created by Timo Kloss on 14.02.24.
@@ -8,16 +8,16 @@
 #ifndef ShotCollisionSystem_hpp
 #define ShotCollisionSystem_hpp
 
-class GameScene;
+class Scene;
 
-class ShotCollisionSystem final
+class PlayerShotCollisionSystem final
 {
 public:
-    ShotCollisionSystem(GameScene& scene);
+    PlayerShotCollisionSystem(Scene& scene);
     void update() const;
     
 private:
-    GameScene& scene;
+    Scene& scene;
 };
 
 #endif /* ShotCollisionSystem_hpp */

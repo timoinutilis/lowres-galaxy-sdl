@@ -1,5 +1,5 @@
 //
-//  Shot.hpp
+//  PlayerShot.hpp
 //  LowRes Galaxy
 //
 //  Created by Timo Kloss on 14.02.24.
@@ -8,8 +8,11 @@
 #ifndef Shot_h
 #define Shot_h
 
-struct Shot final
+#include "entt.hpp"
+
+struct PlayerShot final
 {
+    entt::entity player;
     int damage = 1;
 };
 

@@ -16,9 +16,9 @@ class Scene;
 class UIFactory final
 {
 public:
-    static void createImage(Scene& scene, entt::id_type cacheId, std::string frame, double x, double y);
-    static void createLabel(Scene& scene, const std::string& text, double x, double y);
-    static void createScrollingLabel(Scene& scene, const std::string& text, double x, double y);
+    static entt::entity createImage(Scene& scene, entt::id_type cacheId, std::string frame, double x, double y);
+    static entt::entity createLabel(Scene& scene, const std::string& text, double x, double y);
+    static entt::entity createScrollingLabel(Scene& scene, const std::string& text, double x, double y);
 };
 
 #endif /* UIFactory_hpp */

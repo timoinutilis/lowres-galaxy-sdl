@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		92026E8E2B7CBA8500B87AAD /* AlienControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E8C2B7CBA8500B87AAD /* AlienControlSystem.cpp */; };
 		92026E922B7CBFFC00B87AAD /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E902B7CBFFC00B87AAD /* Random.cpp */; };
-		92026E962B7CDED800B87AAD /* ShotCollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E942B7CDED800B87AAD /* ShotCollisionSystem.cpp */; };
+		92026E962B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E942B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp */; };
 		92026E9D2B7CE87600B87AAD /* AnimationSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E9B2B7CE87600B87AAD /* AnimationSystem.cpp */; };
 		92026EA02B7D05B200B87AAD /* CollisionBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026E9F2B7D05B200B87AAD /* CollisionBox.cpp */; };
-		92026EA32B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026EA12B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp */; };
+		92026EA32B7D0A6E00B87AAD /* EnemyShotCollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92026EA12B7D0A6E00B87AAD /* EnemyShotCollisionSystem.cpp */; };
 		92188BAD2B739C040087E7E1 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BAB2B739C040087E7E1 /* SpriteRenderer.cpp */; };
 		92188BB22B73B0420087E7E1 /* PlayerControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BB02B73B0420087E7E1 /* PlayerControlSystem.cpp */; };
 		92188BB52B73BFF00087E7E1 /* LocalPlayerSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92188BB32B73BFF00087E7E1 /* LocalPlayerSystem.cpp */; };
@@ -65,16 +65,16 @@
 		92026E902B7CBFFC00B87AAD /* Random.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
 		92026E912B7CBFFC00B87AAD /* Random.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Random.hpp; sourceTree = "<group>"; };
 		92026E932B7CD75500B87AAD /* Shootable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shootable.hpp; sourceTree = "<group>"; };
-		92026E942B7CDED800B87AAD /* ShotCollisionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShotCollisionSystem.cpp; sourceTree = "<group>"; };
-		92026E952B7CDED800B87AAD /* ShotCollisionSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShotCollisionSystem.hpp; sourceTree = "<group>"; };
-		92026E972B7CE04200B87AAD /* Shot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shot.hpp; sourceTree = "<group>"; };
+		92026E942B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerShotCollisionSystem.cpp; sourceTree = "<group>"; };
+		92026E952B7CDED800B87AAD /* PlayerShotCollisionSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerShotCollisionSystem.hpp; sourceTree = "<group>"; };
+		92026E972B7CE04200B87AAD /* PlayerShot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerShot.hpp; sourceTree = "<group>"; };
 		92026E9A2B7CE6CB00B87AAD /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
 		92026E9B2B7CE87600B87AAD /* AnimationSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationSystem.cpp; sourceTree = "<group>"; };
 		92026E9C2B7CE87600B87AAD /* AnimationSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AnimationSystem.hpp; sourceTree = "<group>"; };
 		92026E9E2B7D036900B87AAD /* CollisionBox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CollisionBox.hpp; sourceTree = "<group>"; };
 		92026E9F2B7D05B200B87AAD /* CollisionBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionBox.cpp; sourceTree = "<group>"; };
-		92026EA12B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerCollisionSystem.cpp; sourceTree = "<group>"; };
-		92026EA22B7D0A6E00B87AAD /* PlayerCollisionSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerCollisionSystem.hpp; sourceTree = "<group>"; };
+		92026EA12B7D0A6E00B87AAD /* EnemyShotCollisionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyShotCollisionSystem.cpp; sourceTree = "<group>"; };
+		92026EA22B7D0A6E00B87AAD /* EnemyShotCollisionSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnemyShotCollisionSystem.hpp; sourceTree = "<group>"; };
 		92188BA92B739A9D0087E7E1 /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		92188BAA2B739B9B0087E7E1 /* Position.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Position.hpp; sourceTree = "<group>"; };
 		92188BAB2B739C040087E7E1 /* SpriteRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteRenderer.cpp; sourceTree = "<group>"; };
@@ -203,6 +203,10 @@
 		92B21A422B64064F00B033E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		92B21A452B6406B700B033E2 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		92B21A492B6408E100B033E2 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
+		92F7D7332B8F3F7600BA47B8 /* AddScoreEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AddScoreEvent.hpp; sourceTree = "<group>"; };
+		92F7D7342B8F66E600BA47B8 /* ScoreChangedEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScoreChangedEvent.hpp; sourceTree = "<group>"; };
+		92F7D7352B8F678D00BA47B8 /* LivesChangedEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LivesChangedEvent.hpp; sourceTree = "<group>"; };
+		92F7D7362B8F6A4A00BA47B8 /* HitEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HitEvent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +245,7 @@
 				92188BCC2B77C2F00087E7E1 /* MoveDirection.hpp */,
 				92026E8B2B7CB87A00B87AAD /* AlienStatus.hpp */,
 				92026E932B7CD75500B87AAD /* Shootable.hpp */,
-				92026E972B7CE04200B87AAD /* Shot.hpp */,
+				92026E972B7CE04200B87AAD /* PlayerShot.hpp */,
 				923C8F362B7D172300FA0FBC /* EnemyShot.hpp */,
 				92026E9A2B7CE6CB00B87AAD /* Animation.hpp */,
 				92026E9F2B7D05B200B87AAD /* CollisionBox.cpp */,
@@ -267,10 +271,10 @@
 				92188BCE2B77C3600087E7E1 /* MoveSystem.hpp */,
 				92026E8C2B7CBA8500B87AAD /* AlienControlSystem.cpp */,
 				92026E8D2B7CBA8500B87AAD /* AlienControlSystem.hpp */,
-				92026E942B7CDED800B87AAD /* ShotCollisionSystem.cpp */,
-				92026E952B7CDED800B87AAD /* ShotCollisionSystem.hpp */,
-				92026EA12B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp */,
-				92026EA22B7D0A6E00B87AAD /* PlayerCollisionSystem.hpp */,
+				92026E942B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp */,
+				92026E952B7CDED800B87AAD /* PlayerShotCollisionSystem.hpp */,
+				92026EA12B7D0A6E00B87AAD /* EnemyShotCollisionSystem.cpp */,
+				92026EA22B7D0A6E00B87AAD /* EnemyShotCollisionSystem.hpp */,
 				92026E9B2B7CE87600B87AAD /* AnimationSystem.cpp */,
 				92026E9C2B7CE87600B87AAD /* AnimationSystem.hpp */,
 			);
@@ -562,6 +566,7 @@
 				928F356A2B8614DE00E20823 /* Caches */,
 				92188BA42B73978A0087E7E1 /* Components */,
 				92188BA52B7397920087E7E1 /* Systems */,
+				92F7D7322B8F3E2C00BA47B8 /* Events */,
 				92188BBD2B73D64B0087E7E1 /* Factories */,
 				923C8F3C2B7E819300FA0FBC /* Scenes */,
 				92B21A422B64064F00B033E2 /* main.cpp */,
@@ -578,6 +583,17 @@
 				92B21A452B6406B700B033E2 /* SDL2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92F7D7322B8F3E2C00BA47B8 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				92F7D7332B8F3F7600BA47B8 /* AddScoreEvent.hpp */,
+				92F7D7362B8F6A4A00BA47B8 /* HitEvent.hpp */,
+				92F7D7342B8F66E600BA47B8 /* ScoreChangedEvent.hpp */,
+				92F7D7352B8F678D00BA47B8 /* LivesChangedEvent.hpp */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -652,7 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92026E922B7CBFFC00B87AAD /* Random.cpp in Sources */,
-				92026E962B7CDED800B87AAD /* ShotCollisionSystem.cpp in Sources */,
+				92026E962B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp in Sources */,
 				92188BB22B73B0420087E7E1 /* PlayerControlSystem.cpp in Sources */,
 				92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */,
 				928F35732B86401C00E20823 /* GameScene.cpp in Sources */,
@@ -663,7 +679,7 @@
 				92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */,
 				9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */,
 				92188BAD2B739C040087E7E1 /* SpriteRenderer.cpp in Sources */,
-				92026EA32B7D0A6E00B87AAD /* PlayerCollisionSystem.cpp in Sources */,
+				92026EA32B7D0A6E00B87AAD /* EnemyShotCollisionSystem.cpp in Sources */,
 				92188BB52B73BFF00087E7E1 /* LocalPlayerSystem.cpp in Sources */,
 				927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */,
 				92188BCF2B77C3600087E7E1 /* MoveSystem.cpp in Sources */,

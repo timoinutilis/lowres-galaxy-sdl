@@ -11,6 +11,8 @@
 Scene::Scene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : renderer(renderer)
     , sceneManager(sceneManager)
+    , spriteRenderer(*this)
+    , labelRenderer(*this)
 {
 }
 
@@ -51,6 +53,6 @@ Random& Scene::getRandom()
 
 void Scene::render()
 {
-    spriteRenderer.render(*this);
-    labelRenderer.render(*this);
+    spriteRenderer.render();
+    labelRenderer.render();
 }

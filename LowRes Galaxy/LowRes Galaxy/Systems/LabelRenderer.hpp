@@ -13,7 +13,11 @@ class Scene;
 class LabelRenderer final
 {
 public:
-    void render(Scene& scene) const;
+    LabelRenderer(Scene& scene);
+    void render() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* LabelRenderer_hpp */

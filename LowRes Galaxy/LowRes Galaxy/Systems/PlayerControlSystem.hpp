@@ -13,7 +13,11 @@ class Scene;
 class PlayerControlSystem final
 {
 public:
-    void update(Scene& scene) const;
+    PlayerControlSystem(Scene& scene);
+    void update() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* PlayerMoveSystem_hpp */

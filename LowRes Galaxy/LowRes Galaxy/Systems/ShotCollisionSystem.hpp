@@ -13,7 +13,11 @@ class GameScene;
 class ShotCollisionSystem final
 {
 public:
-    void update(GameScene& scene) const;
+    ShotCollisionSystem(GameScene& scene);
+    void update() const;
+    
+private:
+    GameScene& scene;
 };
 
 #endif /* ShotCollisionSystem_hpp */

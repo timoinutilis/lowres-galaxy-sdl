@@ -15,6 +15,14 @@
 
 GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)
+    , playerControlSystem(*this)
+    , localPlayerSystem(*this)
+    , autoScrollSystem(*this)
+    , moveSystem(*this)
+    , alienControlSystem(*this)
+    , shotCollisionSystem(*this)
+    , playerCollisionSystem(*this)
+    , animationSystem(*this)
 {
     std::cout << "hello GameScene\n";
 }
@@ -112,14 +120,14 @@ void GameScene::update()
     }
     
     // systems
-    autoScrollSystem.update(*this);
-    localPlayerSystem.update(*this);
-    playerControlSystem.update(*this);
-    moveSystem.update(*this);
-    alienControlSystem.update(*this);
-    shotCollisionSystem.update(*this);
-    playerCollisionSystem.update(*this);
-    animationSystem.update(*this);
+    autoScrollSystem.update();
+    localPlayerSystem.update();
+    playerControlSystem.update();
+    moveSystem.update();
+    alienControlSystem.update();
+    shotCollisionSystem.update();
+    playerCollisionSystem.update();
+    animationSystem.update();
     
     ++tick;
 }

@@ -15,7 +15,12 @@
 #include "../Components/Sprite.hpp"
 #include "Config.hpp"
 
-void PlayerControlSystem::update(Scene& scene) const
+PlayerControlSystem::PlayerControlSystem(Scene& scene)
+    : scene(scene)
+{
+}
+
+void PlayerControlSystem::update() const
 {
     const auto view = scene.getRegistry().view<PlayerStatus, PlayerInput, Position, Sprite>();
     for (auto entity : view)

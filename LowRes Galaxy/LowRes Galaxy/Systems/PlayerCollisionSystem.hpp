@@ -14,11 +14,14 @@ struct Position;
 
 class PlayerCollisionSystem final
 {
-private:
-    void explode(Scene& scene, PlayerStatus& status, Position& position) const;
-    
 public:
-    void update(Scene& scene) const;
+    PlayerCollisionSystem(Scene& scene);
+    void update() const;
+    
+private:
+    Scene& scene;
+    
+    void explode(Scene& scene, PlayerStatus& status, Position& position) const;
 };
 
 

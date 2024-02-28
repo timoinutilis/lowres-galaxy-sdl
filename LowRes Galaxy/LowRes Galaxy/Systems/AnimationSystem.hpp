@@ -13,7 +13,11 @@ class Scene;
 class AnimationSystem final
 {
 public:
-    void update(Scene& scene) const;
+    AnimationSystem(Scene& scene);
+    void update() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* AnimationSystem_hpp */

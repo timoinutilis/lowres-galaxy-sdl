@@ -14,7 +14,12 @@
 #include "../Components/EnemyShot.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void PlayerCollisionSystem::update(Scene& scene) const
+PlayerCollisionSystem::PlayerCollisionSystem(Scene& scene)
+    : scene(scene)
+{
+}
+
+void PlayerCollisionSystem::update() const
 {
     auto& registry = scene.getRegistry();
     const auto playersView = registry.view<PlayerStatus, CollisionBox, Position>();

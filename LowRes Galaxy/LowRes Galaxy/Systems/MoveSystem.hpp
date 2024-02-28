@@ -13,7 +13,11 @@ class Scene;
 class MoveSystem final
 {
 public:
-    void update(Scene& scene) const;
+    MoveSystem(Scene& scene);
+    void update() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* MoveSystem_hpp */

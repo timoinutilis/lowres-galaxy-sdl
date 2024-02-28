@@ -11,7 +11,12 @@
 #include "../Components/Position.hpp"
 #include "../Components/AutoScroll.hpp"
 
-void AutoScrollSystem::update(Scene& scene) const
+AutoScrollSystem::AutoScrollSystem(Scene& scene)
+    : scene(scene)
+{
+}
+
+void AutoScrollSystem::update() const
 {
     const auto view = scene.getRegistry().view<Position, AutoScroll>();
     for (auto entity : view)

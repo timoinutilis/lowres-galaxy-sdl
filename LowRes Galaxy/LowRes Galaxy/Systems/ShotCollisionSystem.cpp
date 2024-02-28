@@ -15,7 +15,12 @@
 #include "../Components/PlayerStatus.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-void ShotCollisionSystem::update(GameScene& scene) const
+ShotCollisionSystem::ShotCollisionSystem(GameScene& scene)
+    : scene(scene)
+{
+}
+
+void ShotCollisionSystem::update() const
 {
     auto& registry = scene.getRegistry();
     const auto shotsView = registry.view<Shot, Position, CollisionBox>();

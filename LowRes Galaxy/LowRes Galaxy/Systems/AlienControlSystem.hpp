@@ -13,7 +13,11 @@ class GameScene;
 class AlienControlSystem final
 {
 public:
-    void update(GameScene& scene) const;
+    AlienControlSystem(GameScene& scene);
+    void update() const;
+    
+private:
+    GameScene& scene;
 };
 
 #endif /* AlienControlSystem_hpp */

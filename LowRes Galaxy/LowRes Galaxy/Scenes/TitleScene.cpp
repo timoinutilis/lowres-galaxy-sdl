@@ -15,6 +15,7 @@
 
 TitleScene::TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)
+    , autoScrollSystem(*this)
 {
     std::cout << "hello TitleScene\n";
 }
@@ -67,5 +68,5 @@ void TitleScene::update()
     }
     
     // systems
-    autoScrollSystem.update(*this);
+    autoScrollSystem.update();
 }

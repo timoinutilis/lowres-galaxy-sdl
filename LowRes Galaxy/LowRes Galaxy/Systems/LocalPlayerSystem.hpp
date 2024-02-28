@@ -13,7 +13,11 @@ class Scene;
 class LocalPlayerSystem final
 {
 public:
-    void update(Scene& scene) const;
+    LocalPlayerSystem(Scene& scene);
+    void update() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* LocalPlayerSystem_hpp */

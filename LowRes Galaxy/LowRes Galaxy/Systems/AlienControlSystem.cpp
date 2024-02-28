@@ -15,7 +15,12 @@
 #include "../Factories/SpriteFactory.hpp"
 #include "Config.hpp"
 
-void AlienControlSystem::update(GameScene& scene) const
+AlienControlSystem::AlienControlSystem(GameScene& scene)
+    : scene(scene)
+{
+}
+
+void AlienControlSystem::update() const
 {
     const auto view = scene.getRegistry().view<Position, AlienStatus>();
     for (auto entity : view)

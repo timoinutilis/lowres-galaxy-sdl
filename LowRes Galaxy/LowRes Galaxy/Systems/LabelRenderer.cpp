@@ -13,7 +13,12 @@
 #include "../Components/Label.hpp"
 #include "../Components/Position.hpp"
 
-void LabelRenderer::render(Scene& scene) const
+LabelRenderer::LabelRenderer(Scene& scene)
+    : scene(scene)
+{
+}
+
+void LabelRenderer::render() const
 {
     const auto view = scene.getRegistry().view<Label, Position>();
     SDL_Renderer *renderer = scene.getRenderer();

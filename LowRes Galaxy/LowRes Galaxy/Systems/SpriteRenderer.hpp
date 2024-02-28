@@ -13,7 +13,11 @@ class Scene;
 class SpriteRenderer final
 {
 public:
-    void render(Scene& scene) const;
+    SpriteRenderer(Scene& scene);
+    void render() const;
+    
+private:
+    Scene& scene;
 };
 
 #endif /* SpriteRenderer_hpp */

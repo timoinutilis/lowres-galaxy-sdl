@@ -8,6 +8,8 @@
 #ifndef LivesChangedEvent_h
 #define LivesChangedEvent_h
 
+#include "entt.hpp"
+
 struct LivesChangedEvent final
 {
     entt::entity entity;

@@ -19,6 +19,7 @@
 
 GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)
+    , levelSystem(*this)
     , playerControlSystem(*this)
     , localPlayerSystem(*this)
     , autoScrollSystem(*this)
@@ -28,12 +29,10 @@ GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     , playerCollisionSystem(*this)
     , animationSystem(*this)
 {
-    std::cout << "hello GameScene\n";
 }
 
 GameScene::~GameScene()
 {
-    std::cout << "bye GameScene\n";
 }
 
 entt::entity GameScene::getPlayerEntity()
@@ -44,15 +43,17 @@ entt::entity GameScene::getPlayerEntity()
 
 bool GameScene::isPeace() const
 {
-    return peace > 0;
+    return levelSystem.isPeace();
 }
 
 void GameScene::load()
 {
     playerControlSystem.connectEvents();
+    levelSystem.connectEvents();
     
     dispatcher.sink<ScoreChangedEvent>().connect<&GameScene::onScoreChanged>(*this);
     dispatcher.sink<LivesChangedEvent>().connect<&GameScene::onLivesChanged>(*this);
+    dispatcher.sink<LevelChangedEvent>().connect<&GameScene::onLevelChanged>(*this);
     
     musicCache.load(MusicIdGame, "Audio/game.ogg");
     fontCache.load(FontIdDefault, getRenderer(), "Textures/font");
@@ -79,9 +80,11 @@ void GameScene::load()
 void GameScene::unload()
 {
     playerControlSystem.disconnectEvents();
+    levelSystem.disconnectEvents();
     
     dispatcher.sink<ScoreChangedEvent>().disconnect(this);
     dispatcher.sink<LivesChangedEvent>().disconnect(this);
+    dispatcher.sink<LevelChangedEvent>().disconnect(this);
 }
 
 void GameScene::onAppear()
@@ -96,50 +99,8 @@ void GameScene::onDisappear()
 
 void GameScene::update()
 {
-    // next level?
-    if (/*LIVES>0 AND*/ tick % 1800 == 0)
-    {
-        ++level;
-    }
-    
-    // spawn enemies
-    if (peace > 0)
-    {
-        // do not spawn enemies
-        --peace;
-    }
-    else
-    {
-        // spawn small alien?
-        int m1 = 480 / (level + 3);
-        if (tick % m1 == 0)
-        {
-            switch (random.getInt(2))
-            {
-                case 0:
-                    SpriteFactory::createSmallBlueAlien(*this);
-                    break;
-                case 1:
-                    SpriteFactory::createSmallRedAlien(*this);
-            }
-        }
-        
-        // spawn big alien?
-        int m2 = 5400 / (level + 2);
-        if (tick % m2 == m2 / 2)
-        {
-            switch (random.getInt(2))
-            {
-                case 0:
-                    SpriteFactory::createBigBlueAlien(*this);
-                    break;
-                case 1:
-                    SpriteFactory::createBigRedAlien(*this);
-            }
-        }
-    }
-    
     // systems
+    levelSystem.update();
     autoScrollSystem.update();
     localPlayerSystem.update();
     playerControlSystem.update();
@@ -150,8 +111,6 @@ void GameScene::update()
     animationSystem.update();
     
     dispatcher.update();
-    
-    ++tick;
 }
 
 void GameScene::onScoreChanged(const ScoreChangedEvent& event)
@@ -173,8 +132,9 @@ void GameScene::onLivesChanged(const LivesChangedEvent& event)
     {
         UIFactory::createImage(*this, SpriteAtlasIdSprites, "game_over", (Config::screenWidth - 134.0) * 0.5, 16.0);
     }
-    else
-    {
-        peace = Config::peace;
-    }
+}
+
+void GameScene::onLevelChanged(const LevelChangedEvent& event)
+{
+    std::cout << "level " << event.level << "\n";
 }

@@ -118,7 +118,6 @@ void PlayerControlSystem::update() const
 
 void PlayerControlSystem::onAddScore(const AddScoreEvent& event) const
 {
-    std::cout << "PlayerControlSystem::onAddScore " << event.points << "\n";
     auto& status = scene.getRegistry().get<PlayerStatus>(event.entity);
     status.score += event.points;
     scene.getDispatcher().enqueue<ScoreChangedEvent>(event.entity, status.score);
@@ -126,7 +125,6 @@ void PlayerControlSystem::onAddScore(const AddScoreEvent& event) const
 
 void PlayerControlSystem::onHit(const HitEvent& event) const
 {
-    std::cout << "PlayerControlSystem::onHit\n";
     auto& status = scene.getRegistry().get<PlayerStatus>(event.entity);
     
     if (status.shield == 0 && status.lives > 0)

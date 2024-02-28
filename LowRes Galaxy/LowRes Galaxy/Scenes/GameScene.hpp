@@ -11,6 +11,7 @@
 #include <vector>
 #include "Scene.hpp"
 #include "entt.hpp"
+#include "../Systems/LevelSystem.hpp"
 #include "../Systems/PlayerControlSystem.hpp"
 #include "../Systems/LocalPlayerSystem.hpp"
 #include "../Systems/AutoScrollSystem.hpp"
@@ -21,10 +22,12 @@
 #include "../Systems/EnemyShotCollisionSystem.hpp"
 #include "../Events/ScoreChangedEvent.hpp"
 #include "../Events/LivesChangedEvent.hpp"
+#include "../Events/LevelChangedEvent.hpp"
 
 class GameScene : public Scene
 {
 private:
+    LevelSystem levelSystem;
     PlayerControlSystem playerControlSystem;
     LocalPlayerSystem localPlayerSystem;
     AutoScrollSystem autoScrollSystem;
@@ -34,15 +37,12 @@ private:
     EnemyShotCollisionSystem playerCollisionSystem;
     AnimationSystem animationSystem;
     
-    int tick = 0;
-    int level = 0;
-    int peace = 0;
-    
     entt::entity scoreLabelEntity;
     std::vector<entt::entity> liveIconEntities;
     
     void onScoreChanged(const ScoreChangedEvent& event);
     void onLivesChanged(const LivesChangedEvent& event);
+    void onLevelChanged(const LevelChangedEvent& event);
     
 public:
     GameScene(SDL_Renderer* renderer, SceneManager& sceneManager);

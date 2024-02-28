@@ -17,12 +17,10 @@ TitleScene::TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager)
     : Scene(renderer, sceneManager)
     , autoScrollSystem(*this)
 {
-    std::cout << "hello TitleScene\n";
 }
 
 TitleScene::~TitleScene()
 {
-    std::cout << "bye TitleScene\n";
 }
 
 void TitleScene::load()

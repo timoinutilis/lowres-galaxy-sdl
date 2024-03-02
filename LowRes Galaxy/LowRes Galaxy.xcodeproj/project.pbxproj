@@ -39,6 +39,7 @@
 		92B21A462B6406B700B033E2 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B21A452B6406B700B033E2 /* SDL2.framework */; };
 		92B21A472B6406B700B033E2 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92B21A452B6406B700B033E2 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92B21A4A2B6408E100B033E2 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = 92B21A492B6408E100B033E2 /* Textures */; };
+		92E888142B920FA500C47667 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92E888122B920FA500C47667 /* InputManager.cpp */; };
 		92F7D7392B8F84CA00BA47B8 /* LevelSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92F7D7372B8F84CA00BA47B8 /* LevelSystem.cpp */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +205,8 @@
 		92B21A422B64064F00B033E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		92B21A452B6406B700B033E2 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
 		92B21A492B6408E100B033E2 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
+		92E888122B920FA500C47667 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
+		92E888132B920FA500C47667 /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
 		92F7D7332B8F3F7600BA47B8 /* AddScoreEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AddScoreEvent.hpp; sourceTree = "<group>"; };
 		92F7D7342B8F66E600BA47B8 /* ScoreChangedEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScoreChangedEvent.hpp; sourceTree = "<group>"; };
 		92F7D7352B8F678D00BA47B8 /* LivesChangedEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LivesChangedEvent.hpp; sourceTree = "<group>"; };
@@ -567,6 +570,7 @@
 				92B21A492B6408E100B033E2 /* Textures */,
 				921DD0A52B650FEF007FB6BC /* Libraries */,
 				92026E8F2B7CBFD800B87AAD /* Utils */,
+				92E888152B93575E00C47667 /* Input */,
 				928F356C2B86187A00E20823 /* Sound */,
 				923C8F3B2B7E814900FA0FBC /* Rendering */,
 				928F356A2B8614DE00E20823 /* Caches */,
@@ -589,6 +593,15 @@
 				92B21A452B6406B700B033E2 /* SDL2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92E888152B93575E00C47667 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				92E888132B920FA500C47667 /* InputManager.hpp */,
+				92E888122B920FA500C47667 /* InputManager.cpp */,
+			);
+			path = Input;
 			sourceTree = "<group>";
 		};
 		92F7D7322B8F3E2C00BA47B8 /* Events */ = {
@@ -683,6 +696,7 @@
 				924251572B6E69D800137C60 /* Scene.cpp in Sources */,
 				92473F342B83C0530012AFCB /* UIFactory.cpp in Sources */,
 				92026E8E2B7CBA8500B87AAD /* AlienControlSystem.cpp in Sources */,
+				92E888142B920FA500C47667 /* InputManager.cpp in Sources */,
 				928F35792B8648C700E20823 /* SceneManager.cpp in Sources */,
 				92188BB92B73CB410087E7E1 /* AutoScrollSystem.cpp in Sources */,
 				9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */,

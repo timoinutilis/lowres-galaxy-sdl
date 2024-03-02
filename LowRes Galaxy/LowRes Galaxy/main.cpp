@@ -2,9 +2,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
-#include "SceneManager.hpp"
-#include "TitleScene.hpp"
+#include "Scenes/SceneManager.hpp"
+#include "Scenes/TitleScene.hpp"
 #include "Config.hpp"
+#include "Input/InputManager.hpp"
 
 int main( int argc, char* args[] )
 {
@@ -36,6 +37,7 @@ int main( int argc, char* args[] )
                         quit = true;
                         break;
                 }
+                inputManager.handleSDLEvent(event);
             }
             
             sceneManager.update();

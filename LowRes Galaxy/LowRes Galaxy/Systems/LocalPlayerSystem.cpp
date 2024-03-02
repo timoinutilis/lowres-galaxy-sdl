@@ -11,6 +11,7 @@
 #include "../Scenes/Scene.hpp"
 #include "../Components/LocalPlayer.hpp"
 #include "../Components/PlayerInput.hpp"
+#include "../Input/InputManager.hpp"
 
 LocalPlayerSystem::LocalPlayerSystem(Scene& scene)
     : scene(scene)
@@ -19,8 +20,6 @@ LocalPlayerSystem::LocalPlayerSystem(Scene& scene)
 
 void LocalPlayerSystem::update() const
 {
-    const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-    
     const auto view = scene.getRegistry().view<LocalPlayer, PlayerInput>();
     for (auto entity : view)
     {
@@ -29,11 +28,11 @@ void LocalPlayerSystem::update() const
         
         if (localPlayer.playerIndex == 0)
         {
-            if (keyboardState[SDL_SCANCODE_UP])
+            if (inputManager.isPressed(InputAction::up))
             {
                 movement.directionY = -1;
             }
-            else if (keyboardState[SDL_SCANCODE_DOWN])
+            else if (inputManager.isPressed(InputAction::down))
             {
                 movement.directionY = 1;
             }
@@ -42,11 +41,11 @@ void LocalPlayerSystem::update() const
                 movement.directionY = 0;
             }
             
-            if (keyboardState[SDL_SCANCODE_LEFT])
+            if (inputManager.isPressed(InputAction::left))
             {
                 movement.directionX = -1;
             }
-            else if (keyboardState[SDL_SCANCODE_RIGHT])
+            else if (inputManager.isPressed(InputAction::right))
             {
                 movement.directionX = 1;
             }
@@ -55,7 +54,7 @@ void LocalPlayerSystem::update() const
                 movement.directionX = 0;
             }
             
-            movement.isShooting = keyboardState[SDL_SCANCODE_SPACE];
+            movement.isShooting = inputManager.isPressed(InputAction::fire);
         }
     }
 }

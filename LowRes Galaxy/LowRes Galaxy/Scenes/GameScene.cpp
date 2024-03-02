@@ -15,6 +15,7 @@
 #include "../Components/PlayerStatus.hpp"
 #include "../Components/Label.hpp"
 #include "../Components/Sprite.hpp"
+#include "TitleScene.hpp"
 #include "Config.hpp"
 
 GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager)
@@ -89,11 +90,13 @@ void GameScene::unload()
 
 void GameScene::onAppear()
 {
+    inputManager.getActionSink().connect<&GameScene::onInputAction>(this);
     musicCache[MusicIdGame]->play();
 }
 
 void GameScene::onDisappear()
 {
+    inputManager.getActionSink().disconnect(this);
     musicCache[MusicIdGame]->halt();
 }
 
@@ -113,6 +116,21 @@ void GameScene::update()
     dispatcher.update();
 }
 
+void GameScene::onInputAction(const InputAction action)
+{
+    switch (state)
+    {
+        case GameSceneState::playing:
+            break;
+        case GameSceneState::gameOver:
+            if (action == InputAction::fire)
+            {
+                sceneManager.setNextScene(std::make_unique<TitleScene>(getRenderer(), sceneManager));
+            }
+            break;
+    }
+}
+
 void GameScene::onScoreChanged(const ScoreChangedEvent& event)
 {
     std::ostringstream oss;
@@ -130,6 +148,8 @@ void GameScene::onLivesChanged(const LivesChangedEvent& event)
     }
     if (event.lives == 0)
     {
+        // game over
+        state = GameSceneState::gameOver;
         UIFactory::createImage(*this, SpriteAtlasIdSprites, "game_over", (Config::screenWidth - 134.0) * 0.5, 16.0);
     }
 }
@@ -138,3 +158,4 @@ void GameScene::onLevelChanged(const LevelChangedEvent& event)
 {
     std::cout << "level " << event.level << "\n";
 }
+

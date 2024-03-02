@@ -11,6 +11,7 @@
 #include <vector>
 #include "Scene.hpp"
 #include "entt.hpp"
+#include "../Input/InputManager.hpp"
 #include "../Systems/LevelSystem.hpp"
 #include "../Systems/PlayerControlSystem.hpp"
 #include "../Systems/LocalPlayerSystem.hpp"
@@ -23,6 +24,12 @@
 #include "../Events/ScoreChangedEvent.hpp"
 #include "../Events/LivesChangedEvent.hpp"
 #include "../Events/LevelChangedEvent.hpp"
+
+enum class GameSceneState
+{
+    playing,
+    gameOver
+};
 
 class GameScene : public Scene
 {
@@ -40,6 +47,9 @@ private:
     entt::entity scoreLabelEntity;
     std::vector<entt::entity> liveIconEntities;
     
+    GameSceneState state = GameSceneState::playing;
+    
+    void onInputAction(const InputAction action);
     void onScoreChanged(const ScoreChangedEvent& event);
     void onLivesChanged(const LivesChangedEvent& event);
     void onLevelChanged(const LevelChangedEvent& event);

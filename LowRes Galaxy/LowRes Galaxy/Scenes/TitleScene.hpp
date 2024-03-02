@@ -9,12 +9,14 @@
 #define TitleScene_hpp
 
 #include "Scene.hpp"
+#include "../Input/InputManager.hpp"
 #include "../Systems/AutoScrollSystem.hpp"
 
 class TitleScene : public Scene
 {
 private:
     AutoScrollSystem autoScrollSystem;
+    void onInputAction(const InputAction action);
     
 public:
     TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager);

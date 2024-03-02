@@ -11,6 +11,7 @@
 #include <SDL2/SDL.h>
 #include "entt.hpp"
 #include "SceneManager.hpp"
+#include "../Input/InputManager.hpp"
 #include "../Caches/SpriteAtlasCache.hpp"
 #include "../Caches/FontCache.hpp"
 #include "../Caches/MusicCache.hpp"

@@ -48,25 +48,28 @@ void TitleScene::unload()
 
 void TitleScene::onAppear()
 {
+    inputManager.getActionSink().connect<&TitleScene::onInputAction>(this);
     musicCache[MusicIdTitle]->play();
 }
 
 void TitleScene::onDisappear()
 {
+    inputManager.getActionSink().disconnect(this);
     musicCache[MusicIdTitle]->halt();
 }
 
 void TitleScene::update()
 {
-    const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-    
-    if (keyboardState[SDL_SCANCODE_SPACE])
-    {
-        sceneManager.setNextScene(std::make_unique<GameScene>(getRenderer(), sceneManager));
-    }
-    
     // systems
     autoScrollSystem.update();
     
     dispatcher.update();
+}
+
+void TitleScene::onInputAction(const InputAction action)
+{
+    if (action == InputAction::fire)
+    {
+        sceneManager.setNextScene(std::make_unique<GameScene>(getRenderer(), sceneManager));
+    }
 }

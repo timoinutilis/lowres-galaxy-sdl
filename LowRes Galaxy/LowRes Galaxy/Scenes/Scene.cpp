@@ -8,9 +8,10 @@
 #include "Scene.hpp"
 #include <iostream>
 
-Scene::Scene(SDL_Renderer* renderer, SceneManager& sceneManager)
+Scene::Scene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
     : renderer(renderer)
     , sceneManager(sceneManager)
+    , inputManager(inputManager)
     , spriteRenderer(*this)
     , labelRenderer(*this)
 {
@@ -34,6 +35,11 @@ entt::dispatcher& Scene::getDispatcher()
 SceneManager& Scene::getSceneManager()
 {
     return sceneManager;
+}
+
+InputManager& Scene::getInputManager()
+{
+    return inputManager;
 }
 
 SpriteAtlasCache& Scene::getSpriteAtlasCache()

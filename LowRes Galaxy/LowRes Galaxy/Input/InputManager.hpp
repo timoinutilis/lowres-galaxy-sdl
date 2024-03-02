@@ -41,7 +41,4 @@ private:
     SDL_GameController* gameController = nullptr;
 };
 
-//TODO: replace with ServiceLocator
-extern InputManager inputManager;
-
 #endif /* InputManager_hpp */

@@ -55,7 +55,7 @@ private:
     void onLevelChanged(const LevelChangedEvent& event);
     
 public:
-    GameScene(SDL_Renderer* renderer, SceneManager& sceneManager);
+    GameScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager);
     virtual ~GameScene() override;
     
     entt::entity getPlayerEntity();

@@ -19,7 +19,7 @@ private:
     void onInputAction(const InputAction action);
     
 public:
-    TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager);
+    TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager);
     virtual ~TitleScene() override;
     
     virtual void load() override;

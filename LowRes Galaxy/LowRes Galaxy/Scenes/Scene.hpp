@@ -31,13 +31,14 @@ protected:
     entt::registry registry;
     entt::dispatcher dispatcher;
     SceneManager& sceneManager;
+    InputManager& inputManager;
     SpriteAtlasCache spriteAtlasCache;
     FontCache fontCache;
     MusicCache musicCache;
     Random random;
     
 public:
-    Scene(SDL_Renderer* renderer, SceneManager& sceneManager);
+    Scene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager);
     virtual ~Scene() = default;
     
     SDL_Renderer* getRenderer();
@@ -45,6 +46,7 @@ public:
     entt::registry& getRegistry();
     entt::dispatcher& getDispatcher();
     SceneManager& getSceneManager();
+    InputManager& getInputManager();
     SpriteAtlasCache& getSpriteAtlasCache();
     FontCache& getFontCache();
     MusicCache& getMusicCache();

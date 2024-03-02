@@ -213,6 +213,3 @@ bool InputManager::isPressed(const InputAction action) const
 {
     return actionStatuses[static_cast<int>(action)];
 }
-
-//TODO: replace with ServiceLocator
-InputManager inputManager;

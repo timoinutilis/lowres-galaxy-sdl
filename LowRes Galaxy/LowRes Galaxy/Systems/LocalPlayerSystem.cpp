@@ -20,6 +20,7 @@ LocalPlayerSystem::LocalPlayerSystem(Scene& scene)
 
 void LocalPlayerSystem::update() const
 {
+    auto& inputManager = scene.getInputManager();
     const auto view = scene.getRegistry().view<LocalPlayer, PlayerInput>();
     for (auto entity : view)
     {

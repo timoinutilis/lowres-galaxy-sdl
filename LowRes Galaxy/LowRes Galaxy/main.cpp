@@ -25,7 +25,9 @@ int main( int argc, char* args[] )
     
     {
         SceneManager sceneManager;
-        sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager));
+        InputManager inputManager;
+        
+        sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager, inputManager));
         
         while (!quit)
         {

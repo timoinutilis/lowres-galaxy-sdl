@@ -28,6 +28,8 @@ public:
     using Listener = void(const InputAction);
     
     InputManager();
+    ~InputManager();
+    
     void handleSDLEvent(const SDL_Event& event);
     entt::sink<entt::sigh<Listener>>& getActionSink();
     bool isPressed(const InputAction action) const;
@@ -36,6 +38,7 @@ private:
     std::vector<bool> actionStatuses;
     entt::sigh<Listener> actionSignal;
     entt::sink<entt::sigh<Listener>> actionSink;
+    SDL_GameController* gameController = nullptr;
 };
 
 //TODO: replace with ServiceLocator

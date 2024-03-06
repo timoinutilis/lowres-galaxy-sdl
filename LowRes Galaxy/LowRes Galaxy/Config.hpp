@@ -14,6 +14,8 @@ namespace Config
     inline constexpr int screenHeight { 120 };
     inline constexpr int defaultWindowScale { 3 };
 
+    inline constexpr int millisPerUpdate { 16 };
+
     inline constexpr int lives { 5 };
     inline constexpr int shield { 120 };
     inline constexpr int hide { 120 };

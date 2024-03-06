@@ -16,29 +16,45 @@ int main( int argc, char* args[] )
     bool quit = false;
     SDL_Event event;
     
+    // initialize SDL
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER);
     IMG_Init(IMG_INIT_PNG);
     Mix_Init(MIX_INIT_OGG);
     
+    // create window
     SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
     
+    // start audio
     Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_AllocateChannels(2);
     
     {
+        // create caches
         entt::locator<FontCache>::emplace<FontCache>();
         entt::locator<SpriteAtlasCache>::emplace<SpriteAtlasCache>();
         entt::locator<MusicCache>::emplace<MusicCache>();
         
+        // initialize scene
         SceneManager sceneManager;
         InputManager inputManager;
         
         sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager, inputManager));
         
+        // initialize time
+        auto previousMillis = SDL_GetTicks();
+        int lagMillis = 0;
+        
         while (!quit)
         {
+            // update time
+            auto currentMillis = SDL_GetTicks();
+            auto elapsedMillis = currentMillis - previousMillis;
+            previousMillis = currentMillis;
+            lagMillis += elapsedMillis;
+            
+            // handle input
             while (SDL_PollEvent(&event))
             {
                 switch (event.type)
@@ -50,8 +66,20 @@ int main( int argc, char* args[] )
                 inputManager.handleSDLEvent(event);
             }
             
-            sceneManager.update();
+            // update game logic
+            while (lagMillis >= Config::millisPerUpdate)
+            {
+                sceneManager.update();
+                lagMillis -= Config::millisPerUpdate;
+            }
             
+            // avoid accumulating tiny lag inaccuracies
+            if (lagMillis <= 2)
+            {
+                lagMillis = 0;
+            }
+            
+            // render game
             SDL_RenderClear(renderer);
             sceneManager.render();
             SDL_RenderPresent(renderer);

@@ -39,7 +39,7 @@ void TitleScene::load()
     
     UIFactory::createImage(*this, SpriteAtlasIdSprites, "title", (Config::screenWidth - 94.0) * 0.5, 16.0);
     
-    UIFactory::createScrollingLabel(*this, "LOWRES GALAXY 2 BY INUTILIS SOFTWARE ...", Config::screenWidth, 88.0);
+    UIFactory::createScrollingLabel(*this, "PRESS FIRE TO START! ... A GAME IN DEVELOPMENT BY INUTILIS SOFTWARE SINCE 2024 ... WWW.INUTILIS.COM", Config::screenWidth + 60.0, Config::screenHeight - 40.0);
 }
 
 void TitleScene::unload()

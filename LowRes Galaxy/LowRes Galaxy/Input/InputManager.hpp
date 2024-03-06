@@ -19,7 +19,8 @@ enum class InputAction
     left,
     right,
     fire,
-    pause
+    pause,
+    back
 };
 
 class InputManager

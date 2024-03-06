@@ -48,7 +48,7 @@ entt::entity UIFactory::createMessage(Scene& scene, const std::string& text)
 {
     auto& registry = scene.getRegistry();
     const auto entity = registry.create();
-    registry.emplace<Position>(entity, (Config::screenWidth - text.length() * 8.0) * 0.5, Config::screenHeight - 32.0, 0);
+    registry.emplace<Position>(entity, (Config::screenWidth - text.length() * 8.0) * 0.5, Config::screenHeight - 24.0, 0);
     registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
     registry.emplace<AutoDestroy>(entity, 120);
     return entity;

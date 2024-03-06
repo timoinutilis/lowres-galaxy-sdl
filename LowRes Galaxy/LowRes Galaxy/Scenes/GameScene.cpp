@@ -63,7 +63,7 @@ void GameScene::load()
     getMusicCache().load(MusicIdGame, "Audio/game.ogg");
     getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
     getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites", true);
-    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", true);
+    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", false);
     
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
@@ -129,6 +129,10 @@ void GameScene::onInputAction(const InputAction action)
     switch (state)
     {
         case GameSceneState::playing:
+            if (action == InputAction::back)
+            {
+                sceneManager.setNextScene(std::make_unique<TitleScene>(getRenderer(), sceneManager, inputManager));
+            }
             break;
         case GameSceneState::gameOver:
             if (action == InputAction::fire)

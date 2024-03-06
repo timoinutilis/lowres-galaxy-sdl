@@ -61,6 +61,11 @@ void InputManager::handleSDLEvent(const SDL_Event& event)
                 actionSignal.publish(InputAction::fire);
                 actionStatuses[static_cast<int>(InputAction::fire)] = true;
             }
+            else if (scancode == SDL_SCANCODE_ESCAPE)
+            {
+                actionSignal.publish(InputAction::back);
+                actionStatuses[static_cast<int>(InputAction::back)] = true;
+            }
             else if (keycode == SDLK_p)
             {
                 actionSignal.publish(InputAction::pause);
@@ -93,6 +98,10 @@ void InputManager::handleSDLEvent(const SDL_Event& event)
             else if (scancode == SDL_SCANCODE_SPACE)
             {
                 actionStatuses[static_cast<int>(InputAction::fire)] = false;
+            }
+            else if (scancode == SDL_SCANCODE_ESCAPE)
+            {
+                actionStatuses[static_cast<int>(InputAction::back)] = false;
             }
             else if (keycode == SDLK_p)
             {

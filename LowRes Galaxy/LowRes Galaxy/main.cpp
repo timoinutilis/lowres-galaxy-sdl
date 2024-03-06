@@ -38,7 +38,7 @@ int main( int argc, char* args[] )
         entt::locator<MusicCache>::emplace<MusicCache>();
         
         // initialize scene
-        SceneManager sceneManager;
+        SceneManager sceneManager(renderer, 30);
         InputManager inputManager;
         
         sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager, inputManager));

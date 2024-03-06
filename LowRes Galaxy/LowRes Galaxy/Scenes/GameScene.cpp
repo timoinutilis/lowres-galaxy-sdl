@@ -26,8 +26,9 @@ GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputMa
     , autoScrollSystem(*this)
     , moveSystem(*this)
     , alienControlSystem(*this)
-    , shotCollisionSystem(*this)
     , playerCollisionSystem(*this)
+    , playerShotCollisionSystem(*this)
+    , enemyShotCollisionSystem(*this)
     , animationSystem(*this)
     , spawnSystem(*this)
     , autoDestroySystem(*this)
@@ -111,8 +112,9 @@ void GameScene::update()
     playerControlSystem.update();
     moveSystem.update();
     alienControlSystem.update();
-    shotCollisionSystem.update();
     playerCollisionSystem.update();
+    playerShotCollisionSystem.update();
+    enemyShotCollisionSystem.update();
     spawnSystem.update();
     animationSystem.update();
     autoDestroySystem.update();

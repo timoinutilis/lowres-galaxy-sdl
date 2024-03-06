@@ -5,8 +5,8 @@
 //  Created by Timo Kloss on 14.02.24.
 //
 
-#ifndef PlayerCollisionSystem_hpp
-#define PlayerCollisionSystem_hpp
+#ifndef EnemyShotCollisionSystem_hpp
+#define EnemyShotCollisionSystem_hpp
 
 class Scene;
 struct PlayerStatus;
@@ -23,4 +23,4 @@ private:
 };
 
 
-#endif /* PlayerCollisionSystem_hpp */
+#endif /* EnemyShotCollisionSystem_hpp */

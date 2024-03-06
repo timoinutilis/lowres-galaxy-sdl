@@ -18,9 +18,10 @@
 #include "../Systems/AutoScrollSystem.hpp"
 #include "../Systems/MoveSystem.hpp"
 #include "../Systems/AlienControlSystem.hpp"
+#include "../Systems/PlayerCollisionSystem.hpp"
 #include "../Systems/PlayerShotCollisionSystem.hpp"
-#include "../Systems/AnimationSystem.hpp"
 #include "../Systems/EnemyShotCollisionSystem.hpp"
+#include "../Systems/AnimationSystem.hpp"
 #include "../Systems/SpawnSystem.hpp"
 #include "../Systems/AutoDestroySystem.hpp"
 #include "../Events/ScoreChangedEvent.hpp"
@@ -42,8 +43,9 @@ private:
     AutoScrollSystem autoScrollSystem;
     MoveSystem moveSystem;
     AlienControlSystem alienControlSystem;
-    PlayerShotCollisionSystem shotCollisionSystem;
-    EnemyShotCollisionSystem playerCollisionSystem;
+    PlayerCollisionSystem playerCollisionSystem;
+    PlayerShotCollisionSystem playerShotCollisionSystem;
+    EnemyShotCollisionSystem enemyShotCollisionSystem;
     AnimationSystem animationSystem;
     SpawnSystem spawnSystem;
     AutoDestroySystem autoDestroySystem;

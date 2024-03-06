@@ -10,6 +10,7 @@
 
 #include <string>
 #include <memory>
+#include <SDL2/SDL.h>
 #include "../Rendering/SpriteAtlas.hpp"
 
 struct Sprite final
@@ -17,6 +18,7 @@ struct Sprite final
     entt::resource<SpriteAtlas> spriteAtlas;
     std::string frame;
     bool isHidden = false;
+    SDL_Color fxColor {0, 0, 0, 0};
 };
 
 #endif /* Sprite_h */

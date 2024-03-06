@@ -30,7 +30,7 @@ void SpriteRenderer::render() const
         if (!sprite.isHidden)
         {
             auto position = view.get<Position>(entity);
-            sprite.spriteAtlas->drawFrame(renderer, sprite.frame, position.x, position.y);
+            sprite.spriteAtlas->drawFrame(renderer, sprite.frame, position.x, position.y, sprite.fxColor);
         }
     }
 }

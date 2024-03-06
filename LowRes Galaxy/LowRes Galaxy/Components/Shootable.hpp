@@ -12,6 +12,7 @@ struct Shootable final
 {
     int hits = 0;
     int points = 0;
+    int flash = 0;
 };
 
 #endif /* Shootable_h */

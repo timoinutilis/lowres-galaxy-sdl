@@ -20,13 +20,14 @@ struct SpriteFrame final
 class SpriteAtlas final
 {
 public:
-    SpriteAtlas(SDL_Renderer* renderer, const std::string& filepath);
+    SpriteAtlas(SDL_Renderer* renderer, const std::string& filepath, bool supportsFx);
     ~SpriteAtlas();
     
-    void drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y) const;
+    void drawFrame(SDL_Renderer* renderer, const std::string& name, const int x, const int y, SDL_Color fxColor = {0, 0, 0, 0}) const;
     
 private:
     SDL_Texture *texture;
+    SDL_Texture *fxTexture;
     std::unordered_map<std::string, SpriteFrame> frames;
 };
 

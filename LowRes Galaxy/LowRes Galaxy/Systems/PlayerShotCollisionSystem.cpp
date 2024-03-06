@@ -43,7 +43,11 @@ void PlayerShotCollisionSystem::update() const
                 auto& shootable = shootablesView.get<Shootable>(shootableEntity);
                 
                 shootable.hits -= shot.damage;
-                if (shootable.hits <= 0)
+                if (shootable.hits > 0)
+                {
+                    shootable.flash = 6;
+                }
+                else
                 {
                     scene.getDispatcher().trigger(AddScoreEvent{shot.player, shootable.points});
                     

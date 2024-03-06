@@ -20,8 +20,8 @@ enum SpriteAtlasId
 struct SpriteAtlasLoader final {
     using result_type = std::shared_ptr<SpriteAtlas>;
     
-    result_type operator()(SDL_Renderer* renderer, const std::string& filepath) const {
-        return std::make_shared<SpriteAtlas>(renderer, filepath);
+    result_type operator()(SDL_Renderer* renderer, const std::string& filepath, bool supportsFx) const {
+        return std::make_shared<SpriteAtlas>(renderer, filepath, supportsFx);
     }
 };
 

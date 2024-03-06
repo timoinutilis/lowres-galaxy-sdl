@@ -24,6 +24,7 @@
 #include "../Systems/AnimationSystem.hpp"
 #include "../Systems/SpawnSystem.hpp"
 #include "../Systems/AutoDestroySystem.hpp"
+#include "../Systems/ShootableFlashSystem.hpp"
 #include "../Events/ScoreChangedEvent.hpp"
 #include "../Events/LivesChangedEvent.hpp"
 #include "../Events/LevelChangedEvent.hpp"
@@ -49,6 +50,7 @@ private:
     AnimationSystem animationSystem;
     SpawnSystem spawnSystem;
     AutoDestroySystem autoDestroySystem;
+    ShootableFlashSystem shootableFlashSystem;
     
     entt::entity scoreLabelEntity;
     std::vector<entt::entity> liveIconEntities;

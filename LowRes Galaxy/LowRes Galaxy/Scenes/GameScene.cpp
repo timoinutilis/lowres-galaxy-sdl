@@ -32,6 +32,7 @@ GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputMa
     , animationSystem(*this)
     , spawnSystem(*this)
     , autoDestroySystem(*this)
+    , shootableFlashSystem(*this)
 {
 }
 
@@ -61,8 +62,8 @@ void GameScene::load()
     
     getMusicCache().load(MusicIdGame, "Audio/game.ogg");
     getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
-    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites");
-    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background");
+    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites", true);
+    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", true);
     
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
@@ -118,6 +119,7 @@ void GameScene::update()
     spawnSystem.update();
     animationSystem.update();
     autoDestroySystem.update();
+    shootableFlashSystem.update();
     
     dispatcher.update();
 }

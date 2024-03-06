@@ -44,17 +44,17 @@ InputManager& Scene::getInputManager()
 
 SpriteAtlasCache& Scene::getSpriteAtlasCache()
 {
-    return spriteAtlasCache;
+    return entt::locator<SpriteAtlasCache>::value();
 }
 
 FontCache& Scene::getFontCache()
 {
-    return fontCache;
+    return entt::locator<FontCache>::value();
 }
 
 MusicCache& Scene::getMusicCache()
 {
-    return musicCache;
+    return entt::locator<MusicCache>::value();
 }
 
 Random& Scene::getRandom()

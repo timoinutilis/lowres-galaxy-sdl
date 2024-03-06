@@ -32,9 +32,6 @@ protected:
     entt::dispatcher dispatcher;
     SceneManager& sceneManager;
     InputManager& inputManager;
-    SpriteAtlasCache spriteAtlasCache;
-    FontCache fontCache;
-    MusicCache musicCache;
     Random random;
     
 public:

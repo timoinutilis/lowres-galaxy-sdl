@@ -25,10 +25,10 @@ TitleScene::~TitleScene()
 
 void TitleScene::load()
 {
-    musicCache.load(MusicIdTitle, "Audio/title.ogg");
-    fontCache.load(FontIdDefault, getRenderer(), "Textures/font");
-    spriteAtlasCache.load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites");
-    spriteAtlasCache.load(SpriteAtlasIdBackground, getRenderer(), "Textures/background");
+    getMusicCache().load(MusicIdTitle, "Audio/title.ogg");
+    getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
+    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites");
+    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background");
     
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
@@ -49,13 +49,13 @@ void TitleScene::unload()
 void TitleScene::onAppear()
 {
     inputManager.getActionSink().connect<&TitleScene::onInputAction>(this);
-    musicCache[MusicIdTitle]->play();
+    getMusicCache()[MusicIdTitle]->play();
 }
 
 void TitleScene::onDisappear()
 {
     inputManager.getActionSink().disconnect(this);
-    musicCache[MusicIdTitle]->halt();
+    getMusicCache()[MusicIdTitle]->halt();
 }
 
 void TitleScene::update()

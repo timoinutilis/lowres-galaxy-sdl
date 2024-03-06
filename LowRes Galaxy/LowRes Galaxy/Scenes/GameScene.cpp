@@ -56,10 +56,10 @@ void GameScene::load()
     dispatcher.sink<LivesChangedEvent>().connect<&GameScene::onLivesChanged>(*this);
     dispatcher.sink<LevelChangedEvent>().connect<&GameScene::onLevelChanged>(*this);
     
-    musicCache.load(MusicIdGame, "Audio/game.ogg");
-    fontCache.load(FontIdDefault, getRenderer(), "Textures/font");
-    spriteAtlasCache.load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites");
-    spriteAtlasCache.load(SpriteAtlasIdBackground, getRenderer(), "Textures/background");
+    getMusicCache().load(MusicIdGame, "Audio/game.ogg");
+    getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
+    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites");
+    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background");
     
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
@@ -91,13 +91,13 @@ void GameScene::unload()
 void GameScene::onAppear()
 {
     inputManager.getActionSink().connect<&GameScene::onInputAction>(this);
-    musicCache[MusicIdGame]->play();
+    getMusicCache()[MusicIdGame]->play();
 }
 
 void GameScene::onDisappear()
 {
     inputManager.getActionSink().disconnect(this);
-    musicCache[MusicIdGame]->halt();
+    getMusicCache()[MusicIdGame]->halt();
 }
 
 void GameScene::update()

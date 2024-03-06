@@ -2,6 +2,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
+#include "entt.hpp"
+#include "Caches/FontCache.hpp"
+#include "Caches/SpriteAtlasCache.hpp"
+#include "Caches/MusicCache.hpp"
 #include "Scenes/SceneManager.hpp"
 #include "Scenes/TitleScene.hpp"
 #include "Config.hpp"
@@ -24,6 +28,10 @@ int main( int argc, char* args[] )
     Mix_AllocateChannels(2);
     
     {
+        entt::locator<FontCache>::emplace<FontCache>();
+        entt::locator<SpriteAtlasCache>::emplace<SpriteAtlasCache>();
+        entt::locator<MusicCache>::emplace<MusicCache>();
+        
         SceneManager sceneManager;
         InputManager inputManager;
         

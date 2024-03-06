@@ -25,6 +25,7 @@ int main( int argc, char* args[] )
     SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
+    SDL_ShowCursor(SDL_DISABLE);
     
     // start audio
     Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);

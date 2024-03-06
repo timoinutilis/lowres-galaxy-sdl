@@ -21,6 +21,8 @@ public:
     static void createEnemyShot(Scene& scene, double x, double y, double targetX, double targetY);
     static void createExplosion(Scene& scene, double x, double y);
     
+    static void createExplosionSpawnArea(Scene& scene, double x, double y);
+    
     static void createSmallBlueAlien(Scene& scene);
     static void createBigBlueAlien(Scene& scene);
     static void createSmallRedAlien(Scene& scene);

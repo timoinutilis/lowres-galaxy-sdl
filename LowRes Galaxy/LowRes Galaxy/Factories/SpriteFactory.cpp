@@ -21,6 +21,7 @@
 #include "../Components/EnemyShot.hpp"
 #include "../Components/Animation.hpp"
 #include "../Components/CollisionBox.hpp"
+#include "../Components/SpawnArea.hpp"
 #include "Config.hpp"
 
 void SpriteFactory::createShip(Scene& scene, double x, double y)
@@ -69,6 +70,16 @@ void SpriteFactory::createExplosion(Scene& scene, double x, double y)
     registry.emplace<Position>(entity, x, y, 11);
     registry.emplace<Sprite>(entity, scene.getSpriteAtlasCache()[SpriteAtlasIdSprites], "");
     registry.emplace<Animation>(entity, std::vector<std::string> {"explosion-0", "explosion-1", "explosion-2", "explosion-3"}, 5, true, 0, 0);
+}
+
+void SpriteFactory::createExplosionSpawnArea(Scene& scene, double x, double y)
+{
+    auto& registry = scene.getRegistry();
+    const auto entity = registry.create();
+    registry.emplace<Position>(entity, x, y, 0);
+    registry.emplace<SpawnArea>(entity, -8.0, -8.0, 16.0, 16.0, 5, 10, 0, [&](double x, double y){
+        SpriteFactory::createExplosion(scene, x, y);
+    });
 }
 
 void SpriteFactory::createSmallBlueAlien(Scene& scene)

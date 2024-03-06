@@ -21,6 +21,7 @@
 #include "../Systems/PlayerShotCollisionSystem.hpp"
 #include "../Systems/AnimationSystem.hpp"
 #include "../Systems/EnemyShotCollisionSystem.hpp"
+#include "../Systems/SpawnSystem.hpp"
 #include "../Events/ScoreChangedEvent.hpp"
 #include "../Events/LivesChangedEvent.hpp"
 #include "../Events/LevelChangedEvent.hpp"
@@ -43,6 +44,7 @@ private:
     PlayerShotCollisionSystem shotCollisionSystem;
     EnemyShotCollisionSystem playerCollisionSystem;
     AnimationSystem animationSystem;
+    SpawnSystem spawnSystem;
     
     entt::entity scoreLabelEntity;
     std::vector<entt::entity> liveIconEntities;

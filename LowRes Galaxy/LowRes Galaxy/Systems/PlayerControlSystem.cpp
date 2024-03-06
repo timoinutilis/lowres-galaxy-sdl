@@ -134,8 +134,7 @@ void PlayerControlSystem::onHit(const HitEvent& event) const
         auto& position = scene.getRegistry().get<Position>(event.entity);
         
         SpriteFactory::createExplosion(scene, position.x, position.y);
-        SpriteFactory::createExplosion(scene, position.x - 8.0 + scene.getRandom().getDouble() * 16.0, position.y - 8.0 + scene.getRandom().getDouble() * 16.0);
-        SpriteFactory::createExplosion(scene, position.x - 8.0 + scene.getRandom().getDouble() * 16.0, position.y - 8.0 + scene.getRandom().getDouble() * 16.0);
+        SpriteFactory::createExplosionSpawnArea(scene, position.x, position.y);
         
         if (status.lives > 0)
         {

@@ -11,6 +11,7 @@
 class Scene;
 struct AddScoreEvent;
 struct HitEvent;
+struct LevelChangedEvent;
 
 class PlayerControlSystem final
 {
@@ -25,6 +26,7 @@ private:
     
     void onAddScore(const AddScoreEvent& event) const;
     void onHit(const HitEvent& event) const;
+    void onLevelChanged(const LevelChangedEvent& event) const;
 };
 
 #endif /* PlayerMoveSystem_hpp */

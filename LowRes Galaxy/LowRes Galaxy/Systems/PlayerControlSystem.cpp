@@ -18,6 +18,7 @@
 #include "../Events/ScoreChangedEvent.hpp"
 #include "../Events/HitEvent.hpp"
 #include "../Events/LivesChangedEvent.hpp"
+#include "../Events/LevelChangedEvent.hpp"
 #include "Config.hpp"
 
 PlayerControlSystem::PlayerControlSystem(Scene& scene)
@@ -29,12 +30,14 @@ void PlayerControlSystem::connectEvents() const
 {
     scene.getDispatcher().sink<AddScoreEvent>().connect<&PlayerControlSystem::onAddScore>(*this);
     scene.getDispatcher().sink<HitEvent>().connect<&PlayerControlSystem::onHit>(*this);
+    scene.getDispatcher().sink<LevelChangedEvent>().connect<&PlayerControlSystem::onLevelChanged>(*this);
 }
 
 void PlayerControlSystem::disconnectEvents() const
 {
     scene.getDispatcher().sink<AddScoreEvent>().disconnect(this);
     scene.getDispatcher().sink<HitEvent>().disconnect(this);
+    scene.getDispatcher().sink<LevelChangedEvent>().disconnect(this);
 }
 
 void PlayerControlSystem::update() const
@@ -143,5 +146,22 @@ void PlayerControlSystem::onHit(const HitEvent& event) const
         }
         
         scene.getDispatcher().enqueue<LivesChangedEvent>(event.entity, status.lives);
+    }
+}
+
+void PlayerControlSystem::onLevelChanged(const LevelChangedEvent& event) const
+{
+    if (event.level >= 2)
+    {
+        const auto view = scene.getRegistry().view<PlayerStatus>();
+        for (auto entity : view)
+        {
+            auto& status = view.get<PlayerStatus>(entity);
+            if (status.lives > 0)
+            {
+                status.score += event.level * 100;
+                scene.getDispatcher().enqueue<ScoreChangedEvent>(entity, status.score);
+            }
+        }
     }
 }

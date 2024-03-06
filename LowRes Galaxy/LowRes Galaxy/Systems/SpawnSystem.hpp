@@ -20,5 +20,4 @@ private:
     Scene& scene;
 };
 
-
 #endif /* SpawnSystem_hpp */

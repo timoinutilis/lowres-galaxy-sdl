@@ -11,6 +11,7 @@
 #include "../Components/Sprite.hpp"
 #include "../Components/Label.hpp"
 #include "../Components/AutoScroll.hpp"
+#include "../Components/AutoDestroy.hpp"
 #include "../Caches/SpriteAtlasCache.hpp"
 #include "Config.hpp"
 
@@ -40,5 +41,15 @@ entt::entity UIFactory::createScrollingLabel(Scene& scene, const std::string& te
     registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
     double textWidth = text.length() * 8.0;
     registry.emplace<AutoScroll>(entity, -textWidth, x, 1.0);
+    return entity;
+}
+
+entt::entity UIFactory::createMessage(Scene& scene, const std::string& text)
+{
+    auto& registry = scene.getRegistry();
+    const auto entity = registry.create();
+    registry.emplace<Position>(entity, (Config::screenWidth - text.length() * 8.0) * 0.5, Config::screenHeight - 32.0, 0);
+    registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
+    registry.emplace<AutoDestroy>(entity, 120);
     return entity;
 }

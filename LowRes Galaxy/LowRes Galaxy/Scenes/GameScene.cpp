@@ -30,6 +30,7 @@ GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputMa
     , playerCollisionSystem(*this)
     , animationSystem(*this)
     , spawnSystem(*this)
+    , autoDestroySystem(*this)
 {
 }
 
@@ -114,6 +115,7 @@ void GameScene::update()
     playerCollisionSystem.update();
     spawnSystem.update();
     animationSystem.update();
+    autoDestroySystem.update();
     
     dispatcher.update();
 }
@@ -158,6 +160,12 @@ void GameScene::onLivesChanged(const LivesChangedEvent& event)
 
 void GameScene::onLevelChanged(const LevelChangedEvent& event)
 {
-    std::cout << "level " << event.level << "\n";
+    std::ostringstream oss;
+    oss << "LEVEL " << std::to_string(event.level);
+    UIFactory::createMessage(*this, oss.str());
+    
+    if (event.level >= 2)
+    {
+        //TODO sfx
+    }
 }
-

@@ -29,6 +29,7 @@
 		925944522B64206F00611F0D /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		925944542B64283300611F0D /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 925944532B64283300611F0D /* Audio */; };
 		927336CD2B98859600D154A2 /* SpawnSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927336CB2B98859600D154A2 /* SpawnSystem.cpp */; };
+		927336D12B98988A00D154A2 /* AutoDestroySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927336CF2B98988A00D154A2 /* AutoDestroySystem.cpp */; };
 		927797EC2B669B9A009F8E2B /* SpriteAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */; };
 		928F356F2B86189900E20823 /* Music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F356D2B86189900E20823 /* Music.cpp */; };
 		928F35732B86401C00E20823 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F35712B86401C00E20823 /* GameScene.cpp */; };
@@ -186,6 +187,9 @@
 		927336CA2B9883AA00D154A2 /* SpawnArea.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpawnArea.hpp; sourceTree = "<group>"; };
 		927336CB2B98859600D154A2 /* SpawnSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpawnSystem.cpp; sourceTree = "<group>"; };
 		927336CC2B98859600D154A2 /* SpawnSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpawnSystem.hpp; sourceTree = "<group>"; };
+		927336CE2B98982A00D154A2 /* AutoDestroy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AutoDestroy.hpp; sourceTree = "<group>"; };
+		927336CF2B98988A00D154A2 /* AutoDestroySystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AutoDestroySystem.cpp; sourceTree = "<group>"; };
+		927336D02B98988A00D154A2 /* AutoDestroySystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AutoDestroySystem.hpp; sourceTree = "<group>"; };
 		927797EA2B669B9A009F8E2B /* SpriteAtlas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAtlas.cpp; sourceTree = "<group>"; };
 		927797EB2B669B9A009F8E2B /* SpriteAtlas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteAtlas.hpp; sourceTree = "<group>"; };
 		928F35682B85F48600E20823 /* SpriteAtlasCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteAtlasCache.hpp; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				92026E9F2B7D05B200B87AAD /* CollisionBox.cpp */,
 				92026E9E2B7D036900B87AAD /* CollisionBox.hpp */,
 				927336CA2B9883AA00D154A2 /* SpawnArea.hpp */,
+				927336CE2B98982A00D154A2 /* AutoDestroy.hpp */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -293,6 +298,8 @@
 				92F7D7382B8F84CA00BA47B8 /* LevelSystem.hpp */,
 				927336CB2B98859600D154A2 /* SpawnSystem.cpp */,
 				927336CC2B98859600D154A2 /* SpawnSystem.hpp */,
+				927336CF2B98988A00D154A2 /* AutoDestroySystem.cpp */,
+				927336D02B98988A00D154A2 /* AutoDestroySystem.hpp */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -716,6 +723,7 @@
 				92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */,
 				927336CD2B98859600D154A2 /* SpawnSystem.cpp in Sources */,
 				928F356F2B86189900E20823 /* Music.cpp in Sources */,
+				927336D12B98988A00D154A2 /* AutoDestroySystem.cpp in Sources */,
 				92026EA02B7D05B200B87AAD /* CollisionBox.cpp in Sources */,
 				923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */,
 				92026E9D2B7CE87600B87AAD /* AnimationSystem.cpp in Sources */,

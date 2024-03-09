@@ -60,11 +60,6 @@ void GameScene::load()
     dispatcher.sink<LivesChangedEvent>().connect<&GameScene::onLivesChanged>(*this);
     dispatcher.sink<LevelChangedEvent>().connect<&GameScene::onLevelChanged>(*this);
     
-    getMusicCache().load(MusicIdGame, "Audio/game.ogg");
-    getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
-    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites", true);
-    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", false);
-    
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
     BackgroundFactory::createLayer2(*this, 0.0);

@@ -7,6 +7,7 @@
 #include "Caches/SpriteAtlasCache.hpp"
 #include "Caches/MusicCache.hpp"
 #include "Scenes/SceneManager.hpp"
+#include "Scenes/LaunchScene.hpp"
 #include "Scenes/TitleScene.hpp"
 #include "Config.hpp"
 #include "Input/InputManager.hpp"
@@ -22,7 +23,7 @@ int main( int argc, char* args[] )
     Mix_Init(MIX_INIT_OGG);
     
     // create window
-    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE | SDL_WINDOW_FULLSCREEN_DESKTOP);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
     SDL_ShowCursor(SDL_DISABLE);
@@ -41,7 +42,7 @@ int main( int argc, char* args[] )
         SceneManager sceneManager(renderer, 30);
         InputManager inputManager;
         
-        sceneManager.setNextScene(std::make_unique<TitleScene>(renderer, sceneManager, inputManager));
+        sceneManager.setNextScene(std::make_unique<LaunchScene>(renderer, sceneManager, inputManager));
         
         // initialize time
         auto previousMillis = SDL_GetTicks();

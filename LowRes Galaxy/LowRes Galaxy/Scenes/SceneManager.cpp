@@ -46,7 +46,7 @@ void SceneManager::update()
     {
         case SceneManagerState::inactive:
         {
-            if (nextScene != nullptr)
+            if (++ticks >= 60 && nextScene != nullptr)
             {
                 setCurrentScene(nextScene);
                 nextScene = nullptr;
@@ -86,6 +86,7 @@ void SceneManager::update()
                 else
                 {
                     state = SceneManagerState::inactive;
+                    ticks = 0;
                 }
             }
             break;
@@ -105,6 +106,13 @@ void SceneManager::render()
     }
     switch (state)
     {
+        case SceneManagerState::inactive:
+        {
+            SDL_Rect rect {0, 0, Config::screenWidth, Config::screenHeight};
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+            SDL_RenderFillRect(renderer, &rect);
+            break;
+        }
         case SceneManagerState::fadingIn:
         {
             SDL_Rect rect {0, 0, Config::screenWidth, Config::screenHeight};

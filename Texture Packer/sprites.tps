@@ -167,7 +167,7 @@
             <key>heuristicMask</key>
             <false/>
             <key>defaultPivotPoint</key>
-            <point_f>0.5,0.5</point_f>
+            <point_f>0,0</point_f>
             <key>writePivotPoints</key>
             <true/>
         </struct>
@@ -231,6 +231,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../Assets/inutilis.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>17,6,34,11</rect>
+                <key>scale9Paddings</key>
+                <rect>17,6,34,11</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../Assets/ship-0.png</key>
             <key type="filename">../Assets/ship-1.png</key>
             <struct type="IndividualSpriteSettings">
@@ -288,6 +303,7 @@
                     <filename>../Assets/title.png</filename>
                     <filename>../Assets/ship-0.png</filename>
                     <filename>../Assets/ship-1.png</filename>
+                    <filename>../Assets/inutilis.png</filename>
                 </array>
             </struct>
         </map>

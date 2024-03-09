@@ -25,11 +25,6 @@ TitleScene::~TitleScene()
 
 void TitleScene::load()
 {
-    getMusicCache().load(MusicIdTitle, "Audio/title.ogg");
-    getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
-    getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites", true);
-    getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", false);
-    
     BackgroundFactory::createLayer1(*this, 0.0);
     BackgroundFactory::createLayer1(*this, 256.0);
     BackgroundFactory::createLayer2(*this, 0.0);
@@ -39,7 +34,7 @@ void TitleScene::load()
     
     UIFactory::createImage(*this, SpriteAtlasIdSprites, "title", (Config::screenWidth - 94.0) * 0.5, 16.0);
     
-    UIFactory::createScrollingLabel(*this, "PRESS FIRE TO START! ... A GAME IN DEVELOPMENT BY INUTILIS SOFTWARE SINCE 2024 ... WWW.INUTILIS.COM", Config::screenWidth + 60.0, Config::screenHeight - 40.0);
+    UIFactory::createScrollingLabel(*this, "PRESS FIRE TO START! ... A GAME IN DEVELOPMENT BY TIMO KLOSS ... WWW.INUTILIS.COM", Config::screenWidth + 60.0, Config::screenHeight - 40.0);
 }
 
 void TitleScene::unload()

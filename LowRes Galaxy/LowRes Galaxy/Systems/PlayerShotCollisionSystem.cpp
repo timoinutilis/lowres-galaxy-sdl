@@ -46,6 +46,7 @@ void PlayerShotCollisionSystem::update() const
                 if (shootable.hits > 0)
                 {
                     shootable.flash = 6;
+                    scene.getAudioClipCache()[AudioClipEnemyHit]->play();
                 }
                 else
                 {
@@ -53,6 +54,7 @@ void PlayerShotCollisionSystem::update() const
                     
                     SpriteFactory::createExplosion(scene, shootablePosition.x + (shootableBox.minX + shootableBox.maxX) * 0.5 - 8.0, shootablePosition.y + (shootableBox.minY + shootableBox.maxY) * 0.5 - 8.0);
                     registry.destroy(shootableEntity);
+                    scene.getAudioClipCache()[AudioClipExplosion]->play();
                 }
                 
                 registry.destroy(shotEntity);

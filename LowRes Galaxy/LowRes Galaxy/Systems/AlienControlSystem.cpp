@@ -40,6 +40,7 @@ void AlienControlSystem::update() const
             {
                 auto playerPosition = scene.getRegistry().get<Position>(playerEntity);
                 SpriteFactory::createEnemyShot(scene, position.x + 4.0, position.y + 4.0, playerPosition.x + 6.0, playerPosition.y + 6.0);
+                scene.getAudioClipCache()[AudioClipEnemyShot]->play();
             }
         }
         

@@ -21,9 +21,19 @@ LaunchScene::~LaunchScene()
 
 void LaunchScene::load()
 {
-    getMusicCache().load(MusicIdTitle, "Audio/title.ogg");
-    getMusicCache().load(MusicIdGame, "Audio/game.ogg");
+    getMusicCache().load(MusicIdTitle, "Audio/music_title.ogg");
+    getMusicCache().load(MusicIdGame, "Audio/music_game.ogg");
+    getMusicCache().load(MusicIdGameOver, "Audio/music_game_over.ogg");
+    
+    getAudioClipCache().load(AudioClipLevelUp, "Audio/level_up.aiff");
+    getAudioClipCache().load(AudioClipPlayerShot, "Audio/player_shot.aiff");
+    getAudioClipCache().load(AudioClipPlayerExplosion, "Audio/player_explosion.aiff");
+    getAudioClipCache().load(AudioClipEnemyShot, "Audio/enemy_shot.aiff");
+    getAudioClipCache().load(AudioClipEnemyHit, "Audio/enemy_hit.aiff");
+    getAudioClipCache().load(AudioClipExplosion, "Audio/explosion.aiff");
+    
     getFontCache().load(FontIdDefault, getRenderer(), "Textures/font");
+    
     getSpriteAtlasCache().load(SpriteAtlasIdSprites, getRenderer(), "Textures/sprites", true);
     getSpriteAtlasCache().load(SpriteAtlasIdBackground, getRenderer(), "Textures/background", false);
     

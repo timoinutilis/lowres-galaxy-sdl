@@ -38,6 +38,7 @@
 		928F35732B86401C00E20823 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F35712B86401C00E20823 /* GameScene.cpp */; };
 		928F35792B8648C700E20823 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F35772B8648C700E20823 /* SceneManager.cpp */; };
 		928F357C2B86535900E20823 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F357A2B86535900E20823 /* TitleScene.cpp */; };
+		929331A72BA1C145007C0BD7 /* AudioClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929331A52BA1C145007C0BD7 /* AudioClip.cpp */; };
 		9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9293DB512B8013C800409AC8 /* LabelRenderer.cpp */; };
 		92B21A362B64044100B033E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B21A352B64044100B033E2 /* Assets.xcassets */; };
 		92B21A432B64065000B033E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B21A422B64064F00B033E2 /* main.cpp */; };
@@ -212,6 +213,9 @@
 		928F35782B8648C700E20823 /* SceneManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		928F357A2B86535900E20823 /* TitleScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		928F357B2B86535900E20823 /* TitleScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
+		929331A52BA1C145007C0BD7 /* AudioClip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioClip.cpp; sourceTree = "<group>"; };
+		929331A62BA1C145007C0BD7 /* AudioClip.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioClip.hpp; sourceTree = "<group>"; };
+		929331A82BA1C27A007C0BD7 /* AudioClipCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioClipCache.hpp; sourceTree = "<group>"; };
 		9293DB502B80136E00409AC8 /* Label.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		9293DB512B8013C800409AC8 /* LabelRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelRenderer.cpp; sourceTree = "<group>"; };
 		9293DB522B8013C800409AC8 /* LabelRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelRenderer.hpp; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 				928F35682B85F48600E20823 /* SpriteAtlasCache.hpp */,
 				928F356B2B86173200E20823 /* FontCache.hpp */,
 				928F35702B861C7500E20823 /* MusicCache.hpp */,
+				929331A82BA1C27A007C0BD7 /* AudioClipCache.hpp */,
 			);
 			path = Caches;
 			sourceTree = "<group>";
@@ -569,6 +574,8 @@
 			children = (
 				928F356D2B86189900E20823 /* Music.cpp */,
 				928F356E2B86189900E20823 /* Music.hpp */,
+				929331A52BA1C145007C0BD7 /* AudioClip.cpp */,
+				929331A62BA1C145007C0BD7 /* AudioClip.hpp */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -720,6 +727,7 @@
 				92026E962B7CDED800B87AAD /* PlayerShotCollisionSystem.cpp in Sources */,
 				92188BB22B73B0420087E7E1 /* PlayerControlSystem.cpp in Sources */,
 				92188BC32B73D9B00087E7E1 /* SpriteFactory.cpp in Sources */,
+				929331A72BA1C145007C0BD7 /* AudioClip.cpp in Sources */,
 				928F35732B86401C00E20823 /* GameScene.cpp in Sources */,
 				92F7D7392B8F84CA00BA47B8 /* LevelSystem.cpp in Sources */,
 				924251572B6E69D800137C60 /* Scene.cpp in Sources */,

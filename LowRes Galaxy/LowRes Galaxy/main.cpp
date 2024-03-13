@@ -6,6 +6,7 @@
 #include "Caches/FontCache.hpp"
 #include "Caches/SpriteAtlasCache.hpp"
 #include "Caches/MusicCache.hpp"
+#include "Caches/AudioClipCache.hpp"
 #include "Scenes/SceneManager.hpp"
 #include "Scenes/LaunchScene.hpp"
 #include "Scenes/TitleScene.hpp"
@@ -30,13 +31,14 @@ int main( int argc, char* args[] )
     
     // start audio
     Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
-    Mix_AllocateChannels(2);
+    Mix_AllocateChannels(4);
     
     {
         // create caches
         entt::locator<FontCache>::emplace<FontCache>();
         entt::locator<SpriteAtlasCache>::emplace<SpriteAtlasCache>();
         entt::locator<MusicCache>::emplace<MusicCache>();
+        entt::locator<AudioClipCache>::emplace<AudioClipCache>();
         
         // initialize scene
         SceneManager sceneManager(renderer, 30);

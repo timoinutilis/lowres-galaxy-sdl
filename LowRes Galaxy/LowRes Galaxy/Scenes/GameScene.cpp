@@ -158,6 +158,7 @@ void GameScene::onLivesChanged(const LivesChangedEvent& event)
         // game over
         state = GameSceneState::gameOver;
         UIFactory::createImage(*this, SpriteAtlasIdSprites, "game_over", (Config::screenWidth - 134.0) * 0.5, 16.0);
+        getMusicCache()[MusicIdGameOver]->play();
     }
 }
 
@@ -169,6 +170,6 @@ void GameScene::onLevelChanged(const LevelChangedEvent& event)
     
     if (event.level >= 2)
     {
-        //TODO sfx
+        getAudioClipCache()[AudioClipLevelUp]->play();
     }
 }

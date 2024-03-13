@@ -57,6 +57,11 @@ MusicCache& Scene::getMusicCache()
     return entt::locator<MusicCache>::value();
 }
 
+AudioClipCache& Scene::getAudioClipCache()
+{
+    return entt::locator<AudioClipCache>::value();
+}
+
 Random& Scene::getRandom()
 {
     return random;

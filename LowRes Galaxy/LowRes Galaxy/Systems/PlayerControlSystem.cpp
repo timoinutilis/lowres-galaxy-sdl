@@ -100,6 +100,7 @@ void PlayerControlSystem::update() const
         {
             if (status.shootDelay <= 0) {
                 SpriteFactory::createShot(scene, entity, position.x + 8.0, position.y + 11.0);
+                scene.getAudioClipCache()[AudioClipPlayerShot]->play();
                 ++status.heat;
                 if (status.heat >= 5)
                 {
@@ -138,6 +139,7 @@ void PlayerControlSystem::onHit(const HitEvent& event) const
         
         SpriteFactory::createExplosion(scene, position.x, position.y);
         SpriteFactory::createExplosionSpawnArea(scene, position.x, position.y);
+        scene.getAudioClipCache()[AudioClipPlayerExplosion]->play();
         
         if (status.lives > 0)
         {

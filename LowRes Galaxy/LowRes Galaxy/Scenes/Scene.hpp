@@ -15,6 +15,7 @@
 #include "../Caches/SpriteAtlasCache.hpp"
 #include "../Caches/FontCache.hpp"
 #include "../Caches/MusicCache.hpp"
+#include "../Caches/AudioClipCache.hpp"
 #include "../Utils/Random.hpp"
 #include "../Systems/SpriteRenderer.hpp"
 #include "../Systems/LabelRenderer.hpp"
@@ -47,6 +48,7 @@ public:
     SpriteAtlasCache& getSpriteAtlasCache();
     FontCache& getFontCache();
     MusicCache& getMusicCache();
+    AudioClipCache& getAudioClipCache();
     Random& getRandom();
     
     virtual void load() = 0;

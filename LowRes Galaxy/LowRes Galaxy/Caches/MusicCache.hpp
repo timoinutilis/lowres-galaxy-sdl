@@ -14,7 +14,8 @@
 enum MusicId
 {
     MusicIdTitle,
-    MusicIdGame
+    MusicIdGame,
+    MusicIdGameOver
 };
 
 struct MusicLoader final {

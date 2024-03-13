@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include "../Highscores/HighscoreManager.hpp"
 #include "../Factories/BackgroundFactory.hpp"
 #include "../Factories/SpriteFactory.hpp"
 #include "../Factories/UIFactory.hpp"
@@ -119,6 +120,37 @@ void GameScene::update()
     dispatcher.update();
 }
 
+void GameScene::setGameOverState()
+{
+    state = GameSceneState::gameOver;
+    UIFactory::createImage(*this, SpriteAtlasIdSprites, "game_over", (Config::screenWidth - 134.0) * 0.5, 16.0);
+    getMusicCache()[MusicIdGameOver]->play();
+    
+    // check for new highscore
+    bool hasNewHighscore = false;
+    auto& highscoreManager = entt::locator<HighscoreManager>::value();
+    const auto view = registry.view<PlayerStatus>();
+    for (auto entity : view)
+    {
+        auto& status = view.get<PlayerStatus>(entity);
+        if (highscoreManager.checkNewScore(status.score))
+        {
+            hasNewHighscore = true;
+        }
+    }
+    
+    if (hasNewHighscore)
+    {
+        UIFactory::createMessage(*this, "NEW HIGHSCORE!", false);
+    }
+    else
+    {
+        std::ostringstream oss;
+        oss << "HIGHSCORE: " << std::to_string(highscoreManager.getHighscore());
+        UIFactory::createMessage(*this, oss.str(), false);
+    }
+}
+
 void GameScene::onInputAction(const InputAction action)
 {
     switch (state)
@@ -155,10 +187,7 @@ void GameScene::onLivesChanged(const LivesChangedEvent& event)
     }
     if (event.lives == 0)
     {
-        // game over
-        state = GameSceneState::gameOver;
-        UIFactory::createImage(*this, SpriteAtlasIdSprites, "game_over", (Config::screenWidth - 134.0) * 0.5, 16.0);
-        getMusicCache()[MusicIdGameOver]->play();
+        setGameOverState();
     }
 }
 

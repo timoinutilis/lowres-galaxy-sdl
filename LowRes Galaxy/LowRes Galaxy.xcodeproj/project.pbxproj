@@ -39,6 +39,7 @@
 		928F35792B8648C700E20823 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F35772B8648C700E20823 /* SceneManager.cpp */; };
 		928F357C2B86535900E20823 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F357A2B86535900E20823 /* TitleScene.cpp */; };
 		929331A72BA1C145007C0BD7 /* AudioClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929331A52BA1C145007C0BD7 /* AudioClip.cpp */; };
+		929331AC2BA1CAE0007C0BD7 /* HighscoreManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929331AA2BA1CAE0007C0BD7 /* HighscoreManager.cpp */; };
 		9293DB532B8013C800409AC8 /* LabelRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9293DB512B8013C800409AC8 /* LabelRenderer.cpp */; };
 		92B21A362B64044100B033E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B21A352B64044100B033E2 /* Assets.xcassets */; };
 		92B21A432B64065000B033E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B21A422B64064F00B033E2 /* main.cpp */; };
@@ -216,6 +217,8 @@
 		929331A52BA1C145007C0BD7 /* AudioClip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioClip.cpp; sourceTree = "<group>"; };
 		929331A62BA1C145007C0BD7 /* AudioClip.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioClip.hpp; sourceTree = "<group>"; };
 		929331A82BA1C27A007C0BD7 /* AudioClipCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioClipCache.hpp; sourceTree = "<group>"; };
+		929331AA2BA1CAE0007C0BD7 /* HighscoreManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HighscoreManager.cpp; sourceTree = "<group>"; };
+		929331AB2BA1CAE0007C0BD7 /* HighscoreManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HighscoreManager.hpp; sourceTree = "<group>"; };
 		9293DB502B80136E00409AC8 /* Label.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
 		9293DB512B8013C800409AC8 /* LabelRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelRenderer.cpp; sourceTree = "<group>"; };
 		9293DB522B8013C800409AC8 /* LabelRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelRenderer.hpp; sourceTree = "<group>"; };
@@ -580,6 +583,15 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		929331A92BA1C987007C0BD7 /* Highscores */ = {
+			isa = PBXGroup;
+			children = (
+				929331AA2BA1CAE0007C0BD7 /* HighscoreManager.cpp */,
+				929331AB2BA1CAE0007C0BD7 /* HighscoreManager.hpp */,
+			);
+			path = Highscores;
+			sourceTree = "<group>";
+		};
 		92B21A262B64044000B033E2 = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +625,7 @@
 				92188BA42B73978A0087E7E1 /* Components */,
 				92188BA52B7397920087E7E1 /* Systems */,
 				92F7D7322B8F3E2C00BA47B8 /* Events */,
+				929331A92BA1C987007C0BD7 /* Highscores */,
 				92188BBD2B73D64B0087E7E1 /* Factories */,
 				923C8F3C2B7E819300FA0FBC /* Scenes */,
 				92B21A422B64064F00B033E2 /* main.cpp */,
@@ -751,6 +764,7 @@
 				928F356F2B86189900E20823 /* Music.cpp in Sources */,
 				927336D12B98988A00D154A2 /* AutoDestroySystem.cpp in Sources */,
 				92026EA02B7D05B200B87AAD /* CollisionBox.cpp in Sources */,
+				929331AC2BA1CAE0007C0BD7 /* HighscoreManager.cpp in Sources */,
 				923C8F3A2B7E7D6A00FA0FBC /* Font.cpp in Sources */,
 				92026E9D2B7CE87600B87AAD /* AnimationSystem.cpp in Sources */,
 				92B21A432B64065000B033E2 /* main.cpp in Sources */,

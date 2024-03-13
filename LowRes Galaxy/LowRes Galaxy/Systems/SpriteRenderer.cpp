@@ -26,7 +26,7 @@ void SpriteRenderer::render() const
     SDL_Renderer *renderer = scene.getRenderer();
     for (auto entity : view)
     {
-        auto sprite = view.get<Sprite>(entity);
+        const auto& sprite = view.get<Sprite>(entity);
         if (!sprite.isHidden)
         {
             auto position = view.get<Position>(entity);

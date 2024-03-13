@@ -12,6 +12,7 @@
 #include "Scenes/TitleScene.hpp"
 #include "Config.hpp"
 #include "Input/InputManager.hpp"
+#include "Highscores/HighscoreManager.hpp"
 
 int main( int argc, char* args[] )
 {
@@ -24,7 +25,7 @@ int main( int argc, char* args[] )
     Mix_Init(MIX_INIT_OGG);
     
     // create window
-    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE | SDL_WINDOW_FULLSCREEN_DESKTOP);
+    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE/* | SDL_WINDOW_FULLSCREEN_DESKTOP*/);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
     SDL_ShowCursor(SDL_DISABLE);
@@ -39,6 +40,9 @@ int main( int argc, char* args[] )
         entt::locator<SpriteAtlasCache>::emplace<SpriteAtlasCache>();
         entt::locator<MusicCache>::emplace<MusicCache>();
         entt::locator<AudioClipCache>::emplace<AudioClipCache>();
+        
+        // initialize game managers
+        entt::locator<HighscoreManager>::emplace<HighscoreManager>();
         
         // initialize scene
         SceneManager sceneManager(renderer, 30);

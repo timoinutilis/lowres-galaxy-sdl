@@ -24,7 +24,7 @@ void LabelRenderer::render() const
     SDL_Renderer *renderer = scene.getRenderer();
     for (auto entity : view)
     {
-        auto label = view.get<Label>(entity);
+        const auto& label = view.get<Label>(entity);
         if (!label.isHidden)
         {
             auto position = view.get<Position>(entity);

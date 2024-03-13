@@ -11,11 +11,14 @@
 #include "Scene.hpp"
 #include "../Input/InputManager.hpp"
 #include "../Systems/AutoScrollSystem.hpp"
+#include "../Systems/AutoDestroySystem.hpp"
 
 class TitleScene : public Scene
 {
 private:
     AutoScrollSystem autoScrollSystem;
+    AutoDestroySystem autoDestroySystem;
+    int tick = 0;
     void onInputAction(const InputAction action);
     
 public:

@@ -7,6 +7,8 @@
 
 #include "TitleScene.hpp"
 #include <iostream>
+#include <sstream>
+#include "../Highscores/HighscoreManager.hpp"
 #include "../Factories/BackgroundFactory.hpp"
 #include "../Factories/SpriteFactory.hpp"
 #include "../Factories/UIFactory.hpp"
@@ -16,6 +18,7 @@
 TitleScene::TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
     : Scene(renderer, sceneManager, inputManager)
     , autoScrollSystem(*this)
+    , autoDestroySystem(*this)
 {
 }
 
@@ -34,7 +37,7 @@ void TitleScene::load()
     
     UIFactory::createImage(*this, SpriteAtlasIdSprites, "title", (Config::screenWidth - 94.0) * 0.5, 16.0);
     
-    UIFactory::createScrollingLabel(*this, "PRESS FIRE TO START! ... A GAME IN DEVELOPMENT BY TIMO KLOSS ... WWW.INUTILIS.COM", Config::screenWidth + 60.0, Config::screenHeight - 40.0);
+    UIFactory::createScrollingLabel(*this, "A GAME BY TIMO KLOSS ... (C)2024 ... INUTILIS.COM ...", Config::screenWidth + 60.0, Config::screenHeight - 40.0);
 }
 
 void TitleScene::unload()
@@ -55,10 +58,25 @@ void TitleScene::onDisappear()
 
 void TitleScene::update()
 {
+    if (tick % 240 == 0)
+    {
+        UIFactory::createMessage(*this, "PRESS FIRE TO START!");
+    }
+    else if (tick % 240 == 120)
+    {
+        auto& highscoreManager = entt::locator<HighscoreManager>::value();
+        std::ostringstream oss;
+        oss << "HIGHSCORE: " << std::to_string(highscoreManager.getHighscore());
+        UIFactory::createMessage(*this, oss.str());
+    }
+    
     // systems
     autoScrollSystem.update();
+    autoDestroySystem.update();
     
     dispatcher.update();
+    
+    ++tick;
 }
 
 void TitleScene::onInputAction(const InputAction action)

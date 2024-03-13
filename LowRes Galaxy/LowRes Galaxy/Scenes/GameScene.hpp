@@ -57,6 +57,8 @@ private:
     
     GameSceneState state = GameSceneState::playing;
     
+    void setGameOverState();
+    
     void onInputAction(const InputAction action);
     void onScoreChanged(const ScoreChangedEvent& event);
     void onLivesChanged(const LivesChangedEvent& event);

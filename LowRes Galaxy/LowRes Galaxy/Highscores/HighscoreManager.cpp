@@ -34,17 +34,21 @@ int HighscoreManager::getHighscore() const
 void HighscoreManager::load()
 {
     auto path = getPath();
-    std::ifstream file;
-    file.open(path);
-    file >> highscore;
+    std::ifstream file(path);
+    if (file)
+    {
+        file >> highscore;
+    }
 }
 
 void HighscoreManager::save() const
 {
     auto path = getPath();
-    std::ofstream file;
-    file.open(path);
-    file << highscore;
+    std::ofstream file(path);
+    if (file)
+    {
+        file << highscore;
+    }
 }
 
 std::string HighscoreManager::getPath() const

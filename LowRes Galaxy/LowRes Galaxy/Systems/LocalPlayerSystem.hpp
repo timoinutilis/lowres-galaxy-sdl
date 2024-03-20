@@ -13,7 +13,7 @@ class Scene;
 class LocalPlayerSystem final
 {
 public:
-    LocalPlayerSystem(Scene& scene);
+    LocalPlayerSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

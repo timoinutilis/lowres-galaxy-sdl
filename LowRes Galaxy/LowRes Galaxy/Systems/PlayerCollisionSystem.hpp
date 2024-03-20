@@ -13,7 +13,7 @@ class Scene;
 class PlayerCollisionSystem final
 {
 public:
-    PlayerCollisionSystem(Scene& scene);
+    PlayerCollisionSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

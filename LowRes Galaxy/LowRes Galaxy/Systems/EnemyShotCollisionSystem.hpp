@@ -15,7 +15,7 @@ struct Position;
 class EnemyShotCollisionSystem final
 {
 public:
-    EnemyShotCollisionSystem(Scene& scene);
+    EnemyShotCollisionSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

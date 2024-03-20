@@ -14,7 +14,7 @@
 #include "../Components/Shootable.hpp"
 #include "../Events/HitEvent.hpp"
 
-PlayerCollisionSystem::PlayerCollisionSystem(Scene& scene)
+PlayerCollisionSystem::PlayerCollisionSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

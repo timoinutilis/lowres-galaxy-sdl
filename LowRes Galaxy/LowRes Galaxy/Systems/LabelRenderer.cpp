@@ -13,7 +13,7 @@
 #include "../Components/Label.hpp"
 #include "../Components/Position.hpp"
 
-LabelRenderer::LabelRenderer(Scene& scene)
+LabelRenderer::LabelRenderer(Scene& scene) noexcept
     : scene(scene)
 {
 }

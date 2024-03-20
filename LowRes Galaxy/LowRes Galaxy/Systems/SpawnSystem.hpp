@@ -13,7 +13,7 @@ class Scene;
 class SpawnSystem final
 {
 public:
-    SpawnSystem(Scene& scene);
+    SpawnSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

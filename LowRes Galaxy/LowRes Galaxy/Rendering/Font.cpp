@@ -7,12 +7,23 @@
 
 #include "Font.hpp"
 #include <SDL2_image/SDL_image.h>
+#include <stdexcept>
 
 Font::Font(SDL_Renderer* renderer, const std::string& filepath)
 {
     SDL_Surface* image = IMG_Load((filepath + ".png").c_str());
+    if (image == nullptr)
+    {
+        throw std::runtime_error("IMG_Load failed for " + filepath);
+    }
+    
     texture = SDL_CreateTextureFromSurface(renderer, image);
     SDL_FreeSurface(image);
+    
+    if (texture == nullptr)
+    {
+        throw std::runtime_error(SDL_GetError());
+    }
 }
 
 Font::~Font()
@@ -37,6 +48,10 @@ void Font::drawCharacter(SDL_Renderer* renderer, char character, const int x, co
     {
         SDL_Rect src {(index % 16) * 8, (index / 16) * 8, 8, 8};
         SDL_Rect dst {x, y, 8, 8};
-        SDL_RenderCopy(renderer, texture, &src, &dst);
+        
+        if (SDL_RenderCopy(renderer, texture, &src, &dst))
+        {
+            throw std::runtime_error(SDL_GetError());
+        }
     }
 }

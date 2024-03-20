@@ -15,7 +15,7 @@
 #include "../Events/HitEvent.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-EnemyShotCollisionSystem::EnemyShotCollisionSystem(Scene& scene)
+EnemyShotCollisionSystem::EnemyShotCollisionSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

@@ -15,7 +15,7 @@
 #include "../Factories/SpriteFactory.hpp"
 #include "Config.hpp"
 
-AlienControlSystem::AlienControlSystem(GameScene& scene)
+AlienControlSystem::AlienControlSystem(GameScene& scene) noexcept
     : scene(scene)
 {
 }

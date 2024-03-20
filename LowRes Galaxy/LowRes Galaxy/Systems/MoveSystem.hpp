@@ -13,7 +13,7 @@ class Scene;
 class MoveSystem final
 {
 public:
-    MoveSystem(Scene& scene);
+    MoveSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

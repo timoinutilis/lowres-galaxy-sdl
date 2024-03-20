@@ -6,10 +6,15 @@
 //
 
 #include "AudioClip.hpp"
+#include <stdexcept>
 
 AudioClip::AudioClip(const std::string& filepath)
 {
     chunk = Mix_LoadWAV(filepath.c_str());
+    if (chunk == nullptr)
+    {
+        throw std::runtime_error("Mix_LoadWAV failed for " + filepath);
+    }
 }
 
 AudioClip::~AudioClip()

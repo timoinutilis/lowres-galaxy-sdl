@@ -10,7 +10,7 @@
 #include "../Scenes/Scene.hpp"
 #include "../Components/AutoDestroy.hpp"
 
-AutoDestroySystem::AutoDestroySystem(Scene& scene)
+AutoDestroySystem::AutoDestroySystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

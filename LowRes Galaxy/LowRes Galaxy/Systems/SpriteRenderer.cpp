@@ -13,7 +13,7 @@
 #include "../Components/Sprite.hpp"
 #include "../Components/Position.hpp"
 
-SpriteRenderer::SpriteRenderer(Scene& scene)
+SpriteRenderer::SpriteRenderer(Scene& scene) noexcept
     : scene(scene)
 {
 }

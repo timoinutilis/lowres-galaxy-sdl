@@ -7,9 +7,10 @@
 
 #include "Scene.hpp"
 #include <iostream>
+#include "../IOWrapper/IOWrapper.hpp"
 
-Scene::Scene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
-    : renderer(renderer)
+Scene::Scene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept
+    : ioWrapper(ioWrapper)
     , sceneManager(sceneManager)
     , inputManager(inputManager)
     , spriteRenderer(*this)
@@ -19,7 +20,12 @@ Scene::Scene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& i
 
 SDL_Renderer* Scene::getRenderer()
 {
-    return renderer;
+    return ioWrapper.getRenderer();
+}
+
+IOWrapper& Scene::getIOWrapper()
+{
+    return ioWrapper;
 }
 
 entt::registry& Scene::getRegistry()

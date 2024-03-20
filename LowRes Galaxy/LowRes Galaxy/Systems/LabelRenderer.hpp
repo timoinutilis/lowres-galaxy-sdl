@@ -13,7 +13,7 @@ class Scene;
 class LabelRenderer final
 {
 public:
-    LabelRenderer(Scene& scene);
+    LabelRenderer(Scene& scene) noexcept;
     void render() const;
     
 private:

@@ -13,7 +13,7 @@ class Scene;
 class SpriteRenderer final
 {
 public:
-    SpriteRenderer(Scene& scene);
+    SpriteRenderer(Scene& scene) noexcept;
     void render() const;
     
 private:

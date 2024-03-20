@@ -7,7 +7,7 @@
 
 #include "Random.hpp"
 
-Random::Random() : unif(0.0, 1.0)
+Random::Random() noexcept : unif(0.0, 1.0)
 {
 }
 

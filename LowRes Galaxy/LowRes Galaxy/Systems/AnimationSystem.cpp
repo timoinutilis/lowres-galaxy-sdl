@@ -11,7 +11,7 @@
 #include "../Components/Animation.hpp"
 #include "../Components/Sprite.hpp"
 
-AnimationSystem::AnimationSystem(Scene& scene)
+AnimationSystem::AnimationSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

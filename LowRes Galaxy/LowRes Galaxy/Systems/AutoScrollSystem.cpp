@@ -11,7 +11,7 @@
 #include "../Components/Position.hpp"
 #include "../Components/AutoScroll.hpp"
 
-AutoScrollSystem::AutoScrollSystem(Scene& scene)
+AutoScrollSystem::AutoScrollSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

@@ -13,7 +13,7 @@ class Scene;
 class AutoScrollSystem final
 {
 public:
-    AutoScrollSystem(Scene& scene);
+    AutoScrollSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

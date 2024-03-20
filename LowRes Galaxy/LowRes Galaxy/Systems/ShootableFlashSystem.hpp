@@ -13,7 +13,7 @@ class Scene;
 class ShootableFlashSystem final
 {
 public:
-    ShootableFlashSystem(Scene& scene);
+    ShootableFlashSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

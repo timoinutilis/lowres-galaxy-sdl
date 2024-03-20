@@ -11,7 +11,7 @@
 #include "../Factories/SpriteFactory.hpp"
 #include "Config.hpp"
 
-LevelSystem::LevelSystem(Scene& scene)
+LevelSystem::LevelSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

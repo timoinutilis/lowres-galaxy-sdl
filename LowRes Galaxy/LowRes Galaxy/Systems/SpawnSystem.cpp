@@ -11,7 +11,7 @@
 #include "../Components/SpawnArea.hpp"
 #include "../Components/Position.hpp"
 
-SpawnSystem::SpawnSystem(Scene& scene)
+SpawnSystem::SpawnSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

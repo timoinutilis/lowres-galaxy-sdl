@@ -13,7 +13,7 @@
 #include "../Components/PlayerInput.hpp"
 #include "../Input/InputManager.hpp"
 
-LocalPlayerSystem::LocalPlayerSystem(Scene& scene)
+LocalPlayerSystem::LocalPlayerSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

@@ -8,9 +8,10 @@
 #include "SceneManager.hpp"
 #include "Scene.hpp"
 #include "../Config.hpp"
+#include "../IOWrapper/IOWrapper.hpp"
 
-SceneManager::SceneManager(SDL_Renderer* renderer, int fadeTicks)
-    : renderer(renderer)
+SceneManager::SceneManager(IOWrapper& ioWrapper, int fadeTicks) noexcept
+    : ioWrapper(ioWrapper)
     , fadeTicks(fadeTicks)
 {
 }
@@ -100,10 +101,13 @@ void SceneManager::update()
 
 void SceneManager::render()
 {
+    SDL_Renderer* renderer = ioWrapper.getRenderer();
+    
     if (currentScene != nullptr)
     {
         currentScene->render();
     }
+    
     switch (state)
     {
         case SceneManagerState::inactive:

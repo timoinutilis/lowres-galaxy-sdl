@@ -12,7 +12,7 @@
 #include "../Components/MoveDirection.hpp"
 #include "Config.hpp"
 
-MoveSystem::MoveSystem(Scene& scene)
+MoveSystem::MoveSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

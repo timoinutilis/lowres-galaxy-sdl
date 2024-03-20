@@ -28,7 +28,7 @@ class InputManager
 public:
     using Listener = void(const InputAction);
     
-    InputManager();
+    InputManager() noexcept;
     ~InputManager();
     
     void handleSDLEvent(const SDL_Event& event);

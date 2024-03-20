@@ -20,10 +20,12 @@
 #include "../Systems/SpriteRenderer.hpp"
 #include "../Systems/LabelRenderer.hpp"
 
+class IOWrapper;
+
 class Scene
 {
 private:
-    SDL_Renderer* renderer;
+    IOWrapper& ioWrapper;
         
     SpriteRenderer spriteRenderer;
     LabelRenderer labelRenderer;
@@ -36,10 +38,11 @@ protected:
     Random random;
     
 public:
-    Scene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager);
+    Scene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept;
     virtual ~Scene() = default;
     
     SDL_Renderer* getRenderer();
+    IOWrapper& getIOWrapper();
     
     entt::registry& getRegistry();
     entt::dispatcher& getDispatcher();

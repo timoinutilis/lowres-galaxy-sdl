@@ -13,7 +13,7 @@
 class LaunchScene : public Scene
 {
 public:
-    LaunchScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager);
+    LaunchScene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept;
     virtual ~LaunchScene() override;
     
     virtual void load() override;

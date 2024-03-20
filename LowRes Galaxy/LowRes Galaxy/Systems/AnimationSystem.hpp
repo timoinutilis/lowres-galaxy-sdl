@@ -13,7 +13,7 @@ class Scene;
 class AnimationSystem final
 {
 public:
-    AnimationSystem(Scene& scene);
+    AnimationSystem(Scene& scene) noexcept;
     void update() const;
     
 private:

@@ -8,7 +8,7 @@
 #include "InputManager.hpp"
 #include <iostream>
 
-InputManager::InputManager()
+InputManager::InputManager() noexcept
     : actionStatuses(6)
     , actionSink(actionSignal)
 {

@@ -9,9 +9,9 @@
 #define SceneManager_hpp
 
 #include <memory>
-#include <SDL2/SDL.h>
 
 class Scene;
+class IOWrapper;
 
 enum class SceneManagerState
 {
@@ -24,7 +24,7 @@ enum class SceneManagerState
 class SceneManager final
 {
 private:
-    SDL_Renderer* renderer;
+    IOWrapper& ioWrapper;
     SceneManagerState state = SceneManagerState::inactive;
     int fadeTicks;
     int ticks;
@@ -33,7 +33,7 @@ private:
     void setCurrentScene(std::shared_ptr<Scene> scene);
     
 public:
-    SceneManager(SDL_Renderer* renderer, int fadeTicks);
+    SceneManager(IOWrapper& ioWrapper, int fadeTicks) noexcept;
     ~SceneManager();
     
     void setNextScene(std::shared_ptr<Scene> scene);

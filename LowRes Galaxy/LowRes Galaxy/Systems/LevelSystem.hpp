@@ -15,7 +15,7 @@ class Scene;
 class LevelSystem final
 {
 public:
-    LevelSystem(Scene& scene);
+    LevelSystem(Scene& scene) noexcept;
     bool isPeace() const;
     void connectEvents();
     void disconnectEvents();

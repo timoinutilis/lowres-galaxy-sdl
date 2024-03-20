@@ -17,7 +17,7 @@ private:
     std::default_random_engine re;
     
 public:
-    Random();
+    Random() noexcept;
     double getDouble();
     int getInt(const int range);
 };

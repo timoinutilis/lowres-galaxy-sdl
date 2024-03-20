@@ -14,7 +14,7 @@ class Scene;
 class AutoDestroySystem final
 {
 public:
-    AutoDestroySystem(Scene& scene);
+    AutoDestroySystem(Scene& scene) noexcept;
     void update() const;
     
 private:

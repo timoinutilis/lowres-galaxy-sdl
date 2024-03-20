@@ -15,8 +15,8 @@
 #include "GameScene.hpp"
 #include "Config.hpp"
 
-TitleScene::TitleScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
-    : Scene(renderer, sceneManager, inputManager)
+TitleScene::TitleScene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept
+    : Scene(ioWrapper, sceneManager, inputManager)
     , autoScrollSystem(*this)
     , autoDestroySystem(*this)
 {
@@ -83,6 +83,6 @@ void TitleScene::onInputAction(const InputAction action)
 {
     if (action == InputAction::fire)
     {
-        sceneManager.setNextScene(std::make_unique<GameScene>(getRenderer(), sceneManager, inputManager));
+        sceneManager.setNextScene(std::make_unique<GameScene>(getIOWrapper(), sceneManager, inputManager));
     }
 }

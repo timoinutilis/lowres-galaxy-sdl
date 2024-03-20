@@ -10,8 +10,8 @@
 #include "TitleScene.hpp"
 #include "Config.hpp"
 
-LaunchScene::LaunchScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
-    : Scene(renderer, sceneManager, inputManager)
+LaunchScene::LaunchScene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept
+    : Scene(ioWrapper, sceneManager, inputManager)
 {
 }
 
@@ -56,6 +56,6 @@ void LaunchScene::update()
 {
     if (++ticks == 180)
     {
-        sceneManager.setNextScene(std::make_unique<TitleScene>(getRenderer(), getSceneManager(), getInputManager()));
+        sceneManager.setNextScene(std::make_unique<TitleScene>(getIOWrapper(), getSceneManager(), getInputManager()));
     }
 }

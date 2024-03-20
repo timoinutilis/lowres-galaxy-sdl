@@ -19,8 +19,8 @@
 #include "TitleScene.hpp"
 #include "Config.hpp"
 
-GameScene::GameScene(SDL_Renderer* renderer, SceneManager& sceneManager, InputManager& inputManager)
-    : Scene(renderer, sceneManager, inputManager)
+GameScene::GameScene(IOWrapper& ioWrapper, SceneManager& sceneManager, InputManager& inputManager) noexcept
+    : Scene(ioWrapper, sceneManager, inputManager)
     , levelSystem(*this)
     , playerControlSystem(*this)
     , localPlayerSystem(*this)
@@ -158,13 +158,13 @@ void GameScene::onInputAction(const InputAction action)
         case GameSceneState::playing:
             if (action == InputAction::back)
             {
-                sceneManager.setNextScene(std::make_unique<TitleScene>(getRenderer(), sceneManager, inputManager));
+                sceneManager.setNextScene(std::make_unique<TitleScene>(getIOWrapper(), sceneManager, inputManager));
             }
             break;
         case GameSceneState::gameOver:
             if (action == InputAction::fire)
             {
-                sceneManager.setNextScene(std::make_unique<TitleScene>(getRenderer(), sceneManager, inputManager));
+                sceneManager.setNextScene(std::make_unique<TitleScene>(getIOWrapper(), sceneManager, inputManager));
             }
             break;
     }

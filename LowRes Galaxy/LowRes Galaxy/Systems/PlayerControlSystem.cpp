@@ -21,7 +21,7 @@
 #include "../Events/LevelChangedEvent.hpp"
 #include "Config.hpp"
 
-PlayerControlSystem::PlayerControlSystem(Scene& scene)
+PlayerControlSystem::PlayerControlSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

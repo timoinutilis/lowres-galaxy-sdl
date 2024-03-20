@@ -6,10 +6,15 @@
 //
 
 #include "Music.hpp"
+#include <stdexcept>
 
 Music::Music(const std::string& filepath)
 {
     music = Mix_LoadMUS(filepath.c_str());
+    if (music == nullptr)
+    {
+        throw std::runtime_error("Mix_LoadMUS failed for " + filepath);
+    }
 }
 
 Music::~Music()
@@ -19,7 +24,10 @@ Music::~Music()
 
 void Music::play() const
 {
-    Mix_PlayMusic(music, -1);
+    if (Mix_PlayMusic(music, -1))
+    {
+        throw std::runtime_error("Mix_PlayMusic failed");
+    }
 }
 
 void Music::halt() const

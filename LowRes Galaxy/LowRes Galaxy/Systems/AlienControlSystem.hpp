@@ -13,7 +13,7 @@ class GameScene;
 class AlienControlSystem final
 {
 public:
-    AlienControlSystem(GameScene& scene);
+    AlienControlSystem(GameScene& scene) noexcept;
     void update() const;
     
 private:

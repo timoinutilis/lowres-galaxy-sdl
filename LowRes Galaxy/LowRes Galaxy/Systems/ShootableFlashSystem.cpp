@@ -11,7 +11,7 @@
 #include "../Components/Shootable.hpp"
 #include "../Components/Sprite.hpp"
 
-ShootableFlashSystem::ShootableFlashSystem(Scene& scene)
+ShootableFlashSystem::ShootableFlashSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

@@ -1,4 +1,7 @@
 #include <memory>
+#include <iostream>
+#include <cstdlib>
+#include <exception>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
@@ -11,30 +14,19 @@
 #include "Scenes/LaunchScene.hpp"
 #include "Scenes/TitleScene.hpp"
 #include "Config.hpp"
+#include "IOWrapper/IOWrapper.hpp"
 #include "Input/InputManager.hpp"
 #include "Highscores/HighscoreManager.hpp"
 
 int main( int argc, char* args[] )
 {
-    bool quit = false;
-    SDL_Event event;
-    
-    // initialize SDL
-    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER);
-    IMG_Init(IMG_INIT_PNG);
-    Mix_Init(MIX_INIT_OGG);
-    
-    // create window
-    SDL_Window* window = SDL_CreateWindow("LowRes Galaxy ZERO", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Config::screenWidth * Config::defaultWindowScale, Config::screenHeight * Config::defaultWindowScale, SDL_WINDOW_RESIZABLE | SDL_WINDOW_FULLSCREEN_DESKTOP);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    SDL_RenderSetLogicalSize(renderer, Config::screenWidth, Config::screenHeight);
-    SDL_ShowCursor(SDL_DISABLE);
-    
-    // start audio
-    Mix_OpenAudio(48000, MIX_DEFAULT_FORMAT, 2, 2048);
-    Mix_AllocateChannels(4);
-    
+    try
     {
+        // initialize SDL
+        IOWrapper ioWrapper;
+        ioWrapper.initVideo("LowRes Galaxy ZERO", Config::screenWidth, Config::screenHeight, Config::defaultWindowScale);
+        ioWrapper.initAudio(48000, 8);
+        
         // create caches
         entt::locator<FontCache>::emplace<FontCache>();
         entt::locator<SpriteAtlasCache>::emplace<SpriteAtlasCache>();
@@ -45,14 +37,17 @@ int main( int argc, char* args[] )
         entt::locator<HighscoreManager>::emplace<HighscoreManager>();
         
         // initialize scene
-        SceneManager sceneManager(renderer, 30);
+        SceneManager sceneManager(ioWrapper, 30);
         InputManager inputManager;
         
-        sceneManager.setNextScene(std::make_unique<LaunchScene>(renderer, sceneManager, inputManager));
+        sceneManager.setNextScene(std::make_unique<LaunchScene>(ioWrapper, sceneManager, inputManager));
         
         // initialize time
         auto previousMillis = SDL_GetTicks();
         int lagMillis = 0;
+        
+        bool quit = false;
+        SDL_Event event;
         
         while (!quit)
         {
@@ -88,20 +83,21 @@ int main( int argc, char* args[] )
             }
             
             // render game
+            SDL_Renderer* renderer = ioWrapper.getRenderer();
             SDL_RenderClear(renderer);
             sceneManager.render();
             SDL_RenderPresent(renderer);
         }
+        
+        return EXIT_SUCCESS;
     }
-    
-    Mix_CloseAudio();
-    
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    
-    Mix_Quit();
-    IMG_Quit();
-    SDL_Quit();
-    
-    return 0;
+    catch (const std::exception& e)
+    {
+        if (SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Sorry, something went wrong", e.what(), nullptr))
+        {
+            // error popup failed, so just print out the error
+            std::cerr << "Sorry, something went wrong: " << e.what() << std::endl;
+        }
+        return EXIT_FAILURE;
+    }
 }

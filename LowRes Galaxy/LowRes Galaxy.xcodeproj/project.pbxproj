@@ -28,6 +28,7 @@
 		925944512B64206F00611F0D /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; };
 		925944522B64206F00611F0D /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 925944502B64206F00611F0D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		925944542B64283300611F0D /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 925944532B64283300611F0D /* Audio */; };
+		925CB3A02BAB2D780056F5A3 /* IOWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925CB39E2BAB2D780056F5A3 /* IOWrapper.cpp */; };
 		9262F46E2B99B2650052C488 /* LaunchScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9262F46C2B99B2650052C488 /* LaunchScene.cpp */; };
 		927336CD2B98859600D154A2 /* SpawnSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927336CB2B98859600D154A2 /* SpawnSystem.cpp */; };
 		927336D12B98988A00D154A2 /* AutoDestroySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927336CF2B98988A00D154A2 /* AutoDestroySystem.cpp */; };
@@ -189,6 +190,8 @@
 		9259444D2B64201000611F0D /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_image.framework; sourceTree = "<group>"; };
 		925944502B64206F00611F0D /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_mixer.framework; sourceTree = "<group>"; };
 		925944532B64283300611F0D /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		925CB39E2BAB2D780056F5A3 /* IOWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IOWrapper.cpp; sourceTree = "<group>"; };
+		925CB39F2BAB2D780056F5A3 /* IOWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOWrapper.hpp; sourceTree = "<group>"; };
 		9262F46C2B99B2650052C488 /* LaunchScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LaunchScene.cpp; sourceTree = "<group>"; };
 		9262F46D2B99B2650052C488 /* LaunchScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LaunchScene.hpp; sourceTree = "<group>"; };
 		927336CA2B9883AA00D154A2 /* SpawnArea.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpawnArea.hpp; sourceTree = "<group>"; };
@@ -561,6 +564,15 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		925CB3A12BAB40080056F5A3 /* IOWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				925CB39E2BAB2D780056F5A3 /* IOWrapper.cpp */,
+				925CB39F2BAB2D780056F5A3 /* IOWrapper.hpp */,
+			);
+			path = IOWrapper;
+			sourceTree = "<group>";
+		};
 		928F356A2B8614DE00E20823 /* Caches */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +629,7 @@
 				925944532B64283300611F0D /* Audio */,
 				92B21A492B6408E100B033E2 /* Textures */,
 				921DD0A52B650FEF007FB6BC /* Libraries */,
+				925CB3A12BAB40080056F5A3 /* IOWrapper */,
 				92026E8F2B7CBFD800B87AAD /* Utils */,
 				92E888152B93575E00C47667 /* Input */,
 				928F356C2B86187A00E20823 /* Sound */,
@@ -759,6 +772,7 @@
 				927336D72B98A93900D154A2 /* ShootableFlashSystem.cpp in Sources */,
 				928F357C2B86535900E20823 /* TitleScene.cpp in Sources */,
 				92188BC02B73D67E0087E7E1 /* BackgroundFactory.cpp in Sources */,
+				925CB3A02BAB2D780056F5A3 /* IOWrapper.cpp in Sources */,
 				927336D42B989B6E00D154A2 /* PlayerCollisionSystem.cpp in Sources */,
 				927336CD2B98859600D154A2 /* SpawnSystem.cpp in Sources */,
 				928F356F2B86189900E20823 /* Music.cpp in Sources */,

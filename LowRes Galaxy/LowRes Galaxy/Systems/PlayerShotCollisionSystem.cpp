@@ -16,7 +16,7 @@
 #include "../Events/AddScoreEvent.hpp"
 #include "../Factories/SpriteFactory.hpp"
 
-PlayerShotCollisionSystem::PlayerShotCollisionSystem(Scene& scene)
+PlayerShotCollisionSystem::PlayerShotCollisionSystem(Scene& scene) noexcept
     : scene(scene)
 {
 }

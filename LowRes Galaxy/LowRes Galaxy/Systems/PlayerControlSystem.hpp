@@ -16,7 +16,7 @@ struct LevelChangedEvent;
 class PlayerControlSystem final
 {
 public:
-    PlayerControlSystem(Scene& scene);
+    PlayerControlSystem(Scene& scene) noexcept;
     void connectEvents() const;
     void disconnectEvents() const;
     void update() const;

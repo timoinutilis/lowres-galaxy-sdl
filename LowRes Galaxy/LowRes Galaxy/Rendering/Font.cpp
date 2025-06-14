@@ -31,6 +31,11 @@ Font::~Font()
     SDL_DestroyTexture(texture);
 }
 
+void Font::setColor(const SDL_Color& color)
+{
+    SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
+}
+
 void Font::drawString(SDL_Renderer* renderer, const std::string& text, const int x, const int y) const
 {
     int charX = x;

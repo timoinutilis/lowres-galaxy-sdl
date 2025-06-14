@@ -12,6 +12,7 @@
 #include "../Components/Label.hpp"
 #include "../Components/AutoScroll.hpp"
 #include "../Components/AutoDestroy.hpp"
+#include "../Components/UISelectable.hpp"
 #include "../Caches/SpriteAtlasCache.hpp"
 #include "Config.hpp"
 
@@ -55,4 +56,15 @@ entt::entity UIFactory::createMessage(Scene& scene, const std::string& text, boo
         registry.emplace<AutoDestroy>(entity, 120);
     }
     return entity;
+}
+
+entt::entity UIFactory::createSelectableLabel(Scene& scene, const std::string& text, double x, double y)
+{
+    auto& registry = scene.getRegistry();
+    const auto entity = registry.create();
+    registry.emplace<Position>(entity, x, y, 0);
+    registry.emplace<Label>(entity, scene.getFontCache()[FontIdDefault], text, false);
+    registry.emplace<UISelectable>(entity);
+    return entity;
+
 }

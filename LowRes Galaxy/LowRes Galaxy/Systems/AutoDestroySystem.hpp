@@ -8,7 +8,6 @@
 #ifndef AutoDestroySystem_hpp
 #define AutoDestroySystem_hpp
 
-
 class Scene;
 
 class AutoDestroySystem final

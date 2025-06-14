@@ -28,6 +28,7 @@ void LabelRenderer::render() const
         if (!label.isHidden)
         {
             auto position = view.get<Position>(entity);
+            label.font->setColor(label.color);
             label.font->drawString(renderer, label.text, position.x, position.y);
         }
     }

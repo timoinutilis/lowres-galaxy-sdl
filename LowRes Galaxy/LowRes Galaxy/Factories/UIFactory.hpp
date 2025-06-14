@@ -20,6 +20,8 @@ public:
     static entt::entity createLabel(Scene& scene, const std::string& text, double x, double y);
     static entt::entity createScrollingLabel(Scene& scene, const std::string& text, double x, double y);
     static entt::entity createMessage(Scene& scene, const std::string& text, bool autoDestroy = true);
+    
+    static entt::entity createSelectableLabel(Scene& scene, const std::string& text, double x, double y);
 };
 
 #endif /* UIFactory_hpp */

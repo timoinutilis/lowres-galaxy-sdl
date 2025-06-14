@@ -17,6 +17,7 @@ public:
     Font(SDL_Renderer* renderer, const std::string& filepath);
     ~Font();
     
+    void setColor(const SDL_Color& color);
     void drawString(SDL_Renderer* renderer, const std::string& text, const int x, const int y) const;
     void drawCharacter(SDL_Renderer* renderer, char character, const int x, const int y) const;
     

@@ -16,6 +16,7 @@ struct Label final
     entt::resource<Font> font;
     std::string text;
     bool isHidden = false;
+    SDL_Color color { 255, 255, 255, 255 };
 };
 
 #endif /* Label_h */
